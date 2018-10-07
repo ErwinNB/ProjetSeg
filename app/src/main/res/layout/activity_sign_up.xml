@@ -50,7 +50,7 @@
                 android:text="Courriel" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -81,7 +81,7 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/Type" />
+                android:entries="@array/Type"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -90,7 +90,7 @@
                 android:text="Mot de passe" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/mdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -98,7 +98,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/editText8"
+                android:id="@+id/confmdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
