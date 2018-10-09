@@ -22,7 +22,6 @@ public class SignUp extends AppCompatActivity {
     private EditText adressemail;
     private EditText mdp;
     private EditText confmdp;
-    private EditText adress;
     private Button btnContinuer;
 
     private FirebaseAuth firebaseAuth;
@@ -55,7 +54,6 @@ public class SignUp extends AppCompatActivity {
                                 prenom.setText(null);
                                 nom.setText(null);
                                 adressemail.setText(null);
-                                adress.setText(null);
                                 confmdp.setText(null);
                                 mdp.setText(null);
                             }
@@ -77,7 +75,6 @@ public class SignUp extends AppCompatActivity {
         adressemail = (EditText)findViewById(R.id.editTextEmail);
         mdp = (EditText)findViewById(R.id.mdp);
         confmdp = (EditText)findViewById(R.id.confmdp);
-        adress = (EditText)findViewById(R.id.editTextAdresse);
         btnContinuer = (Button)findViewById(R.id.btnContinuer);
     }
 
