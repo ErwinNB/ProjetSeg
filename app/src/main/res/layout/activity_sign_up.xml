@@ -8,109 +8,113 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLight">
 
         <LinearLayout
+            android:paddingHorizontal="50dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nom" />
-
-            <EditText
-                android:id="@+id/editTextNom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="nom"
-                android:inputType="textAutoComplete|textPersonName" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prenom" />
-
-            <EditText
-                android:id="@+id/editTextPrenom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Prenom"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Courriel" />
-
-            <EditText
-                android:id="@+id/editTextEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Courriel"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Adresse" />
-
-            <EditText
-                android:id="@+id/editTextAdresse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Adresse"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/lableTypeDeCompte"
+                android:textColor="#6D6767"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Type de Compte" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/typeDecompte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/Type"/>
+                android:entries="@array/Type"
+                />
 
-            <TextView
-                android:id="@+id/textView7"
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editTextNom"
+                android:ems="10"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
+                android:inputType="textPersonName|textAutoComplete"
+                app:met_floatingLabel="highlight"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mot de passe" />
+                android:hint="Nom"
+                app:met_textColorHint="@color/colorHint"
+                />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editTextPrenom"
+                android:ems="10"
+                android:inputType="textPersonName|textAutoComplete"
+                app:met_floatingLabel="highlight"
+                app:met_textColor="@color/colorTextDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prenom"
+                app:met_textColorHint="@color/colorHint"
+                app:met_floatingLabelTextColor="@color/colorFloatingLable"
+                />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editTextEmail"
+                android:ems="10"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
+                android:inputType="textAutoComplete|textEmailAddress"
+                app:met_floatingLabel="highlight"
+                app:met_textColor="@color/colorTextDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Courriel"
+                app:met_textColorHint="@color/colorHint"
+                />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/mdp"
+                android:ems="10"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
+                android:inputType="textPassword"
+                app:met_floatingLabel="highlight"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="Mot de passe"
-                android:inputType="textPassword" />
+                app:met_textColorHint="@color/colorHint"
+                />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/confmdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Confirmer Mot de passe"
-                android:inputType="textPassword" />
-
-            <Button
-                android:id="@+id/btnContinuer"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
+                android:inputType="textPassword"
+                app:met_floatingLabel="highlight"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Continuer" />
+                android:hint="Confirmer mot de passe"
+                app:met_textColorHint="@color/colorHint"
+                />
+            <!--<Button-->
+            <!--android:id="@+id/btnContinuer"-->
+            <!--android:background="#92CBC5"-->
+            <!--android:textColor="@color/colorBtnText"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Register" />-->
+
+            <in.shadowfax.proswipebutton.ProSwipeButton
+                android:id="@+id/btn_awesome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:bg_color="#009688"
+                app:text_color="@color/colorBtnText"
+                app:btn_text="Register" />
+
 
         </LinearLayout>
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
