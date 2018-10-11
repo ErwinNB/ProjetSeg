@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:background="@color/colorBackgroundLight">
 
         <LinearLayout
             android:paddingHorizontal="50dp"
@@ -26,18 +26,19 @@
                 android:text="Type de Compte" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/typeDecompte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/Type" />
+                android:entries="@array/Type"
+                />
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editTextNom"
                 android:ems="10"
-                app:met_floatingLabelTextColor="@color/colorText"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
                 android:inputType="textPersonName|textAutoComplete"
                 app:met_floatingLabel="highlight"
-                app:met_textColor="@color/colorText"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nom"
@@ -49,7 +50,7 @@
                 android:ems="10"
                 android:inputType="textPersonName|textAutoComplete"
                 app:met_floatingLabel="highlight"
-                app:met_textColor="@color/colorText"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Prenom"
@@ -60,10 +61,10 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editTextEmail"
                 android:ems="10"
-                app:met_floatingLabelTextColor="@color/colorText"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
                 android:inputType="textAutoComplete|textEmailAddress"
                 app:met_floatingLabel="highlight"
-                app:met_textColor="@color/colorText"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Courriel"
@@ -73,10 +74,10 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/mdp"
                 android:ems="10"
-                app:met_floatingLabelTextColor="@color/colorText"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
                 android:inputType="textPassword"
                 app:met_floatingLabel="highlight"
-                app:met_textColor="@color/colorText"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mot de passe"
@@ -86,30 +87,31 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/confmdp"
                 android:ems="10"
-                app:met_floatingLabelTextColor="@color/colorText"
+                app:met_floatingLabelTextColor="@color/colorTextDark"
                 android:inputType="textPassword"
                 app:met_floatingLabel="highlight"
-                app:met_textColor="@color/colorText"
+                app:met_textColor="@color/colorTextDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirmer mot de passe"
                 app:met_textColorHint="@color/colorHint"
                 />
-            <Button
-                android:id="@+id/btnContinuer"
-                android:background="#92CBC5"
-                android:textColor="@color/colorBtnText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Continuer" />
+            <!--<Button-->
+            <!--android:id="@+id/btnContinuer"-->
+            <!--android:background="#92CBC5"-->
+            <!--android:textColor="@color/colorBtnText"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Register" />-->
 
             <in.shadowfax.proswipebutton.ProSwipeButton
-                android:id="@+id/awesome_btn"
+                android:id="@+id/btn_awesome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:bg_color="#92CBC5"
-                app:btn_text="Place Order" />
+                android:layout_margin="20dp"
+                app:bg_color="#009688"
+                app:text_color="@color/colorBtnText"
+                app:btn_text="Register" />
 
 
         </LinearLayout>
