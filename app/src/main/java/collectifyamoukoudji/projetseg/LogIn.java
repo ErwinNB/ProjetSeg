@@ -50,7 +50,7 @@ public class LogIn extends AppCompatActivity {
         DatabaseReference fournisseur = logData.child("Fournisseur");
         DatabaseReference client = logData.child("client");
 
-        if (admin.child(email)) {
+        if (User.child(email)) {
             if (password == admin.child(email).password)
                 Intent intent = new Intent(getApplicationContext(), Administrateur.class);
         }
