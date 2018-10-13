@@ -15,8 +15,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,6 +36,7 @@ public class SignUp extends AppCompatActivity {
     private EditText confmdp;
     private Button btnContinuer;
     private Spinner spinner;
+
     //private ProSwipeButton btnContinuer;
 
     private FirebaseAuth firebaseAuth;
@@ -51,6 +54,7 @@ public class SignUp extends AppCompatActivity {
         firebaseAuth = firebaseAuth.getInstance();
 
         btnContinuer.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 if(confirm()&& valider()){
@@ -111,10 +115,14 @@ public class SignUp extends AppCompatActivity {
                     });
 
                     addUser();
-                    btnContinuer.showResultIcon(true);
+                    openWelcome();
 
                 }
+
+
+
             }
+
         });*/
     }
     //
@@ -156,7 +164,7 @@ public class SignUp extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.typeDecompte);
     }
 
-    public boolean confirm () {
+    public boolean confirm(){
         Boolean valide = false;
 
         String fname = prenom.getText().toString();
@@ -189,13 +197,44 @@ public class SignUp extends AppCompatActivity {
 
             databaseUsers.child(id).setValue(client);
 
+
             Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
         }
 
 
+    }
+
+    private void openWelcome(){
+        Intent intent = new Intent(this, Welcome.class);
+        startActivity(intent);
+    }
+
+    private void authUser() {
+
+        String user_email = adressemail.getText().toString().trim();
+        String user_mdp = mdp.getText().toString().trim();
+
+        firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                    prenom.setText(null);
+                    nom.setText(null);
+                    adressemail.setText(null);
+                    confmdp.setText(null);
+                    mdp.setText(null);
+                }
+            }
+        });
 
     }
 
 }
+
+
+
