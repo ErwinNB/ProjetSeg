@@ -1,5 +1,6 @@
 package collectifyamoukoudji.projetseg;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +14,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,9 +30,9 @@ public class SignUp extends AppCompatActivity {
     private EditText adressemail;
     private EditText mdp;
     private EditText confmdp;
-//    private Button btnContinuer;
+    private Button btnContinuer;
     private Spinner spinner;
-    private ProSwipeButton btnContinuer;
+//    private ProSwipeButton btnContinuer;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseUsers;
@@ -45,70 +48,29 @@ public class SignUp extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
 
-//        btnContinuer.setOnClickListener(new View.OnClickListener() {
+        btnContinuer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(confirm()){
+
+                    authUser();
+
+                    addUser();
+                    openWelcome();
+
+                }
+
+
+
+            }
+        });
+
+//        btnContinuer.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
 //            @Override
-//            public void onClick(View v) {
-//                if(confirm()){
-//
-//                    String user_email = adressemail.getText().toString().trim();
-//                    String user_mdp = mdp.getText().toString().trim();
-//
-//                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if(!task.isSuccessful()){
-//                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-//                            }else {
-//                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
-//                                prenom.setText(null);
-//                                nom.setText(null);
-//                                adressemail.setText(null);
-//                                confmdp.setText(null);
-//                                mdp.setText(null);
-//                            }
-//                        }
-//                    });
-//
-//                    addUser();
-//
-//                }
-//
-//
+//            public void onSwipeConfirm() {
 //
 //            }
 //        });
-
-        btnContinuer.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
-            @Override
-            public void onSwipeConfirm() {
-                if(confirm()){
-
-                    String user_email = adressemail.getText().toString().trim();
-                    String user_mdp = mdp.getText().toString().trim();
-
-                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                                btnContinuer.showResultIcon(false);
-                            }else {
-                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
-                                prenom.setText(null);
-                                nom.setText(null);
-                                adressemail.setText(null);
-                                confmdp.setText(null);
-                                mdp.setText(null);
-                            }
-                        }
-                    });
-
-                    addUser();
-                    btnContinuer.showResultIcon(true);
-
-                }
-            }
-        });
     }
 
     public void setupUI(){
@@ -118,11 +80,11 @@ public class SignUp extends AppCompatActivity {
         adressemail = (EditText)findViewById(R.id.editTextEmail);
         mdp = (EditText)findViewById(R.id.mdp);
         confmdp = (EditText)findViewById(R.id.confmdp);
-        btnContinuer = (ProSwipeButton) findViewById(R.id.btn_awesome);
+        btnContinuer = (Button) findViewById(R.id.btnContinuer);
         spinner = (Spinner)findViewById(R.id.typeDecompte);
     }
 
-    public boolean confirm () {
+    public boolean confirm(){
         Boolean valide = false;
 
         String fname = prenom.getText().toString();
@@ -155,13 +117,44 @@ public class SignUp extends AppCompatActivity {
 
             databaseUsers.child(id).setValue(client);
 
+
             Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
         }
 
 
+    }
+
+    private void openWelcome(){
+        Intent intent = new Intent(this, Welcome.class);
+        startActivity(intent);
+    }
+
+    private void authUser() {
+
+        String user_email = adressemail.getText().toString().trim();
+        String user_mdp = mdp.getText().toString().trim();
+
+        firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                    prenom.setText(null);
+                    nom.setText(null);
+                    adressemail.setText(null);
+                    confmdp.setText(null);
+                    mdp.setText(null);
+                }
+            }
+        });
 
     }
 
 }
+
+
+
