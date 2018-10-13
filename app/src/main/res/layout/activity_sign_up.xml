@@ -96,22 +96,22 @@
                 android:hint="Confirmer mot de passe"
                 app:met_textColorHint="@color/colorHint"
                 />
-            <!--<Button-->
-            <!--android:id="@+id/btnContinuer"-->
-            <!--android:background="#92CBC5"-->
-            <!--android:textColor="@color/colorBtnText"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Register" />-->
+            <Button
+            android:id="@+id/btnContinuer"
+            android:background="#92CBC5"
+            android:textColor="@color/colorBtnText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register" />
 
-            <in.shadowfax.proswipebutton.ProSwipeButton
+            <!--<in.shadowfax.proswipebutton.ProSwipeButton
                 android:id="@+id/btn_awesome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 app:bg_color="#009688"
                 app:text_color="@color/colorBtnText"
-                app:btn_text="Register" />
+                app:btn_text="Register" />-->
 
 
         </LinearLayout>
