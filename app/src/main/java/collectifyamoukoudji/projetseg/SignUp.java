@@ -1,6 +1,7 @@
 package collectifyamoukoudji.projetseg;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import in.shadowfax.proswipebutton.ProSwipeButton;
 
 public class SignUp extends AppCompatActivity {
@@ -32,7 +36,8 @@ public class SignUp extends AppCompatActivity {
     private EditText confmdp;
     private Button btnContinuer;
     private Spinner spinner;
-//    private ProSwipeButton btnContinuer;
+
+    //private ProSwipeButton btnContinuer;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseUsers;
@@ -49,11 +54,65 @@ public class SignUp extends AppCompatActivity {
         firebaseAuth = firebaseAuth.getInstance();
 
         btnContinuer.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                if(confirm()){
+                if(confirm()&& valider()){
 
-                    authUser();
+                    String user_email = adressemail.getText().toString().trim();
+                    String user_mdp = mdp.getText().toString().trim();
+
+                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(!task.isSuccessful()){
+                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                prenom.setText(null);
+                                nom.setText(null);
+                                adressemail.setText(null);
+                                confmdp.setText(null);
+                                mdp.setText(null);
+                            }
+                        }
+                    });
+
+                    addUser();
+
+                }
+
+
+
+            }
+        });
+
+        /*btnContinuer.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
+            @Override
+            public void onSwipeConfirm() {
+                if(confirm() && valider()){
+
+                    String user_email = adressemail.getText().toString().trim();
+                    String user_mdp = mdp.getText().toString().trim();
+
+                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(!task.isSuccessful()){
+                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                                btnContinuer.showResultIcon(false);
+                            }else {
+                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                prenom.setText(null);
+                                nom.setText(null);
+                                adressemail.setText(null);
+                                confmdp.setText(null);
+                                mdp.setText(null);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    });
 
                     addUser();
                     openWelcome();
@@ -63,14 +122,35 @@ public class SignUp extends AppCompatActivity {
 
 
             }
-        });
 
-//        btnContinuer.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
-//            @Override
-//            public void onSwipeConfirm() {
-//
-//            }
-//        });
+        });*/
+    }
+    //
+    //valide les informations passé par lutilisateur email et mot de passe
+    private boolean valider() {
+        String user_email = adressemail.getText().toString().trim();
+        String user_mdp = mdp.getText().toString().trim();
+        String user_mdpconf = confmdp.getText().toString().trim();
+        if ( isEmailAdress(user_email)){
+            if (user_mdp.equals(user_mdpconf)){
+                return true;
+            }else{
+                System.out.println("\n\n\n\n\n\n\nmdp a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
+                Toast.makeText(SignUp.this, "Votre motdepasse ne correspond pas!", Toast.LENGTH_SHORT).show();
+               // btnContinuer.showResultIcon(false);
+                return false;
+            }
+        }else {
+            System.out.println("\n\n\n\n\n\n\nemail a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
+            Toast.makeText(SignUp.this, "Veuillez rentrer une adresse email valide!", Toast.LENGTH_SHORT).show();
+           // btnContinuer.showResultIcon(false);
+            return false;
+        }
+    }
+    public static boolean isEmailAdress(String email){
+        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+        Matcher m = p.matcher(email.toUpperCase());
+        return m.matches();
     }
 
     public void setupUI(){

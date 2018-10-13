@@ -100,10 +100,12 @@
             <Button
             android:id="@+id/btnContinuer"
             android:background="#009688"
+
             android:textColor="@color/colorBtnText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register" />
+
 
             <!--<in.shadowfax.proswipebutton.ProSwipeButton-->
                 <!--android:id="@+id/btn_awesome"-->
@@ -114,7 +116,7 @@
                 <!--app:text_color="@color/colorBtnText"-->
                 <!--app:btn_text="Register" />-->
 
-
+           
         </LinearLayout>
 
     </RelativeLayout>
