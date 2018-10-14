@@ -1,2 +1,3 @@
 # ProjetSeg
-Arthur Kaboré
+## Collectif yamoukoudji
+

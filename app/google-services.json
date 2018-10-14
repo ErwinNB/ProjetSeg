@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "133821363124-3ljihnf19j93ctoudo8q63tg0co6cf58.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "collectifyamoukoudji.projetseg",
-            "certificate_hash": "76e602884156cd1dc7e1ec0797cd5f6753eda428"
-          }
-        },
-        {
           "client_id": "133821363124-2q59rjqf8haujs57pfk38sdtb0iu5g9f.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "133821363124-2q59rjqf8haujs57pfk38sdtb0iu5g9f.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
