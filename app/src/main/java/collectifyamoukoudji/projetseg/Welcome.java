@@ -13,7 +13,9 @@ public class Welcome extends AppCompatActivity {
 
     private ProSwipeButton proSwipeButton;
     private TextView welcome;
-    private TextView reste;
+
+    private TextView info;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class Welcome extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         setupUI();
-
+        getInfo();
         proSwipeButton.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
             @Override
             public void onSwipeConfirm() {
@@ -36,6 +38,7 @@ public class Welcome extends AppCompatActivity {
 
         proSwipeButton = (ProSwipeButton) findViewById(R.id.btn_awesome);
         welcome = (TextView)findViewById(R.id.Welcome);
+        info =  (TextView)findViewById(R.id.textInfo);
     }
 
 //    public void openLogin(){
@@ -44,7 +47,9 @@ public class Welcome extends AppCompatActivity {
 //    }
 
     public void getInfo(){
-        Users client;
+        String email = getIntent().getStringExtra("UserEmail");
+        String type = getIntent().getStringExtra("UserType");
+        info.setText(email + " Vous etes authentifié en tant que "+type);
     }
 
 }
