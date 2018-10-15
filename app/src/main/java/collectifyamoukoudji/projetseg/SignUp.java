@@ -159,7 +159,7 @@ public class SignUp extends AppCompatActivity {
 
     public void setupUI(){
 
-        prenom = (EditText)findViewById(R.id.editTextPrenom);
+        prenom = (EditText)findViewById(R.id.editTextPrenom); q
         nom = (EditText)findViewById(R.id.editTextNom);
         adressemail = (EditText)findViewById(R.id.editTextEmail);
         mdp = (EditText)findViewById(R.id.mdp);
