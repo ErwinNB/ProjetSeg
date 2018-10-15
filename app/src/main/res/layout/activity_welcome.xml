@@ -24,6 +24,12 @@
                 android:textSize="50dp"
                 android:text="WELCOME"
                 android:layout_margin="20dp" />
+            <TextView
+                android:id="@+id/reste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:layout_margin="20dp" />
 
             <!--<Button-->
             <!--android:id="@+id/btnContinuer"-->

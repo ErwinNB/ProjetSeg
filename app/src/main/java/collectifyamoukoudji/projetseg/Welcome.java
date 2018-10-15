@@ -13,6 +13,7 @@ public class Welcome extends AppCompatActivity {
 
     private ProSwipeButton proSwipeButton;
     private TextView welcome;
+    private TextView reste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
