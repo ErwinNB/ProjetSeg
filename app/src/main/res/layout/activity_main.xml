@@ -20,6 +20,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bienvenue sur l'application du collectif" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGIN" />
+
+            <Button
+                android:id="@+id/sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                tools:text="SIGN UP" />
+
         </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
