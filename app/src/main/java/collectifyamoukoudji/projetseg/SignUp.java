@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,13 +20,15 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import in.shadowfax.proswipebutton.ProSwipeButton;
 
 public class SignUp extends AppCompatActivity {
 
@@ -36,22 +39,63 @@ public class SignUp extends AppCompatActivity {
     private EditText confmdp;
     private Button btnContinuer;
     private Spinner spinner;
+    private Users user;
+    private String id;
 
     //private ProSwipeButton btnContinuer;
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference databaseUsers;
+    private FirebaseUser databaseUser;
+
+    private static final String TAG = "Signup";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         setContentView(R.layout.activity_sign_up);
+        user = new Users();
 
         setupUI();
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
+
+//        mAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if (user != null) {
+//                    // User is signed in
+//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+//                    toastMessage("Successfully signed in with: " + user.getEmail());
+//                } else {
+//                    // User is signed out
+//                    Log.d(TAG, "onAuthStateChanged:signed_out");
+//                    toastMessage("Successfully signed out.");
+//                }
+//                // ...
+//            }
+//        };
+
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Object value = dataSnapshot.getValue();
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
 
         btnContinuer.setOnClickListener(new View.OnClickListener() {
 
@@ -59,71 +103,13 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 if(confirm()&& valider()){
 
-                    String user_email = adressemail.getText().toString().trim();
-                    String user_mdp = mdp.getText().toString().trim();
-
-                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
-                                prenom.setText(null);
-                                nom.setText(null);
-                                adressemail.setText(null);
-                                confmdp.setText(null);
-                                mdp.setText(null);
-                            }
-                        }
-                    });
-
-                    addUser();
+                    toastMessage("Enregistrement...");
+                    logIn();
 
                 }
-
-
 
             }
         });
-
-        /*btnContinuer.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
-            @Override
-            public void onSwipeConfirm() {
-                if(confirm() && valider()){
-
-                    String user_email = adressemail.getText().toString().trim();
-                    String user_mdp = mdp.getText().toString().trim();
-
-                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                                btnContinuer.showResultIcon(false);
-                            }else {
-                                Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
-                                prenom.setText(null);
-                                nom.setText(null);
-                                adressemail.setText(null);
-                                confmdp.setText(null);
-                                mdp.setText(null);
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(intent);
-                            }
-                        }
-                    });
-
-                    addUser();
-                    openWelcome();
-
-                }
-
-
-
-            }
-
-        });*/
     }
     //
     //valide les informations passé par lutilisateur email et mot de passe
@@ -137,13 +123,11 @@ public class SignUp extends AppCompatActivity {
             }else{
                 System.out.println("\n\n\n\n\n\n\nmdp a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
                 Toast.makeText(SignUp.this, "Votre motdepasse ne correspond pas!", Toast.LENGTH_SHORT).show();
-               // btnContinuer.showResultIcon(false);
                 return false;
             }
         }else {
             System.out.println("\n\n\n\n\n\n\nemail a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
             Toast.makeText(SignUp.this, "Veuillez rentrer une adresse email valide!", Toast.LENGTH_SHORT).show();
-           // btnContinuer.showResultIcon(false);
             return false;
         }
     }
@@ -182,6 +166,31 @@ public class SignUp extends AppCompatActivity {
         return valide;
     }
 
+    private  void logIn(){
+        final String user_email = adressemail.getText().toString().trim();
+        final String user_mdp = mdp.getText().toString().trim();
+
+        firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                    addUser();
+                    prenom.setText(null);
+                    nom.setText(null);
+                    adressemail.setText(null);
+                    confmdp.setText(null);
+                    mdp.setText(null);
+
+                }
+            }
+        });
+
+    }
+
     private void addUser(){
 
         String fname = prenom.getText().toString();
@@ -191,14 +200,16 @@ public class SignUp extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(email)){
 
-            String id  = databaseUsers.push().getKey();
+            databaseUser = firebaseAuth.getCurrentUser();
 
+            id = databaseUser.getUid();
             Users client = new Users(id, fname, lname, email, type);
-
+//            user =  client;
             databaseUsers.child(id).setValue(client);
 
 
             Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
+            openWelcome();
         }else {
             Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
         }
@@ -207,32 +218,20 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void openWelcome(){
+
         Intent intent = new Intent(this, Welcome.class);
+//        intent.putExtra("UserEmail", user.get_email());
+//        intent.putExtra("UserType", user.get_type());
+//        intent.putExtra("UserName", user.get_firstname());
         startActivity(intent);
     }
 
-    private void authUser() {
 
-        String user_email = adressemail.getText().toString().trim();
-        String user_mdp = mdp.getText().toString().trim();
 
-        firebaseAuth.createUserWithEmailAndPassword(user_email, user_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(!task.isSuccessful()){
-                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
-                    prenom.setText(null);
-                    nom.setText(null);
-                    adressemail.setText(null);
-                    confmdp.setText(null);
-                    mdp.setText(null);
-                }
-            }
-        });
-
+    private void toastMessage (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
 
 }
 
