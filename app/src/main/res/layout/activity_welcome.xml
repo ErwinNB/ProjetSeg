@@ -10,12 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundLight">
 
-        <LinearLayout
-            android:paddingHorizontal="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
 
             <TextView
                 android:id="@+id/Welcome"
@@ -23,18 +17,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="50dp"
                 android:text="WELCOME"
-                android:layout_margin="20dp" />
-            <TextView
-                android:id="@+id/reste"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50dp"
-                android:layout_margin="20dp" />
+                android:layout_above="@+id/textInfo"
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/textInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"/>
 
             <!--<Button-->
             <!--android:id="@+id/btnContinuer"-->
@@ -43,22 +35,6 @@
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:text="Register" />-->
-
-            <in.shadowfax.proswipebutton.ProSwipeButton
-                android:id="@+id/btn_awesome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                app:bg_color="#009688"
-                app:text_color="@color/colorBtnText"
-                app:btn_text="Back to login page" >
-
-            </in.shadowfax.proswipebutton.ProSwipeButton>
-
-
-
-
-        </LinearLayout>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,3 +1,3 @@
-# ProjetSeg
+# ProjetSeg!
 ## Collectif yamoukoudji
 
