@@ -817,6 +817,8 @@ id beginning
 id blocking
 id bottom
 id btnContinuer
+id btnLogin
+id btnSignUp
 id buttonPanel
 id cancel_action
 id center
