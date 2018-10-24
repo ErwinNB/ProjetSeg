@@ -135,6 +135,7 @@ public class Welcome extends AppCompatActivity {
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
         info =  (TextView)findViewById(R.id.textInfo);
+        listViewUser = (ListView)findViewById(R.id.listViewUsers);
 
     }
 
