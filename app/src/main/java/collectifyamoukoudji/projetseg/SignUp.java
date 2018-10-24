@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,8 +51,11 @@ public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference db;
     private DatabaseReference databaseUsers;
     private FirebaseUser databaseUser;
+
+    private String userID;
 
     private static final String TAG = "Signup";
 
@@ -65,33 +69,34 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         user = new Users();
 
-        setupUI();
+
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
 
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if (user != null) {
-//                    // User is signed in
-//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                    toastMessage("Successfully signed in with: " + user.getEmail());
-//                } else {
-//                    // User is signed out
-//                    Log.d(TAG, "onAuthStateChanged:signed_out");
-//                    toastMessage("Successfully signed out.");
-//                }
-//                // ...
-//            }
-//        };
+
+        setupUI();
+
+
 
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Object value = dataSnapshot.getValue();
+                Users value = dataSnapshot.getValue(Users.class);
                 Log.d(TAG, "Value is: " + value);
+
+                for (DataSnapshot postsnapshot : dataSnapshot.getChildren()){
+
+                     value = postsnapshot.getValue(Users.class);
+                        Log.d(TAG, "Value is: " + value.get_type());
+//
+                     if (value.get_type().equals("Administrateur") && plantsList.size() > 2){
+                            plantsList.remove(2);
+                            spinnerArrayAdapter.notifyDataSetChanged();
+                     }
+
+
+                }
             }
 
             @Override
@@ -153,9 +158,9 @@ public class SignUp extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.typeDecompte);
         // Initializing a String Array
         String[] plants = new String[]{
-                "Administrateur",
+                "Clients",
                 "Fournisseur de services",
-                "Clients"
+                "Administrateur"
         };
 
         plantsList = new ArrayList<>(Arrays.asList(plants));
@@ -227,13 +232,8 @@ public class SignUp extends AppCompatActivity {
 //            user =  client;
             databaseUsers.child(id).setValue(client);
 
-
             Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
             openWelcome();
-        }
-        if(type.equals("Administrateur")){
-            plantsList.remove(0);
-            spinnerArrayAdapter.notifyDataSetChanged();
         }
         else {
             Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
@@ -250,7 +250,6 @@ public class SignUp extends AppCompatActivity {
 //        intent.putExtra("UserName", user.get_firstname());
         startActivity(intent);
     }
-
 
 
     private void toastMessage (String message){

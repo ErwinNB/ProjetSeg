@@ -880,7 +880,6 @@ id linearLayout_swipeBtn_hintContainer
 id listMode
 id listViewUsers
 id list_item
-id listview
 id login
 id mdp
 id media_actions
@@ -956,7 +955,6 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
-id tvUserInfo
 id tv_btnText
 id typeDecompte
 id uniform
@@ -1003,7 +1001,6 @@ layout abc_tooltip
 layout activity_log_in
 layout activity_main
 layout activity_sign_up
-layout activity_view_database
 layout activity_welcome
 layout layout_user_list
 layout notification_action

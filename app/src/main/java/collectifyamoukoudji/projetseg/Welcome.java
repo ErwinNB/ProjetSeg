@@ -45,6 +45,7 @@ public class Welcome extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
+
         users = new ArrayList<>();
         userID = user.getUid();
 

@@ -34,7 +34,6 @@
         <activity android:name="collectifyamoukoudji.projetseg.LogIn" />
         <activity android:name="collectifyamoukoudji.projetseg.SignUp" />
         <activity android:name="collectifyamoukoudji.projetseg.Welcome" />
-        <activity android:name="collectifyamoukoudji.projetseg.ViewDatabase" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
