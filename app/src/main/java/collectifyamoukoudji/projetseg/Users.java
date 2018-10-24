@@ -55,6 +55,9 @@ public class Users {
     public String get_email() {
         return _email;
     }
+    public String toString(){
+        return _email;
+    }
 
 }
 

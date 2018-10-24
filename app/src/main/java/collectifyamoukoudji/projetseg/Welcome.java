@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.ListView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Welcome extends AppCompatActivity {
 
     private TextView welcome;
@@ -27,6 +30,8 @@ public class Welcome extends AppCompatActivity {
     private TextView info;
 
     private String userID;
+
+    private ListView list;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -36,10 +41,12 @@ public class Welcome extends AppCompatActivity {
     private Users CurrentUSer;
     private static final String TAG = "WELCOME";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
 
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
@@ -76,7 +83,6 @@ public class Welcome extends AppCompatActivity {
                     //attaching adapter to Listview
                     listViewUser.setAdapter(userAdapter);
                 }
-
             }
 
             @Override
@@ -129,7 +135,7 @@ public class Welcome extends AppCompatActivity {
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
         info =  (TextView)findViewById(R.id.textInfo);
-        listViewUser = (ListView) findViewById(R.id.listViewUsers);
+
     }
 
 
@@ -150,6 +156,7 @@ public class Welcome extends AppCompatActivity {
 //
 //        }
 //    }
+
 
 
 
