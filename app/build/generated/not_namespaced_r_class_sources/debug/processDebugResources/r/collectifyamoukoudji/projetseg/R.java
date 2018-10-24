@@ -4154,8 +4154,9 @@ public final class R {
     public static final int select_dialog_item_material=0x7f0a0030;
     public static final int select_dialog_multichoice_material=0x7f0a0031;
     public static final int select_dialog_singlechoice_material=0x7f0a0032;
-    public static final int support_simple_spinner_dropdown_item=0x7f0a0033;
-    public static final int view_proswipebtn=0x7f0a0034;
+    public static final int spinner_item=0x7f0a0033;
+    public static final int support_simple_spinner_dropdown_item=0x7f0a0034;
+    public static final int view_proswipebtn=0x7f0a0035;
   }
   public static final class mipmap {
     public static final int ic_launcher=0x7f0b0000;

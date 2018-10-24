@@ -30,7 +30,6 @@
                 android:id="@+id/typeDecompte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/Type"
                 />
 
             <com.rengwuxian.materialedittext.MaterialEditText

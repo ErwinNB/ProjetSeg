@@ -1296,6 +1296,10 @@
         "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5dbc6004c8f20862e1cfd946306a1529\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
+        "merged": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\src\\main\\res\\layout\\spinner_item.xml"
+    },
+    {
         "merged": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_cancel_full_24dp.xml.flat",
         "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\proswipebutton-1.1.aar\\dd143707970d73641686a0c54d78c3d8\\res\\drawable\\ic_cancel_full_24dp.xml"
     },
