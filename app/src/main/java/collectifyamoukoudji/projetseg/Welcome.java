@@ -65,7 +65,7 @@ public class Welcome extends AppCompatActivity {
 
                 Users product = dataSnapshot.child(userID).getValue(Users.class);
 
-                info.setText("Salut! " +product.get_firstname()+", vous etes authentifié en tant que "+product.get_type());
+                info.setText("Salut! " +product.get_email()+", vous etes authentifié en tant que "+product.get_type());
                 info.setVisibility(View.VISIBLE);
             }
 
@@ -90,7 +90,7 @@ public class Welcome extends AppCompatActivity {
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Successfully signed out.");
+//                    toastMessage("Successfully signed out.");
                 }
                 // ...
             }

@@ -26,6 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +44,8 @@ public class SignUp extends AppCompatActivity {
     private Spinner spinner;
     private Users user;
     private String id;
-
+    private List<String> plantsList;
+    private ArrayAdapter<String> spinnerArrayAdapter;
     //private ProSwipeButton btnContinuer;
 
     private FirebaseAuth firebaseAuth;
@@ -50,6 +54,7 @@ public class SignUp extends AppCompatActivity {
     private FirebaseUser databaseUser;
 
     private static final String TAG = "Signup";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +151,21 @@ public class SignUp extends AppCompatActivity {
         confmdp = (EditText)findViewById(R.id.confmdp);
         btnContinuer = (Button) findViewById(R.id.btnContinuer);
         spinner = (Spinner)findViewById(R.id.typeDecompte);
+        // Initializing a String Array
+        String[] plants = new String[]{
+                "Administrateur",
+                "Fournisseur de services",
+                "Clients"
+        };
+
+        plantsList = new ArrayList<>(Arrays.asList(plants));
+
+        // Initializing an ArrayAdapter
+        spinnerArrayAdapter = new ArrayAdapter<>(
+                this,R.layout.spinner_item,plantsList);
+
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        spinner.setAdapter(spinnerArrayAdapter);
     }
 
     public boolean confirm(){
@@ -210,7 +230,12 @@ public class SignUp extends AppCompatActivity {
 
             Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
             openWelcome();
-        }else {
+        }
+        if(type.equals("Administrateur")){
+            plantsList.remove(0);
+            spinnerArrayAdapter.notifyDataSetChanged();
+        }
+        else {
             Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
         }
 
