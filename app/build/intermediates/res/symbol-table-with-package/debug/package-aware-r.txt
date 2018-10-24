@@ -878,6 +878,7 @@ id line1
 id line3
 id linearLayout_swipeBtn_hintContainer
 id listMode
+id listViewUsers
 id list_item
 id listview
 id login
@@ -947,6 +948,8 @@ id textInfo
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView2
+id textViewName
+id textViewPrice
 id time
 id title
 id titleDividerNoCustom
@@ -1002,6 +1005,7 @@ layout activity_main
 layout activity_sign_up
 layout activity_view_database
 layout activity_welcome
+layout layout_user_list
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

@@ -1,22 +1,16 @@
 package collectifyamoukoudji.projetseg;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,8 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import in.shadowfax.proswipebutton.ProSwipeButton;
+import java.util.List;
 
 public class Welcome extends AppCompatActivity {
 
@@ -38,7 +31,9 @@ public class Welcome extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference databaseUsers;
-
+    private List<Users> users;
+    private ListView listViewUser;
+    private Users CurrentUSer;
     private static final String TAG = "WELCOME";
 
     @Override
@@ -50,7 +45,7 @@ public class Welcome extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
+        users = new ArrayList<>();
         userID = user.getUid();
 
 
@@ -63,10 +58,24 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Users product = dataSnapshot.child(userID).getValue(Users.class);
+                Users user = dataSnapshot.child(userID).getValue(Users.class);
 
-                info.setText("Salut! " +product.get_email()+", vous etes authentifié en tant que "+product.get_type());
+                info.setText("Salut! " +user.get_email()+", vous etes authentifié en tant que "+user.get_type());
                 info.setVisibility(View.VISIBLE);
+                users.clear();
+                CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
+                for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
+                    //getting product
+                     user = postDataSnapshot.getValue(Users.class);
+                    users.add(user);
+                }
+                if (CurrentUSer.get_type().equals("Administrateur")) {
+                    //creatig adapter
+                    UsersList userAdapter = new UsersList(Welcome.this, users);
+                    //attaching adapter to Listview
+                    listViewUser.setAdapter(userAdapter);
+                }
+
             }
 
             @Override
@@ -104,14 +113,12 @@ public class Welcome extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart() {
+
+    protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthListener);
-//        info.setVisibility(View.INVISIBLE);
 
     }
-
     @Override
     public void onStop() {
         super.onStop();
@@ -121,16 +128,9 @@ public class Welcome extends AppCompatActivity {
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
         info =  (TextView)findViewById(R.id.textInfo);
+        listViewUser = (ListView) findViewById(R.id.listViewUsers);
     }
 
-
-
-    public void getInfo(){
-
-        String email = getIntent().getStringExtra("UserEmail");
-        String type = getIntent().getStringExtra("UserType");
-        info.setText(email+" Vous etes authentifié en tant que "+type);
-    }
 
 //    private void showData(DataSnapshot dataSnapshot) {
 //        for(DataSnapshot ds : dataSnapshot.getChildren()){

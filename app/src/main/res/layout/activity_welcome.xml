@@ -5,36 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Welcome">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundLight">
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/Welcome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
-                android:text="WELCOME"
                 android:layout_above="@+id/textInfo"
-                android:textAlignment="center"/>
+                android:text="WELCOME"
+                android:textAlignment="center"
+                android:textSize="50dp" />
 
             <TextView
                 android:id="@+id/textInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
                 android:layout_centerInParent="true"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textSize="18dp" />
 
-            <!--<Button-->
-            <!--android:id="@+id/btnContinuer"-->
-            <!--android:background="#92CBC5"-->
-            <!--android:textColor="@color/colorBtnText"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Register" />-->
+            <ListView
+                android:id="@+id/listViewUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--<Button-->
+        <!--android:id="@+id/btnContinuer"-->
+        <!--android:background="#92CBC5"-->
+        <!--android:textColor="@color/colorBtnText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Register" />-->
 
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
