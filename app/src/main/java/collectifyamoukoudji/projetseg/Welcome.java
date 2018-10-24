@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import in.shadowfax.proswipebutton.ProSwipeButton;
 
@@ -35,16 +37,20 @@ public class Welcome extends AppCompatActivity {
 
     private String userID;
 
+    private ListView list;
+
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference databaseUsers;
 
     private static final String TAG = "WELCOME";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
 
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
@@ -63,10 +69,19 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Users product = dataSnapshot.child(userID).getValue(Users.class);
+                Users person = dataSnapshot.child(userID).getValue(Users.class);
 
-                info.setText("Salut! " +product.get_email()+", vous etes authentifié en tant que "+product.get_type());
+                info.setText("Salut! " +person.get_email()+", vous etes authentifié en tant que "+person.get_type());
                 info.setVisibility(View.VISIBLE);
+
+
+                if (person.get_type().toString().equals("Administrateur")){
+
+                    showData(dataSnapshot);
+                }
+
+
+
             }
 
             @Override
@@ -121,6 +136,7 @@ public class Welcome extends AppCompatActivity {
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
         info =  (TextView)findViewById(R.id.textInfo);
+        list = (ListView)findViewById(R.id.listViewUsers);
     }
 
 
@@ -132,23 +148,29 @@ public class Welcome extends AppCompatActivity {
         info.setText(email+" Vous etes authentifié en tant que "+type);
     }
 
-//    private void showData(DataSnapshot dataSnapshot) {
-//        for(DataSnapshot ds : dataSnapshot.getChildren()){
-//            Users uInfo = ds.child(userID).getValue(Users.class);
-////
-////            uInfo.set_firstname(ds.child(userID).getValue(Users.class); //set the name
-////            uInfo.set_email(ds.child(userID).getValue(Users.class).get_email()); //set the email
-////            uInfo.set_type(ds.child(userID).getValue(Users.class).get_type()); //set the phone_num
-//
-//            //display all the information
-//            Log.d(TAG, "showData: name: " + uInfo.get_firstname());
-//            Log.d(TAG, "showData: email: " + uInfo.get_email());
-//            Log.d(TAG, "showData: phone_num: " + uInfo.get_type());
-//
-//            info.setText(uInfo.get_email()+" Vous etes authentifié en tant que "+uInfo.get_type());
-//
-//        }
-//    }
+    private void showData(DataSnapshot dataSnapshot) {
+        ArrayList<Users> array  = new ArrayList<>();
+        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+
+            userID = postSnapshot.getKey();
+
+
+
+            Users obj = dataSnapshot.getValue(Users.class);
+
+            obj = postSnapshot.getValue(Users.class);
+
+            String t = dataSnapshot.getKey().toString();
+
+
+            array.add(obj);
+
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+        list.setAdapter(adapter);
+
+    }
 
 
 

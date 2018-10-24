@@ -878,6 +878,7 @@ id line1
 id line3
 id linearLayout_swipeBtn_hintContainer
 id listMode
+id listViewUsers
 id list_item
 id listview
 id login
