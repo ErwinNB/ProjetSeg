@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\2e1793ccdd3c5a6f406cf7ea3c5173c9\AndroidManifest.xml:2:1-10:12
 MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\cffd416cc9a576d1b2c986243a7fa6cb\AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\60923fc376ab547eaa8a7bc60f4ad319\AndroidManifest.xml:17:1-22:12
@@ -56,25 +56,25 @@ MERGED from [com.android.support:print:28.0.0] C:\Users\jkgyu\.gradle\caches\tra
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\5f929afb8a220b9a0eb852d9c8d0ec5d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\258d906225fe055e0449f18d17ceecd2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\daa3c370b77fe74b0be5ba952a8436d8\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
 	package
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:3:5-45
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:3:5-45
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:1-24:12
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-24:12
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:5:5-22:19
 MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\cffd416cc9a576d1b2c986243a7fa6cb\AndroidManifest.xml:11:5-15:19
 MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\cffd416cc9a576d1b2c986243a7fa6cb\AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\d30ebe5d70f5b31566c9c2d630bb9a49\AndroidManifest.xml:7:5-20
@@ -124,47 +124,47 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Us
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\b547623433917a4586573d9cfeef5828\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:11:9-40
 activity#collectifyamoukoudji.projetseg.SignUp
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:12:19-41
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:12:19-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:16:27-74
 activity#collectifyamoukoudji.projetseg.MainActivity
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:19:9-50
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:19:9-50
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:19:19-47
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:19:19-47
 activity#collectifyamoukoudji.projetseg.Welcome
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:20:9-45
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:20:9-45
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:20:19-42
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:20:19-42
 activity#collectifyamoukoudji.projetseg.LogIn
-ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:21:9-52
+ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:21:9-52
 	android:name
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml:21:19-40
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml:21:19-40
 uses-sdk
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\2e1793ccdd3c5a6f406cf7ea3c5173c9\AndroidManifest.xml:6:5-8:41
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\2e1793ccdd3c5a6f406cf7ea3c5173c9\AndroidManifest.xml:6:5-8:41
 MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\cffd416cc9a576d1b2c986243a7fa6cb\AndroidManifest.xml:7:5-9:41
@@ -269,18 +269,18 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\jkgyu\.gradle\cac
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\258d906225fe055e0449f18d17ceecd2\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\daa3c370b77fe74b0be5ba952a8436d8\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\daa3c370b77fe74b0be5ba952a8436d8\AndroidManifest.xml:5:5-44
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\d7b92ababc6702633d7ff8ab1ba241e6\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\Nouveau dossier\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jkgyu\Desktop\COURS\AndroidProjets\ProjetSeg\app\src\main\AndroidManifest.xml
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:16.0.4] C:\Users\jkgyu\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.4.aar\7b6490ded1369f22d3c8fab8a80fa696\AndroidManifest.xml:23:9-29:75
 	android:excludeFromRecents

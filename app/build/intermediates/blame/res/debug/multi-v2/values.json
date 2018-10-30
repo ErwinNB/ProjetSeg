@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jkgyu\\.gradle\\caches\\transforms-1\\files-1.1\\proswipebutton-1.1.aar\\cffd416cc9a576d1b2c986243a7fa6cb\\res\\values\\values.xml",
@@ -18,6 +18,25 @@
                         "startOffsets": "11492,11542,85578",
                         "endColumns": "49,65,306",
                         "endOffsets": "11537,11603,85880"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "381"
+                    },
+                    "to": {
+                        "startLines": "1976",
+                        "startColumns": "4",
+                        "startOffsets": "118819",
+                        "endLines": "1981",
+                        "endColumns": "12",
+                        "endOffsets": "119138"
                     }
                 },
                 {
@@ -76,42 +95,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,309,391,495,598,718,817",
-                        "endColumns": "143,109,81,103,102,119,98,75",
-                        "endOffsets": "194,304,386,490,593,713,812,888"
-                    },
-                    "to": {
-                        "startLines": "1961,1962,1963,1964,1965,1966,1967,1968",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "117415,117559,117669,117751,117855,117958,118078,118177",
-                        "endColumns": "143,109,81,103,102,119,98,75",
-                        "endOffsets": "117554,117664,117746,117850,117953,118073,118172,118248"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "2,1",
-                        "startColumns": "4,4",
-                        "startOffsets": "65,17",
-                        "endLines": "6,1",
-                        "endColumns": "19,46",
-                        "endOffsets": "224,59"
-                    },
-                    "to": {
-                        "startLines": "2,1942",
-                        "startColumns": "4,4",
-                        "startOffsets": "105,115035",
-                        "endLines": "6,1942",
-                        "endColumns": "19,46",
-                        "endOffsets": "260,115077"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jkgyu\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\85fd73b4ea14afc61181d974619dc013\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,35,36,37,38,45,47,50",
@@ -150,25 +133,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "381"
-                    },
-                    "to": {
-                        "startLines": "1976",
-                        "startColumns": "4",
-                        "startOffsets": "118819",
-                        "endLines": "1981",
-                        "endColumns": "12",
-                        "endOffsets": "119138"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jkgyu\\.gradle\\caches\\transforms-1\\files-1.1\\coordinatorlayout-28.0.0.aar\\1d280e6241a95f090ec0c6daa9a5d107\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,13,102",
@@ -188,23 +152,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "4,5,6,11,10,7,2,3,9,8",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "157,204,259,513,459,315,57,105,410,360",
-                        "endColumns": "45,53,54,46,52,43,46,50,47,48",
-                        "endOffsets": "198,253,309,555,507,354,99,151,453,404"
-                    },
-                    "to": {
-                        "startLines": "163,164,165,166,167,168,169,170,171,172",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "8165,8211,8265,8320,8367,8420,8464,8511,8562,8610",
-                        "endColumns": "45,53,54,46,52,43,46,50,47,48",
-                        "endOffsets": "8206,8260,8315,8362,8415,8459,8506,8557,8605,8654"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jkgyu\\.gradle\\caches\\transforms-1\\files-1.1\\library-2.1.4.aar\\2e1793ccdd3c5a6f406cf7ea3c5173c9\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,5,6,7,8,9,10,11,12",
@@ -219,6 +166,42 @@
                         "startOffsets": "74592,107706,107759,108465,108518,108741,109408,109463,109512",
                         "endColumns": "1722,52,47,52,49,55,54,48,49",
                         "endOffsets": "76310,107754,107802,108513,108563,108792,109458,109507,109557"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2,1",
+                        "startColumns": "4,4",
+                        "startOffsets": "65,17",
+                        "endLines": "6,1",
+                        "endColumns": "19,46",
+                        "endOffsets": "224,59"
+                    },
+                    "to": {
+                        "startLines": "2,1942",
+                        "startColumns": "4,4",
+                        "startOffsets": "105,115035",
+                        "endLines": "6,1942",
+                        "endColumns": "19,46",
+                        "endOffsets": "260,115077"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "4,5,6,11,10,7,2,3,9,8",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "157,204,259,513,459,315,57,105,410,360",
+                        "endColumns": "45,53,54,46,52,43,46,50,47,48",
+                        "endOffsets": "198,253,309,555,507,354,99,151,453,404"
+                    },
+                    "to": {
+                        "startLines": "163,164,165,166,167,168,169,170,171,172",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "8165,8211,8265,8320,8367,8420,8464,8511,8562,8610",
+                        "endColumns": "45,53,54,46,52,43,46,50,47,48",
+                        "endOffsets": "8206,8260,8315,8362,8415,8459,8506,8557,8605,8654"
                     }
                 },
                 {
@@ -255,6 +238,23 @@
                         "startOffsets": "112139,116122",
                         "endColumns": "67,166",
                         "endOffsets": "112202,116284"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,309,391,495,598,718,817",
+                        "endColumns": "143,109,81,103,102,119,98,75",
+                        "endOffsets": "194,304,386,490,593,713,812,888"
+                    },
+                    "to": {
+                        "startLines": "1961,1962,1963,1964,1965,1966,1967,1968",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "117415,117559,117669,117751,117855,117958,118078,118177",
+                        "endColumns": "143,109,81,103,102,119,98,75",
+                        "endOffsets": "117554,117664,117746,117850,117953,118073,118172,118248"
                     }
                 }
             ]

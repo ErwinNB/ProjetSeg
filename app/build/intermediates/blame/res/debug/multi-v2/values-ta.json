@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\Nouveau dossier\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
+            "outputFile": "C:\\Users\\jkgyu\\Desktop\\COURS\\AndroidProjets\\ProjetSeg\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jkgyu\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\72bd7b5c59f7a15777e36e9bf7e6cb20\\res\\values-ta\\values.xml",
