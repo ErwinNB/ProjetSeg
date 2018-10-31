@@ -31,7 +31,6 @@ public class Welcome extends AppCompatActivity {
 
     private String userID;
 
-    private ListView list;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -52,9 +51,9 @@ public class Welcome extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
-        users = new ArrayList<>();
         userID = user.getUid();
+        users = new ArrayList<>();
+
 
 
 
@@ -73,7 +72,7 @@ public class Welcome extends AppCompatActivity {
                 users.clear();
                 CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
                 for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
-                    //getting product
+                    //getting users
                      user = postDataSnapshot.getValue(Users.class);
                     users.add(user);
                 }
@@ -102,7 +101,7 @@ public class Welcome extends AppCompatActivity {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 //                    toastMessage("Successfully signed in with: " + user.getEmail());
-                    userID = user.getUid();
+//                    userID = user.getUid();
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");

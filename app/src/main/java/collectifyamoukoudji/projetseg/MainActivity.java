@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,10 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupUI();
+        final AlphaAnimation alpha = new AlphaAnimation(0f, 1f);
+        alpha.setDuration(500);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                login.startAnimation(alpha);
                 openLogin();
 //                finish();
             }
@@ -28,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         singin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSignupn();
+                openSignup();
+                singin.startAnimation(alpha);
 //                finish();
             }
         });
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
-    public void openSignupn(){
+    public void openSignup(){
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }

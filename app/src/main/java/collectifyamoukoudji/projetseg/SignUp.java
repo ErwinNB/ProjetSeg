@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -111,8 +112,11 @@ public class SignUp extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                AlphaAnimation alpha = new AlphaAnimation(0f, 1f);
+                alpha.setDuration(500);
                 if(confirm()&& valider()){
 
+                    btnContinuer.startAnimation(alpha);
                     toastMessage("Enregistrement...");
                     logIn();
 
@@ -183,7 +187,7 @@ public class SignUp extends AppCompatActivity {
         String passwordconf = confmdp.getText().toString().trim();
 
         if(fname.isEmpty() || lname.isEmpty() || email.isEmpty() || password.isEmpty() || passwordconf.isEmpty()){
-            Toast.makeText(this,"Please enter all the details.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Entrer tout les details svp.", Toast.LENGTH_SHORT).show();
         }else {
             valide = true;
         }
@@ -199,10 +203,10 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
-                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Enregistrement non reussi!", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Enregistrement reussi", Toast.LENGTH_SHORT).show();
                     addUser();
                     prenom.setText(null);
                     nom.setText(null);
@@ -232,11 +236,16 @@ public class SignUp extends AppCompatActivity {
 //            user =  client;
             databaseUsers.child(id).setValue(client);
 
-            Toast.makeText(this, "User Info Added to Database", Toast.LENGTH_LONG).show();
-            openWelcome();
+            Toast.makeText(this, "Information ajouté à la base de donnée", Toast.LENGTH_LONG).show();
+            if(!(client.get_type().equals("Administrateur"))){
+                openWelcome();
+            }else {
+                openAdmin();
+            }
+
         }
         else {
-            Toast.makeText(this, "Missing email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Courriel manquant", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -251,6 +260,12 @@ public class SignUp extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void openAdmin(){
+
+        Intent intent = new Intent(this, AdminActivity.class);
+
+        startActivity(intent);
+    }
 
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
