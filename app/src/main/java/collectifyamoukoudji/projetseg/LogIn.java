@@ -54,6 +54,8 @@ public class LogIn extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
+
 
 
         mAuth = new FirebaseAuth.AuthStateListener(){
@@ -63,6 +65,7 @@ public class LogIn extends AppCompatActivity {
                 if(user != null){
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 //                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    userID = user.getUid();
 
                 }else {
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -70,6 +73,28 @@ public class LogIn extends AppCompatActivity {
                 }
             }
         };
+
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if(user != null){
+                    Users value = dataSnapshot.child(userID).getValue(Users.class);
+                    Log.d(TAG, "Value is: " + value);
+
+                    type = value.get_type();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
 
 
 
@@ -113,7 +138,7 @@ public class LogIn extends AppCompatActivity {
 
     private void openWelcome(){
         Intent intent = new Intent(this, Welcome.class);
-        intent.putExtra("UserEmail", user.getEmail());
+        intent.putExtra("iduser", user.getUid().toString());
         startActivity(intent);
     }
 
@@ -130,18 +155,18 @@ public class LogIn extends AppCompatActivity {
                     // there was an error
                     toastMessage("Entrez les bonnes informatiosn d'utilisateur");
                 } else {
-                    toastMessage("Authentification reussie.");
-//
-//
-//                    if(type.equals("Administrateur")){
-//                        openAdmin();
-//                        finish();
-//                    }else {
-//
-//                    }
+//                    toastMessage(userID.toString());
 
-                    openWelcome();
-                    finish();
+
+                    if(userID.toString().equals("Enter the admin id manually")){
+                        openAdmin();
+                        finish();
+                    }else {
+                        openWelcome();
+                        finish();
+                    }
+
+
 
                 }
             }
@@ -167,7 +192,7 @@ public class LogIn extends AppCompatActivity {
     private void openAdmin(){
 
         Intent intent = new Intent(this, AdminActivity.class);
-
+        intent.putExtra("iduser", user.getUid().toString());
         startActivity(intent);
     }
 

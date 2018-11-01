@@ -30,7 +30,7 @@ public class Welcome extends AppCompatActivity {
     private TextView info;
 
     private String userID;
-
+    private String iduser;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -38,6 +38,7 @@ public class Welcome extends AppCompatActivity {
     private List<Users> users;
     private ListView listViewUser;
     private Users CurrentUSer;
+    private Users cuser;
     private static final String TAG = "WELCOME";
 
 
@@ -51,9 +52,11 @@ public class Welcome extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        userID = user.getUid();
-        users = new ArrayList<>();
+        if(user != null){
+            userID = user.getUid();
+        }
 
+        users = new ArrayList<>();
 
 
 
@@ -61,20 +64,50 @@ public class Welcome extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+//                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    userID = user.getUid();
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+//                    toastMessage("Successfully signed out.");
+                }
+                // ...
+            }
+        };
+
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                iduser = getIntent().getStringExtra("iduser");
 
-                Users user = dataSnapshot.child(userID).getValue(Users.class);
-
-                info.setText("Salut! " +user.get_email()+", vous etes authentifié en tant que "+user.get_type());
+                if (userID != null) {
+                    cuser = dataSnapshot.child(userID).getValue(Users.class);
+                    CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
+                }else {
+                    cuser = dataSnapshot.child(iduser).getValue(Users.class);
+                    CurrentUSer = dataSnapshot.child(iduser).getValue(Users.class);
+                }
+                info.setText("Salut! " +cuser.get_email()+", vous etes authentifié en tant que "+cuser.get_type());
                 info.setVisibility(View.VISIBLE);
                 users.clear();
-                CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
                 for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
                     //getting users
-                     user = postDataSnapshot.getValue(Users.class);
-                    users.add(user);
+                    cuser = postDataSnapshot.getValue(Users.class);
+                    users.add(cuser);
                 }
                 if (CurrentUSer.get_type().equals("Administrateur")) {
                     //creatig adapter
@@ -93,33 +126,9 @@ public class Welcome extends AppCompatActivity {
 
 
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                    toastMessage("Successfully signed in with: " + user.getEmail());
-//                    userID = user.getUid();
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-//                    toastMessage("Successfully signed out.");
-                }
-                // ...
-            }
-        };
-
-
-
-
-//
-//        getInfo();
-
     }
 
-
+    @Override
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthListener);
@@ -129,7 +138,14 @@ public class Welcome extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         firebaseAuth.removeAuthStateListener(mAuthListener);
+        finish();
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        finish();
+//    }
 
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
