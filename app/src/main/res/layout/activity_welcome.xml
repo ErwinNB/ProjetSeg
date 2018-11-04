@@ -25,6 +25,14 @@
                 android:text="WELCOME"
                 android:layout_margin="20dp" />
 
+<<<<<<< HEAD
+=======
+            <TextView
+                android:id="@+id/textInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
             <!--<Button-->
             <!--android:id="@+id/btnContinuer"-->
             <!--android:background="#92CBC5"-->
@@ -40,7 +48,15 @@
                 android:layout_margin="20dp"
                 app:bg_color="#009688"
                 app:text_color="@color/colorBtnText"
+<<<<<<< HEAD
                 app:btn_text="Back to login page" />
+=======
+                app:btn_text="Back to login page" >
+
+            </in.shadowfax.proswipebutton.ProSwipeButton>
+
+
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
 
 
         </LinearLayout>

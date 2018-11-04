@@ -36,6 +36,10 @@ public class SignUp extends AppCompatActivity {
     private EditText confmdp;
     private Button btnContinuer;
     private Spinner spinner;
+<<<<<<< HEAD
+=======
+    private Users user;
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
 
     //private ProSwipeButton btnContinuer;
 
@@ -47,7 +51,11 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sign_up);
+<<<<<<< HEAD
 
+=======
+        user = new Users();
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
         setupUI();
 
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
@@ -67,6 +75,10 @@ public class SignUp extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
                                 Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
                             }else {
                                 Toast.makeText(SignUp.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
                                 prenom.setText(null);
@@ -74,11 +86,21 @@ public class SignUp extends AppCompatActivity {
                                 adressemail.setText(null);
                                 confmdp.setText(null);
                                 mdp.setText(null);
+<<<<<<< HEAD
                             }
                         }
                     });
 
                     addUser();
+=======
+
+                            }
+                        }
+                    });
+                    addUser();
+                    openWelcome();
+
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
 
                 }
 
@@ -194,7 +216,11 @@ public class SignUp extends AppCompatActivity {
             String id  = databaseUsers.push().getKey();
 
             Users client = new Users(id, fname, lname, email, type);
+<<<<<<< HEAD
 
+=======
+            user =  client;
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
             databaseUsers.child(id).setValue(client);
 
 
@@ -208,6 +234,12 @@ public class SignUp extends AppCompatActivity {
 
     private void openWelcome(){
         Intent intent = new Intent(this, Welcome.class);
+<<<<<<< HEAD
+=======
+        intent.putExtra("UserEmail", user.get_email());
+        intent.putExtra("UserType", user.get_type());
+        intent.putExtra("UserName", user.get_firstname());
+>>>>>>> 4e845dd925247f42a761e0f62c90a2da2ee90c29
         startActivity(intent);
     }
 
