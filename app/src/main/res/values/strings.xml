@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjetSEG</string>
+    <string-array name="Type">
+        <item>Client</item>
+        <item>Fournisseur de services</item>
+        <item>Administrateur</item>
+    </string-array>
+</resources>
