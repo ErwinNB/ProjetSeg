@@ -14,14 +14,14 @@ public class Users {
         this._email = email;
         this._firstname =firstname;
         this._id = id;
-        this._firstname = lastname;
+        this._lastname = lastname;
         this._type = type;
     }
 
     public Users ( String firstname, String lastname, String email, String type){
         this._email = email;
-        this._firstname =firstname;
-        this._firstname = lastname;
+        this._firstname = firstname;
+        this._lastname= lastname;
         this._type = type;
     }
 
@@ -50,9 +50,12 @@ public class Users {
         return _type;
     }
     public void set_email(String email) {
-        _email = _email;
+        _email = email;
     }
     public String get_email() {
+        return _email;
+    }
+    public String toString(){
         return _email;
     }
 

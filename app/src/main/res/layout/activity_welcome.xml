@@ -5,45 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Welcome">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundLight">
 
+
         <LinearLayout
-            android:paddingHorizontal="50dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/Welcome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:layout_above="@+id/textInfo"
                 android:text="WELCOME"
-                android:layout_margin="20dp" />
+                android:textAlignment="center"
+                android:textSize="50dp" />
 
-            <!--<Button-->
-            <!--android:id="@+id/btnContinuer"-->
-            <!--android:background="#92CBC5"-->
-            <!--android:textColor="@color/colorBtnText"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Register" />-->
-
-            <in.shadowfax.proswipebutton.ProSwipeButton
-                android:id="@+id/btn_awesome"
+            <TextView
+                android:id="@+id/textInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                app:bg_color="#009688"
-                app:text_color="@color/colorBtnText"
-                app:btn_text="Back to login page" />
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textSize="18dp" />
 
-
+            <ListView
+                android:id="@+id/listViewUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
+        <!--<Button-->
+        <!--android:id="@+id/btnContinuer"-->
+        <!--android:background="#92CBC5"-->
+        <!--android:textColor="@color/colorBtnText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Register" />-->
+
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
