@@ -26,13 +26,15 @@ public class AdminActivity extends AppCompatActivity {
 
     private Button users;
     private Button services;
-
+    private String i;
     private static final String TAG = "ADMIN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+        i = getIntent().getStringExtra("iduser");
 
 
         setupUI();
@@ -62,6 +64,7 @@ public class AdminActivity extends AppCompatActivity {
 
     private void openWelcome(){
         Intent intent = new Intent(this, Welcome.class);
+        intent.putExtra("iduser", i);
         startActivity(intent);
     }
 

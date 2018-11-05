@@ -254,9 +254,6 @@ public class SignUp extends AppCompatActivity {
     private void openWelcome(){
 
         Intent intent = new Intent(this, Welcome.class);
-//        intent.putExtra("UserEmail", user.get_email());
-//        intent.putExtra("UserType", user.get_type());
-//        intent.putExtra("UserName", user.get_firstname());
         startActivity(intent);
     }
 
