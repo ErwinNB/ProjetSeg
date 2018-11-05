@@ -30,8 +30,7 @@ public class Welcome extends AppCompatActivity {
     private TextView info;
 
     private String userID;
-
-    private ListView list;
+    private String iduser;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -39,6 +38,7 @@ public class Welcome extends AppCompatActivity {
     private List<Users> users;
     private ListView listViewUser;
     private Users CurrentUSer;
+    private Users cuser;
     private static final String TAG = "WELCOME";
 
 
@@ -52,9 +52,11 @@ public class Welcome extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         firebaseAuth = firebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+            userID = user.getUid();
+        }
 
         users = new ArrayList<>();
-        userID = user.getUid();
 
 
 
@@ -62,34 +64,9 @@ public class Welcome extends AppCompatActivity {
 
 
 
-        databaseUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Users user = dataSnapshot.child(userID).getValue(Users.class);
 
-                info.setText("Salut! " +user.get_email()+", vous etes authentifié en tant que "+user.get_type());
-                info.setVisibility(View.VISIBLE);
-                users.clear();
-                CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
-                for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
-                    //getting product
-                     user = postDataSnapshot.getValue(Users.class);
-                    users.add(user);
-                }
-                if (CurrentUSer.get_type().equals("Administrateur")) {
-                    //creatig adapter
-                    UsersList userAdapter = new UsersList(Welcome.this, users);
-                    //attaching adapter to Listview
-                    listViewUser.setAdapter(userAdapter);
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
 
 
@@ -112,15 +89,46 @@ public class Welcome extends AppCompatActivity {
             }
         };
 
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                iduser = getIntent().getStringExtra("iduser");
+
+                if (userID != null) {
+                    cuser = dataSnapshot.child(userID).getValue(Users.class);
+                    CurrentUSer = dataSnapshot.child(userID).getValue(Users.class);
+                }else {
+                    cuser = dataSnapshot.child(iduser).getValue(Users.class);
+                    CurrentUSer = dataSnapshot.child(iduser).getValue(Users.class);
+                }
+                info.setText("Salut! " +cuser.get_email()+", vous etes authentifié en tant que "+cuser.get_type());
+                info.setVisibility(View.VISIBLE);
+                users.clear();
+                for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
+                    //getting users
+                    cuser = postDataSnapshot.getValue(Users.class);
+                    users.add(cuser);
+                }
+                if (CurrentUSer.get_type().equals("Administrateur")) {
+                    //creatig adapter
+                    UsersList userAdapter = new UsersList(Welcome.this, users);
+                    //attaching adapter to Listview
+                    listViewUser.setAdapter(userAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
 
-//
-//        getInfo();
 
     }
 
-
+    @Override
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthListener);
@@ -130,7 +138,14 @@ public class Welcome extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         firebaseAuth.removeAuthStateListener(mAuthListener);
+        finish();
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        finish();
+//    }
 
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);

@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,13 +35,17 @@ public class LogIn extends AppCompatActivity {
 
     private EditText userEmail;
     private EditText userPassword;
-    private Button soumettre;
+    private String type;
+
+    private String userID;
+
 
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener mAuth;
     private FirebaseDatabase db;
     private Button btnSignIn;
     private FirebaseUser user;
+    private DatabaseReference databaseUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,10 @@ public class LogIn extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
+
+
+
         mAuth = new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -56,12 +65,38 @@ public class LogIn extends AppCompatActivity {
                 if(user != null){
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 //                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    userID = user.getUid();
+
                 }else {
                     Log.d(TAG, "onAuthStateChanged:signed_out");
 //                    toastMessage("Successfully signed out.");
                 }
             }
         };
+
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if(user != null){
+                    Users value = dataSnapshot.child(userID).getValue(Users.class);
+                    Log.d(TAG, "Value is: " + value);
+
+                    type = value.get_type();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
+
+
 
 
 
@@ -73,12 +108,17 @@ public class LogIn extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AlphaAnimation alpha = new AlphaAnimation(0f, 1f);
+                alpha.setDuration(500);
                 if(confirm()){
+
+                    btnSignIn.startAnimation(alpha);
                     logIn();
                 }
 
             }
         });
+
 
 
     }
@@ -98,7 +138,7 @@ public class LogIn extends AppCompatActivity {
 
     private void openWelcome(){
         Intent intent = new Intent(this, Welcome.class);
-        intent.putExtra("UserEmail", user.getEmail());
+        intent.putExtra("iduser", user.getUid().toString());
         startActivity(intent);
     }
 
@@ -115,9 +155,19 @@ public class LogIn extends AppCompatActivity {
                     // there was an error
                     toastMessage("Entrez les bonnes informatiosn d'utilisateur");
                 } else {
-                    toastMessage("Authentification reussie.");
-                    openWelcome();
-                    finish();
+//                    toastMessage(userID.toString());
+
+
+                    if(userID.toString().equals("Enter the admin id manually")){
+                        openAdmin();
+                        finish();
+                    }else {
+                        openWelcome();
+                        finish();
+                    }
+
+
+
                 }
             }
         });
@@ -131,7 +181,7 @@ public class LogIn extends AppCompatActivity {
         String password = userPassword.getText().toString().trim();
 
         if(email.isEmpty() || password.isEmpty()){
-            Toast.makeText(this,"Please enter all the details.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Entrer tout les details svp.", Toast.LENGTH_SHORT).show();
         }else {
             valide = true;
         }
@@ -139,7 +189,15 @@ public class LogIn extends AppCompatActivity {
         return valide;
     }
 
+    private void openAdmin(){
+
+        Intent intent = new Intent(this, AdminActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
+        startActivity(intent);
+    }
+
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
 }
