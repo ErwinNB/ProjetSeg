@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:2:1-10:12
 MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/AndroidManifest.xml:17:1-22:12
@@ -57,25 +57,25 @@ MERGED from [com.android.support:print:28.0.0] /Users/valentinmagot/.gradle/cach
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5e9be42d6bdac06796ce7282fa6f6bfa/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/479cae8b95e05c033528178b9889d63c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.3.aar/8979c449ddc472b9332cf435abdab92b/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
 	package
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:3:5-45
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:3:5-45
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:1-26:12
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:5:5-24:19
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:5:5-24:19
 MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:11:5-15:19
 MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:7:5-20
@@ -127,55 +127,55 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] /User
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5765ba33307156f1c30fc4e021d2909d/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:11:9-40
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:11:9-40
 activity#collectifyamoukoudji.projetseg.MainActivity
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:12:9-18:20
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:12:19-47
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:12:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:13:13-17:29
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:16:17-77
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:16:27-74
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:16:27-74
 activity#collectifyamoukoudji.projetseg.LogIn
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:19:9-43
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:19:9-43
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:19:19-40
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:19:19-40
 activity#collectifyamoukoudji.projetseg.SignUp
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:20:9-44
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:9-44
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:20:19-41
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:19-41
 activity#collectifyamoukoudji.projetseg.Welcome
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:21:9-45
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:9-45
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:21:19-42
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:19-42
 activity#collectifyamoukoudji.projetseg.ServiceActivity
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:22:9-53
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:22:9-53
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:22:19-50
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:22:19-50
 activity#collectifyamoukoudji.projetseg.AdminActivity
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:23:9-60
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:23:9-60
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml:23:19-48
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:23:19-48
 uses-sdk
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:6:5-8:41
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:6:5-8:41
 MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:7:5-9:41
@@ -282,18 +282,18 @@ MERGED from [com.android.support:interpolator:28.0.0] /Users/valentinmagot/.grad
 MERGED from [com.android.support:interpolator:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/479cae8b95e05c033528178b9889d63c/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.3.aar/8979c449ddc472b9332cf435abdab92b/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.3.aar/8979c449ddc472b9332cf435abdab92b/AndroidManifest.xml:5:5-44
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/afd0c9e994aa491939a114c073d053b1/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.4.aar/fa24d61b516d61889699e4869ef0cfbc/AndroidManifest.xml:23:9-29:75
 	android:excludeFromRecents
