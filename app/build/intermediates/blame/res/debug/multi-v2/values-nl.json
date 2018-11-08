@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml",
+            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/5542c687e45b30dbe78fcb517181ec93/res/values-nl/values.xml",
