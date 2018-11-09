@@ -33,7 +33,7 @@
         </activity>
         <activity android:name="collectifyamoukoudji.projetseg.LogIn" />
         <activity android:name="collectifyamoukoudji.projetseg.SignUp" />
-        <activity android:name="collectifyamoukoudji.projetseg.Welcome" />
+        <activity android:name="collectifyamoukoudji.projetseg.WelcomeActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.ServiceActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.AdminActivity" />
         <activity

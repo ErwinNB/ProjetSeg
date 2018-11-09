@@ -11,8 +11,6 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
-anim fade_in
-anim fade_out
 array Type
 attr actionBarDivider
 attr actionBarItemBackground
@@ -57,7 +55,6 @@ attr alpha
 attr alphabeticModifiers
 attr arrowHeadLength
 attr arrowShaftLength
-attr arrow_color
 attr autoCompleteTextViewStyle
 attr autoSizeMaxTextSize
 attr autoSizeMinTextSize
@@ -72,10 +69,7 @@ attr backgroundTintMode
 attr barLength
 attr barrierAllowsGoneWidgets
 attr barrierDirection
-attr bg_color
 attr borderlessButtonStyle
-attr btn_radius
-attr btn_text
 attr buttonBarButtonStyle
 attr buttonBarNegativeButtonStyle
 attr buttonBarNeutralButtonStyle
@@ -365,8 +359,6 @@ attr textAppearanceSearchResultTitle
 attr textAppearanceSmallPopupMenu
 attr textColorAlertDialogListItem
 attr textColorSearchUrl
-attr text_color
-attr text_size
 attr theme
 attr thickness
 attr thumbTextPadding
@@ -510,8 +502,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color proswipebtn_red
-color proswipebtn_translucent_white
 color rippelColor
 color ripple_material_dark
 color ripple_material_light
@@ -757,11 +747,8 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
-drawable ic_cancel_full_24dp
-drawable ic_check_circle_36dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable ic_swipe_right_caret
 drawable met_ic_clear
 drawable notification_action_background
 drawable notification_bg
@@ -876,14 +863,11 @@ id image
 id info
 id invisible
 id italic
-id iv_arrow1
-id iv_arrow2
 id lableTypeDeCompte
 id left
 id light
 id line1
 id line3
-id linearLayout_swipeBtn_hintContainer
 id listMode
 id listViewServices
 id listViewUsers
@@ -909,7 +893,6 @@ id progress_circular
 id progress_horizontal
 id radio
 id rectangle
-id relativeLayout_swipeBtn_contentContainer
 id right
 id right_icon
 id right_side
@@ -963,7 +946,6 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
-id tv_btnText
 id typeDecompte
 id uniform
 id up
@@ -1035,7 +1017,6 @@ layout select_dialog_singlechoice_material
 layout spinner_item
 layout support_simple_spinner_dropdown_item
 layout update_dialog
-layout view_proswipebtn
 mipmap ic_launcher
 mipmap ic_launcher_round
 string abc_action_bar_home_description
@@ -1502,7 +1483,6 @@ styleable MenuItem android_icon android_enabled android_id android_checked andro
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
-styleable ProSwipeButton arrow_color bg_color btn_radius btn_text text_color text_size
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RippleView rv_alpha rv_centered rv_color rv_framerate rv_rippleDuration rv_ripplePadding rv_type rv_zoom rv_zoomDuration rv_zoomScale
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

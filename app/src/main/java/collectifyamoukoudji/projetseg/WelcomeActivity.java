@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Welcome extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     private TextView welcome;
 
@@ -111,7 +111,7 @@ public class Welcome extends AppCompatActivity {
                 }
                 if (CurrentUSer.get_type().equals("Administrateur")) {
                     //creatig adapter
-                    UsersList userAdapter = new UsersList(Welcome.this, users);
+                    UsersList userAdapter = new UsersList(WelcomeActivity.this, users);
                     //attaching adapter to Listview
                     listViewUser.setAdapter(userAdapter);
                 }

@@ -1,26 +1,12 @@
 package collectifyamoukoudji.projetseg;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -63,7 +49,7 @@ public class AdminActivity extends AppCompatActivity {
 
 
     private void openWelcome(){
-        Intent intent = new Intent(this, Welcome.class);
+        Intent intent = new Intent(this, WelcomeActivity.class);
         intent.putExtra("iduser", i);
         startActivity(intent);
     }

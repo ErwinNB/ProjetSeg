@@ -1,8 +1,9 @@
 package collectifyamoukoudji.projetseg;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -29,6 +31,9 @@ public class ServiceActivity extends AppCompatActivity {
     private ListView listViewServices;
     private Button buttonAddService;
     private DatabaseReference databaseServices;
+    private DatabaseReference updateReference;
+    private Service updatedService;
+    private String flag;
     List<Service> services;
 
 
@@ -66,7 +71,7 @@ public class ServiceActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 services.clear();
-                for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
+                for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()) {
                     //getting product
                     Service service = postDataSnapshot.getValue(Service.class);
                     services.add(service);
@@ -76,6 +81,7 @@ public class ServiceActivity extends AppCompatActivity {
                 ServiceList productAdapter = new ServiceList(ServiceActivity.this,services);
                 //attaching adapter to Listview
                 listViewServices.setAdapter(productAdapter);
+
             }
 
             @Override
@@ -83,7 +89,10 @@ public class ServiceActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
+
 
 
     private void showUpdateDeleteDialog(final String productId, final String productName, final double prix) {
@@ -140,11 +149,27 @@ public class ServiceActivity extends AppCompatActivity {
 
     private void updateProduct(String id, String name, double price) {
         //getting the specified product
-        DatabaseReference dR=FirebaseDatabase.getInstance().getReference("Services").child(id);
+        updateReference =FirebaseDatabase.getInstance().getReference("Services").child(id);
         //updating product
-        Service service = new Service(id,name,price);
-        dR.setValue(service);
-        Toast.makeText(getApplicationContext(), "Service Updated", Toast.LENGTH_LONG).show();
+        updatedService = new Service(id,name,price);
+        Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("serviceName").equalTo(updatedService.getServiceName());
+        nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getChildrenCount() > 0){
+                    toastMessage("Service name already exist");
+                }else{
+                    updateReference.setValue(updatedService);
+                    toastMessage("Service Updated");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
@@ -160,36 +185,57 @@ public class ServiceActivity extends AppCompatActivity {
 
     private void addProduct() {
         //getting the value
-        String name = editTextService.getText().toString().trim();
-        String stringPrice = String.valueOf(editTextRate.getText().toString());
 
-        //checking if the value is provided
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(stringPrice)){
+        String name = editTextService.getText().toString();
+
+        Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("serviceName").equalTo(name);
+        nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getChildrenCount() > 0){
+//                    flag = "";
+                    toastMessage("Service name already exist");
+
+                }else{
+//                    flag = "Ok";
+                    String name = editTextService.getText().toString();
+                    String stringPrice = String.valueOf(editTextRate.getText().toString());
+                    //checking if the value is provided
+                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(stringPrice)){
 
 
 
-            double price = Double.parseDouble(stringPrice);
+                        double price = Double.parseDouble(stringPrice);
 
-            //getting a unique id using push().getKey() method
-            //it will create a unique id and will use it as the Primary Key for our Product
-            String id = databaseServices.push().getKey();
+                        //getting a unique id using push().getKey() method
+                        //it will create a unique id and will use it as the Primary Key for our Product
+                        String id = databaseServices.push().getKey();
 
-            //creating a Product
-            Service service = new Service(id,name,price);
+                        //creating a Product
+                        Service service = new Service(id,name,price);
 
-            //Saving the Product
-            databaseServices.child(id).setValue(service);
+                        //Saving the Product
+                        databaseServices.child(id).setValue(service);
 
-            //setting edittext to blank again
-            editTextService.setText("");
-            editTextRate.setText("");
+                        //setting edittext to blank again
+                        editTextService.setText("");
+                        editTextRate.setText("");
 
-            //displaying a success toast
-            Toast.makeText(this,"Service added",Toast.LENGTH_LONG).show();
-        }else{
-            //if th value is not given displaying a toast
-            Toast.makeText(this,"Please enter a name and a price",Toast.LENGTH_LONG).show();
-        }
+                        //displaying a success toast
+                        toastMessage("Service added");
+                    }else{
+                        //if th value is not given displaying a toast
+                        toastMessage("Please enter a name and a price");
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 
@@ -200,12 +246,23 @@ public class ServiceActivity extends AppCompatActivity {
         listViewServices = (ListView) findViewById(R.id.listViewServices);
         buttonAddService = (Button) findViewById(R.id.addButton);
 
+        flag = "";
+
 
         databaseServices = FirebaseDatabase.getInstance().getReference("Services");
 
         services = new ArrayList<>();
 
     }
+
+//    private void exist(){
+//        databaseServices.orderByChild("serviceName").equalTo(editTextService.toString()).once("value",snapshot => {
+//        if (snapshot.exists()){
+//      const userData = snapshot.val();
+//            console.log("exists!", userData);
+//        }
+//        });
+//    }
 
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

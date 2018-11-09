@@ -5,7 +5,6 @@ INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3
 INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
 INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-26:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:2:1-10:12
-MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.4.aar/fa24d61b516d61889699e4869ef0cfbc/AndroidManifest.xml:17:1-38:12
@@ -76,8 +75,6 @@ INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:2:11-69
 application
 ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:11:5-15:19
-MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-auth:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.4.aar/fa24d61b516d61889699e4869ef0cfbc/AndroidManifest.xml:22:5-36:19
@@ -160,10 +157,10 @@ activity#collectifyamoukoudji.projetseg.SignUp
 ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:9-44
 	android:name
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:19-41
-activity#collectifyamoukoudji.projetseg.Welcome
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:9-45
+activity#collectifyamoukoudji.projetseg.WelcomeActivity
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:9-53
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:19-42
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:19-50
 activity#collectifyamoukoudji.projetseg.ServiceActivity
 ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:22:9-53
 	android:name
@@ -178,8 +175,6 @@ INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3
 INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:6:5-8:41
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:6:5-8:41
-MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:7:5-9:41
-MERGED from [in.shadowfax:proswipebutton:1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/proswipebutton-1.1.aar/dca4ce9fdddc8d0144ad63ef18453b34/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:5:5-44
