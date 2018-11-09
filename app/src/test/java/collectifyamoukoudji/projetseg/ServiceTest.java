@@ -7,6 +7,7 @@ public class ServiceTest {
 
     Service service = new Service("Toilette", 200);
 
+
     @Test
     public void checkSerciceName(){
         assertEquals("check the name of the service", "Toilette", service.getServiceName());

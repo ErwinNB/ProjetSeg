@@ -5,4 +5,5 @@
         <item>Fournisseur de services</item>
         <item>Administrateur</item>
     </string-array>
+    <string name="btnServices">btnServices</string>
 </resources>

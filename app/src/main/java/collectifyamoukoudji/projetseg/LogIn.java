@@ -158,7 +158,7 @@ public class LogIn extends AppCompatActivity {
 //                    toastMessage(userID.toString());
 
 
-                    if(userID.toString().equals("Enter the admin id manually")){
+                    if(userID.toString().equals("ag7C3C4v8ZOV9eeUPdvNMHgEqpH2")){
                         openAdmin();
                         finish();
                     }else {
