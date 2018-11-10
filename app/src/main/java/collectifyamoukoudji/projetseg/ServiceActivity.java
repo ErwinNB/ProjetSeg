@@ -33,7 +33,6 @@ public class ServiceActivity extends AppCompatActivity {
     private DatabaseReference databaseServices;
     private DatabaseReference updateReference;
     private Service updatedService;
-    private String flag;
     List<Service> services;
 
 
@@ -120,17 +119,17 @@ public class ServiceActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(stringPrice)) {
                     System.out.println("a ete cliqué");
                     double price = Double.parseDouble(stringPrice);
-                    updateProduct(productId, name, price);
+                    updateProduct(productId, name, price, true);
                     b.dismiss();
                 }else if(!TextUtils.isEmpty(name)){
                     System.out.println("a ete cliqué");
-                    updateProduct(productId, name, prix);
+                    updateProduct(productId, name, prix, true);
                     b.dismiss();
                 }
                 else if(!TextUtils.isEmpty(stringPrice)){
                     System.out.println("a ete cliqué");
                     double price = Double.parseDouble(stringPrice);
-                    updateProduct(productId, productName, price);
+                    updateProduct(productId, productName, price, false);
                     b.dismiss();
                 }else {
                     toastMessage("Entrer toutes les informations");
@@ -147,28 +146,36 @@ public class ServiceActivity extends AppCompatActivity {
         });
     }
 
-    private void updateProduct(String id, String name, double price) {
+    private void updateProduct(String id, String name, double price, boolean flag) {
         //getting the specified product
         updateReference =FirebaseDatabase.getInstance().getReference("Services").child(id);
         //updating product
         updatedService = new Service(id,name,price);
-        Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("serviceName").equalTo(updatedService.getServiceName());
-        nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildrenCount() > 0){
-                    toastMessage("Service name already exist");
-                }else{
-                    updateReference.setValue(updatedService);
-                    toastMessage("Service Updated");
+        if(flag){
+
+            Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("serviceName").equalTo(updatedService.getServiceName());
+            nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getChildrenCount() > 0){
+                        toastMessage("Service name already exist");
+                    }else{
+                        updateReference.setValue(updatedService);
+                        toastMessage("Service Updated");
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+
+        }else {
+            updateReference.setValue(updatedService);
+            toastMessage("Service Updated");
+        }
+
 
 
     }
@@ -245,8 +252,6 @@ public class ServiceActivity extends AppCompatActivity {
         editTextRate = (EditText) findViewById(R.id.editTextRate);
         listViewServices = (ListView) findViewById(R.id.listViewServices);
         buttonAddService = (Button) findViewById(R.id.addButton);
-
-        flag = "";
 
 
         databaseServices = FirebaseDatabase.getInstance().getReference("Services");

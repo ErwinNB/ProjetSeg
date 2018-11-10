@@ -32,7 +32,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     private EditText prenom;
     private EditText nom;
@@ -133,12 +133,12 @@ public class SignUp extends AppCompatActivity {
                 return true;
             }else{
                 System.out.println("\n\n\n\n\n\n\nmdp a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
-                Toast.makeText(SignUp.this, "Votre motdepasse ne correspond pas!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "Votre motdepasse ne correspond pas!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }else {
             System.out.println("\n\n\n\n\n\n\nemail a echoué:"+user_mdp+" "+user_mdpconf+" "+user_email);
-            Toast.makeText(SignUp.this, "Veuillez rentrer une adresse email valide!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, "Veuillez rentrer une adresse email valide!", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -200,10 +200,10 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
-                    Toast.makeText(SignUp.this, "Enregistrement non reussi!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Enregistrement non reussi!", Toast.LENGTH_SHORT).show();
 
                 }else {
-                    Toast.makeText(SignUp.this, "Enregistrement reussi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Enregistrement reussi", Toast.LENGTH_SHORT).show();
                     addUser();
                     prenom.setText(null);
                     nom.setText(null);

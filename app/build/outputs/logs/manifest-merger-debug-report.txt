@@ -153,10 +153,10 @@ activity#collectifyamoukoudji.projetseg.LogIn
 ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:19:9-43
 	android:name
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:19:19-40
-activity#collectifyamoukoudji.projetseg.SignUp
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:9-44
+activity#collectifyamoukoudji.projetseg.SignUpActivity
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:9-52
 	android:name
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:19-41
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:20:19-49
 activity#collectifyamoukoudji.projetseg.WelcomeActivity
 ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/src/main/AndroidManifest.xml:21:9-53
 	android:name
