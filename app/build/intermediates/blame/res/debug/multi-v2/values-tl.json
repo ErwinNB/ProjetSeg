@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tl/values-tl.xml",
+            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.1/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tl/values-tl.xml",
             "map": [
                 {
                     "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/res/values-tl/values-tl.xml",

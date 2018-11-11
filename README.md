@@ -1,11 +1,11 @@
 # ProjetSeg
 ## Collectif yamoukoudji
 
-###Accounts
-####Admin Account
+### Accounts
+Admin Account
 email : admin@admin.com
 password : 1234admin
 
-###Testing
+### Testing
 
 

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV3/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-b+sr+Latn/values-b+sr+Latn.xml",
+            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.1/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-b+sr+Latn/values-b+sr+Latn.xml",
             "map": [
                 {
                     "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5765ba33307156f1c30fc4e021d2909d/res/values-b+sr+Latn/values-b+sr+Latn.xml",
