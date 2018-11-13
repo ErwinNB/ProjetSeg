@@ -847,11 +847,15 @@ id dimensions
 id direct
 id disableHome
 id doubleRipple
+id editText
+id editTextAdresse
+id editTextCompany
 id editTextEmail
 id editTextNom
 id editTextPrenom
 id editTextRate
 id editTextService
+id editTextTelephone
 id edit_query
 id email
 id end
@@ -945,6 +949,7 @@ id start
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
+id switchLicensed
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1010,6 +1015,7 @@ layout activity_admin
 layout activity_log_in
 layout activity_main
 layout activity_service
+layout activity_service_provider
 layout activity_sign_up
 layout activity_welcome
 layout layout_service_list

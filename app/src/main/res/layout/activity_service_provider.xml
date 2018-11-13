@@ -67,15 +67,12 @@
 
             <Switch
                 android:id="@+id/switchLicensed"
-                style="@android:style/Widget.Holo.Light.CompoundButton.Switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:paddingVertical="20dp"
                 android:text="License Professionel"
-                android:textAppearance="@android:style/TextAppearance.Material.Widget.Switch"
-                android:textColor="@color/colorTextDark"
-                tools:text="License Professionel" />
+                android:textColor="@color/colorTextDark" />
         </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
