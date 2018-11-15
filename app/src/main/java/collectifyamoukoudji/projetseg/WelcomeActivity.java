@@ -24,21 +24,56 @@ import java.util.List;
 
 
 public class WelcomeActivity extends AppCompatActivity {
+    //Instance variables ************************************************
 
+    /**
+     * Contains a TextView type of field
+     * that is assigned for the title of the page.
+     */
     private TextView welcome;
-
+    /**
+     * Contains a TextView type of field
+     * that is assigned for the info of the user.
+     */
     private TextView info;
-
+    /**
+     * Contains a String value
+     * that is assigned for the user id.
+     */
     private String userID;
     private String iduser;
 
+    /**
+     * Contains a FirebaseAuth
+     * that is assigned for managing users of the app.
+     */
     private FirebaseAuth firebaseAuth;
+    /**
+     * Contains a FirebaseAuth.AuthStateListener
+     * that is assigned for managing users of the app.
+     */
     private FirebaseAuth.AuthStateListener mAuthListener;
+    /**
+     * Contains a DatabaseReference
+     * that is assigned for managing the Firebase Realtime database.
+     */
     private DatabaseReference databaseUsers;
+    /**
+     * Contains a DatabaseReference
+     * that is assigned for containing the list of user of the database.
+     */
     private List<Users> users;
     private ListView listViewUser;
+    /**
+     * Contains a Users object
+     * that is assigned for the user authentified.
+     */
     private Users CurrentUSer;
     private Users cuser;
+    /**
+     * Contains a String
+     * that is assigned for Debug purpose.
+     */
     private static final String TAG = "WELCOME";
 
 
@@ -58,18 +93,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         users = new ArrayList<>();
 
-
-
         setupUI();
-
-
-
-
-
-
-
-
-
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -127,55 +151,40 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
     }
-
+    /**
+     * Setting up the authentification listener of database.
+     *
+     */
     @Override
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(mAuthListener);
 
     }
+    /**
+     * Remove the authentification listener of database.
+     *
+     */
     @Override
     public void onStop() {
         super.onStop();
         firebaseAuth.removeAuthStateListener(mAuthListener);
         finish();
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        finish();
-//    }
-
+    /**
+     * Setting up all the fields of the interface.
+     *
+     */
     public void setupUI(){
         welcome = (TextView)findViewById(R.id.Welcome);
         info =  (TextView)findViewById(R.id.textInfo);
         listViewUser = (ListView)findViewById(R.id.listViewUsers);
 
     }
-
-
-//    private void showData(DataSnapshot dataSnapshot) {
-//        for(DataSnapshot ds : dataSnapshot.getChildren()){
-//            Users uInfo = ds.child(userID).getValue(Users.class);
-////
-////            uInfo.set_firstname(ds.child(userID).getValue(Users.class); //set the name
-////            uInfo.set_email(ds.child(userID).getValue(Users.class).get_email()); //set the email
-////            uInfo.set_type(ds.child(userID).getValue(Users.class).get_type()); //set the phone_num
-//
-//            //display all the information
-//            Log.d(TAG, "showData: name: " + uInfo.get_firstname());
-//            Log.d(TAG, "showData: email: " + uInfo.get_email());
-//            Log.d(TAG, "showData: phone_num: " + uInfo.get_type());
-//
-//            info.setText(uInfo.get_email()+" Vous etes authentifié en tant que "+uInfo.get_type());
-//
-//        }
-//    }
-
-
-
-
+    /**
+     * Displaying toast message to the user.
+     *
+     */
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

@@ -10,9 +10,27 @@ import android.widget.Toast;
 
 public class AdminActivity extends AppCompatActivity {
 
+    /**
+     * Contains a Button type
+     * that is assigned for starting the Welcome Activity
+     * from AdminActivity.
+     */
     private Button users;
+    /**
+     * Contains a Button type
+     * that is assigned for starting the Service Activity
+     * from AdminActivity.
+     */
     private Button services;
+    /**
+     * Contains a String type of value
+     * that is assigned for the user id.
+     */
     private String i;
+    /**
+     * Contains a String
+     * that is assigned for Debug purpose.
+     */
     private static final String TAG = "ADMIN";
 
     @Override
@@ -47,23 +65,35 @@ public class AdminActivity extends AppCompatActivity {
         });
 }
 
-
+    /**
+     * Opens welcome activity.
+     *
+     */
     private void openWelcome(){
         Intent intent = new Intent(this, WelcomeActivity.class);
         intent.putExtra("iduser", i);
         startActivity(intent);
     }
-
+    /**
+     * Opens service activity.
+     *
+     */
     public void openService() {
         Intent intent = new Intent(this, ServiceActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Setting up all the fields of the interface.
+     *
+     */
     public void setupUI() {
         users = (Button) findViewById(R.id.btnUtilisateur);
         services = (Button) findViewById(R.id.btnServices);
     }
-
+    /**
+     * Displaying toast message to the user.
+     *
+     */
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

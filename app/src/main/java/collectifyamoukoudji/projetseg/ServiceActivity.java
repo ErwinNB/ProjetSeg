@@ -73,6 +73,7 @@ public class ServiceActivity extends AppCompatActivity {
                 for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()) {
                     //getting product
                     Service service = postDataSnapshot.getValue(Service.class);
+
                     services.add(service);
                 }
 
@@ -259,15 +260,6 @@ public class ServiceActivity extends AppCompatActivity {
         services = new ArrayList<>();
 
     }
-
-//    private void exist(){
-//        databaseServices.orderByChild("serviceName").equalTo(editTextService.toString()).once("value",snapshot => {
-//        if (snapshot.exists()){
-//      const userData = snapshot.val();
-//            console.log("exists!", userData);
-//        }
-//        });
-//    }
 
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

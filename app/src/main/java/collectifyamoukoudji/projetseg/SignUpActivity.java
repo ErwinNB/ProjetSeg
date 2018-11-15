@@ -34,38 +34,80 @@ import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    //Instance variables ************************************************
+
+    /**
+     * Contains a EditText type of field
+     * that is assigned for the fistname of the user.
+     */
     private EditText prenom;
+    /**
+     * Contains a EditText type of field
+     * that is assigned for the lastname of the user.
+     */
     private EditText nom;
+    /**
+     * Contains a EditText type of field
+     * that is assigned for the emailAdress of the user.
+     */
     private EditText adressemail;
+    /**
+     * Contains a EditText type of field
+     * that is assigned for the password of the user.
+     */
     private EditText mdp;
+    /**
+     * Contains a EditText type of field
+     * that is assigned for the password of the user.
+     */
     private EditText confmdp;
+    /**
+     * Contains a Button type of field
+     * that is assigned for the register button of the page.
+     */
     private Button btnContinuer;
+    /**
+     * Contains a Spinner type of field
+     * that contains users type of accounts.
+     */
     private Spinner spinner;
-    private Users user;
+    /**
+     * Contains a String id
+     * that is assigned for the user id.
+     */
     private String id;
+    /**
+     * Contains a list of users type of account
+     * that is assigned the user to choose from.
+     */
     private List<String> plantsList;
     private ArrayAdapter<String> spinnerArrayAdapter;
-    //private ProSwipeButton btnContinuer;
-
+    /**
+     * Contains a FirebaseAuth
+     * that is assigned for managing users of the app.
+     */
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference db;
+    /**
+     * Contains a DatabaseReference
+     * that is assigned for managing the Firebase Realtime database.
+     */
     private DatabaseReference databaseUsers;
+    /**
+     * Contains a FirebaseUser
+     * that is assigned for users of the Firebase database.
+     */
     private FirebaseUser databaseUser;
-
-    private String userID;
-
+    /**
+     * Contains a String
+     * that is assigned for Debug purpose.
+     */
     private static final String TAG = "Signup";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(R.layout.activity_sign_up);
-        user = new Users();
 
 
 
@@ -87,7 +129,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                      value = postsnapshot.getValue(Users.class);
                         Log.d(TAG, "Value is: " + value.get_type());
-//
                      if (value.get_type().equals("Administrateur") && plantsList.size() > 2){
                             plantsList.remove(2);
                             spinnerArrayAdapter.notifyDataSetChanged();
@@ -122,8 +163,11 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
-    //
-    //valide les informations passé par lutilisateur email et mot de passe
+    /**
+     * Verifies the user email address and password.
+     *
+     * @return An boolean if the user information are valid or not.
+     */
     private boolean valider() {
         String user_email = adressemail.getText().toString().trim();
         String user_mdp = mdp.getText().toString().trim();
@@ -142,12 +186,22 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         }
     }
+    /**
+     * Verifies the format of the user email address.
+     *
+     *
+     * @param email The user email address.
+     * @return An boolean if the user information are valid or not.
+     */
     public static boolean isEmailAdress(String email){
         Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
         Matcher m = p.matcher(email.toUpperCase());
         return m.matches();
     }
-
+    /**
+     * Setting up all the fields of the interface.
+     *
+     */
     public void setupUI(){
 
         prenom = (EditText)findViewById(R.id.editTextPrenom);
@@ -173,7 +227,11 @@ public class SignUpActivity extends AppCompatActivity {
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(spinnerArrayAdapter);
     }
-
+    /**
+     * Verifies that all the fields required in the form are populated.
+     *
+     * @return An boolean if the user information are valid or not.
+     */
     public boolean confirm(){
         Boolean valide = false;
 
@@ -191,7 +249,10 @@ public class SignUpActivity extends AppCompatActivity {
 
         return valide;
     }
-
+    /**
+     * Register the user into the FirebaseDatabase.
+     *
+     */
     private  void logIn(){
         final String user_email = adressemail.getText().toString().trim();
         final String user_mdp = mdp.getText().toString().trim();
@@ -216,7 +277,12 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
     }
-
+    /**
+     * Adding the user information to the Realtime database
+     * along with starting the appropriated activity depending
+     * on the type of user account.
+     *
+     */
     private void addUser(){
 
         String fname = prenom.getText().toString();
@@ -234,10 +300,12 @@ public class SignUpActivity extends AppCompatActivity {
             databaseUsers.child(id).setValue(client);
 
             Toast.makeText(this, "Information ajouté à la base de donnée", Toast.LENGTH_LONG).show();
-            if(!(client.get_type().equals("Administrateur"))){
-                openWelcome();
-            }else {
+            if(client.get_type().equals("Administrateur")){
                 openAdmin();
+            }else if(client.get_type().equals("Fournisseur de services")){
+                openFour();
+            }else {
+                openWelcome();
             }
 
         }
@@ -247,20 +315,37 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     }
-
+    /**
+     * Opens welcome activity.
+     *
+     */
     private void openWelcome(){
 
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
+    /**
+     * Opens fournisseur activity.
+     *
+     */
+    private void openFour(){
 
+        Intent intent = new Intent(this, FournisseurActivity.class);
+        startActivity(intent);
+    }
+    /**
+     * Opens Admin activity.
+     *
+     */
     private void openAdmin(){
 
         Intent intent = new Intent(this, AdminActivity.class);
-
         startActivity(intent);
     }
-
+    /**
+     * Displaying toast message to the user.
+     *
+     */
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
