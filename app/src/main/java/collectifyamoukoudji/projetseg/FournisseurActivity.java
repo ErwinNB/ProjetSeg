@@ -2,6 +2,7 @@ package collectifyamoukoudji.projetseg;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -22,6 +23,7 @@ public class FournisseurActivity extends AppCompatActivity {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
+    private String iduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class FournisseurActivity extends AppCompatActivity {
 
                 dl.addDrawerListener(t);
                 t.syncState();
+
+                iduser = getIntent().getStringExtra("iduser");
+
 
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -48,9 +53,14 @@ public class FournisseurActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         int id = item.getItemId();
 
+                        Bundle arguments = new Bundle();
+                        arguments.putString("iduser", iduser);
+
                         if(id == R.id.nav_Adresse){
+                            InformationFragment myFragment = new InformationFragment();
+                            myFragment.setArguments(arguments);
                             Toast.makeText(FournisseurActivity.this, "Addresse",Toast.LENGTH_SHORT).show();
-                            fragmentManager.beginTransaction().replace(R.id.content_frame, new InformationFragment()).commit();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
                         }else if(id == R.id.nav_Information){
                             Toast.makeText(FournisseurActivity.this, "Info",Toast.LENGTH_SHORT).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, new OrganisationFragment()).commit();
@@ -117,6 +127,9 @@ public class FournisseurActivity extends AppCompatActivity {
         avatarImage.setImageResource(resID);
     }
 
-
+    private void toastMessage (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+}
 

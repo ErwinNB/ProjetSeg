@@ -6,8 +6,11 @@
     <string name="Open">Nav Bar</string>
     <string name="Close">Nav Bar</string>
     <string-array name="Type">
-    <item>Client</item>
-    <item>Fournisseur de services</item>
-    <item>Administrateur</item>
+        <item>Client</item>
+        <item>Fournisseur de services</item>
+        <item>Administrateur</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

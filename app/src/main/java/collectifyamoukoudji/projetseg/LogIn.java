@@ -213,6 +213,7 @@ public class LogIn extends AppCompatActivity {
     private void openFour(){
 
         Intent intent = new Intent(this, FournisseurActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
         startActivity(intent);
     }
 
