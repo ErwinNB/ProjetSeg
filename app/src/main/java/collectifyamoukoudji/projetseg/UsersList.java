@@ -12,15 +12,27 @@ import android.widget.TextView;
 import java.util.List;
 
 public class UsersList extends ArrayAdapter<Users> {
-    private Activity context;
-    private List<Users> users;
 
+    /**
+     * Contains a Activity type
+     * that is assigned for context.
+     */
+    private Activity context;
+    /**
+     * Contains a List type
+     * that is assigned for the list of users.
+     */
+    private List<Users> users;
+    /**
+     * Constructor
+     */
     public UsersList( Activity context, List<Users> users) {
         super(context, R.layout.layout_user_list, users);
         this.context =  context;
         this.users = users;
     }
     @Override
+
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.layout_user_list, null, true);

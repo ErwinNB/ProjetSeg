@@ -10,9 +10,19 @@ import android.widget.TextView;
 import java.util.List;
 
 public class ServiceList extends ArrayAdapter<Service> {
+    /**
+     * Contains a Activity type
+     * that is assigned for context.
+     */
     private Activity context;
+    /**
+     * Contains a List type
+     * that is assigned for the list of services.
+     */
     List<Service> services;
-
+    /**
+     * Constructor
+     */
     public ServiceList(Activity context, List<Service> services) {
         super(context, R.layout.layout_service_list, services);
         this.context = context;

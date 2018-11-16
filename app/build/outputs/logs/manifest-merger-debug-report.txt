@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:17:1-24:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\eae586fa1fee8a57bc62f330fb1c72a4\AndroidManifest.xml:2:1-10:12
-MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\dd143707970d73641686a0c54d78c3d8\AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\5dbc6004c8f20862e1cfd946306a1529\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\9b49dcb0992d2b518abc05a5e02f384b\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.4.aar\100cfe9e90c25599a893586691dc6cde\AndroidManifest.xml:17:1-38:12
@@ -13,6 +13,8 @@ MERGED from [com.google.firebase:firebase-database:16.0.3] C:\Users\Erwin Nzia\.
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\3138e301469798e2eef2a76b109f3fbf\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\8f2ee5498dcf8e84616b625f6ebc4749\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.traex.rippleeffect:library:1.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-1.3.aar\b5a6790edc8e816b478e8cf95bf618e7\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\e5ab16e57fd832c801bbe3fa42fa0030\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\61f2c774b08ce79b2833ae171b0d87dd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.2.aar\17fef4bcc86774d1ced9d054b40313af\AndroidManifest.xml:17:1-34:12
 MERGED from [com.google.firebase:firebase-analytics:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.4.aar\32974064d17b2bcc9c8e160fa6724dd4\AndroidManifest.xml:17:1-55:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-flags-16.0.1.aar\c284a676ffbd7d64f55ba904b76dc255\AndroidManifest.xml:17:1-22:12
@@ -30,8 +32,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\92e673685c80cc72fa95de96d0ac0261\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\3abcbeb2279ddb80adb2c73098bc0452\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\7599aeaab5299067327cde692e47a66e\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\2b72abfac0f47cbf83995df75d1beeed\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\ba870072c1c2697cca9d41f1375fa18d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\1af247cad36147087d42b11b752078a4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:loader:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\39003a79e5d1dda322ca86173b9e05eb\AndroidManifest.xml:17:1-22:12
@@ -57,27 +59,27 @@ MERGED from [com.android.support:print:28.0.0] C:\Users\Erwin Nzia\.gradle\cache
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\0893cb671f8a5bd2d23c9e30a57f30d9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\94ea5c25ef8ce54ea086dcc2011eab4e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\d45762b29550e84c467bae300bc2d651\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-26:12
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:5:5-24:19
-MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\dd143707970d73641686a0c54d78c3d8\AndroidManifest.xml:11:5-15:19
-MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\dd143707970d73641686a0c54d78c3d8\AndroidManifest.xml:11:5-15:19
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:5:5-25:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\9b49dcb0992d2b518abc05a5e02f384b\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\9b49dcb0992d2b518abc05a5e02f384b\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-auth:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.4.aar\100cfe9e90c25599a893586691dc6cde\AndroidManifest.xml:22:5-36:19
@@ -156,30 +158,34 @@ activity#collectifyamoukoudji.projetseg.LogIn
 ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:19:9-43
 	android:name
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:19:19-40
-activity#collectifyamoukoudji.projetseg.SignUp
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:20:9-44
+activity#collectifyamoukoudji.projetseg.SignUpActivity
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:20:9-52
 	android:name
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:20:19-41
-activity#collectifyamoukoudji.projetseg.Welcome
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:21:9-45
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:20:19-49
+activity#collectifyamoukoudji.projetseg.WelcomeActivity
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:21:9-53
 	android:name
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:21:19-42
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:21:19-50
 activity#collectifyamoukoudji.projetseg.ServiceActivity
 ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:22:9-53
 	android:name
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:22:19-50
 activity#collectifyamoukoudji.projetseg.AdminActivity
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:23:9-60
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:23:9-51
 	android:name
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:23:19-48
+activity#collectifyamoukoudji.projetseg.FournisseurActivity
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:24:9-66
+	android:name
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:24:19-54
 uses-sdk
 INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:20:5-44
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\eae586fa1fee8a57bc62f330fb1c72a4\AndroidManifest.xml:6:5-8:41
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\eae586fa1fee8a57bc62f330fb1c72a4\AndroidManifest.xml:6:5-8:41
-MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\dd143707970d73641686a0c54d78c3d8\AndroidManifest.xml:7:5-9:41
-MERGED from [in.shadowfax:proswipebutton:1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\proswipebutton-1.1.aar\dd143707970d73641686a0c54d78c3d8\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\5dbc6004c8f20862e1cfd946306a1529\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\5dbc6004c8f20862e1cfd946306a1529\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\9b49dcb0992d2b518abc05a5e02f384b\AndroidManifest.xml:5:5-44
@@ -194,6 +200,10 @@ MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\8f2ee5498dcf8e84616b625f6ebc4749\AndroidManifest.xml:20:5-44
 MERGED from [com.github.traex.rippleeffect:library:1.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-1.3.aar\b5a6790edc8e816b478e8cf95bf618e7\AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.traex.rippleeffect:library:1.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-1.3.aar\b5a6790edc8e816b478e8cf95bf618e7\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\e5ab16e57fd832c801bbe3fa42fa0030\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\e5ab16e57fd832c801bbe3fa42fa0030\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\61f2c774b08ce79b2833ae171b0d87dd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\61f2c774b08ce79b2833ae171b0d87dd\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.2.aar\17fef4bcc86774d1ced9d054b40313af\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.2.aar\17fef4bcc86774d1ced9d054b40313af\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-analytics:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.4.aar\32974064d17b2bcc9c8e160fa6724dd4\AndroidManifest.xml:20:5-44
@@ -228,10 +238,10 @@ MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\Erwi
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\3abcbeb2279ddb80adb2c73098bc0452\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\7599aeaab5299067327cde692e47a66e\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\7599aeaab5299067327cde692e47a66e\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\2b72abfac0f47cbf83995df75d1beeed\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\2b72abfac0f47cbf83995df75d1beeed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\7e6704241c0d034fb09327d1fa4863d3\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\ba870072c1c2697cca9d41f1375fa18d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\ba870072c1c2697cca9d41f1375fa18d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\1af247cad36147087d42b11b752078a4\AndroidManifest.xml:20:5-44

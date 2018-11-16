@@ -1,23 +1,16 @@
 package collectifyamoukoudji.projetseg;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.andexert.library.RippleView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class LogIn extends AppCompatActivity {
@@ -35,7 +29,6 @@ public class LogIn extends AppCompatActivity {
 
     private EditText userEmail;
     private EditText userPassword;
-    private String type;
 
     private String userID;
 
@@ -45,7 +38,9 @@ public class LogIn extends AppCompatActivity {
     private FirebaseDatabase db;
     private Button btnSignIn;
     private FirebaseUser user;
+    private Users cUser;
     private DatabaseReference databaseUsers;
+    private DatabaseReference dR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +62,10 @@ public class LogIn extends AppCompatActivity {
 //                    toastMessage("Successfully signed in with: " + user.getEmail());
                     userID = user.getUid();
 
+                    String type = FirebaseDatabase.getInstance().getReference("Users").child(userID).getKey();
+
+//                    toastMessage(type);
+
                 }else {
                     Log.d(TAG, "onAuthStateChanged:signed_out");
 //                    toastMessage("Successfully signed out.");
@@ -83,7 +82,6 @@ public class LogIn extends AppCompatActivity {
                     Users value = dataSnapshot.child(userID).getValue(Users.class);
                     Log.d(TAG, "Value is: " + value);
 
-                    type = value.get_type();
                 }
 
             }
@@ -95,9 +93,6 @@ public class LogIn extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", databaseError.toException());
             }
         });
-
-
-
 
 
         userEmail = (EditText) findViewById(R.id.email);
@@ -121,10 +116,6 @@ public class LogIn extends AppCompatActivity {
 
 
 
-    }
-
-    @Override
-    protected void onStart() {
         super.onStart();
         auth.addAuthStateListener(mAuth);
     }
@@ -135,13 +126,6 @@ public class LogIn extends AppCompatActivity {
         auth.signOut();
         auth.removeAuthStateListener(mAuth);
     }
-
-    private void openWelcome(){
-        Intent intent = new Intent(this, Welcome.class);
-        intent.putExtra("iduser", user.getUid().toString());
-        startActivity(intent);
-    }
-
 
     private void logIn(){
 
@@ -155,18 +139,37 @@ public class LogIn extends AppCompatActivity {
                     // there was an error
                     toastMessage("Entrez les bonnes informatiosn d'utilisateur");
                 } else {
-//                    toastMessage(userID.toString());
 
+                    Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+                    nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getChildrenCount() > 0){
 
-                    if(userID.toString().equals("ag7C3C4v8ZOV9eeUPdvNMHgEqpH2")){
-                        openAdmin();
-                        finish();
-                    }else {
-                        openWelcome();
-                        finish();
-                    }
+                                Users ds = dataSnapshot.getValue(Users.class);
+                                if(ds.get_type().equals("Administrateur")){
+                                    toastMessage("Admin");
+                                    openAdmin();
+                                    finish();
 
+                                }else if(ds.get_type().equals("Fournisseur de services")) {
+                                    toastMessage("Fournisseur de services");
+                                    openFour();
+                                    finish();
+                                }else {
+                                    toastMessage("Client");
+                                    openWelcome();
+                                    finish();
+                                }
 
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
 
                 }
             }
@@ -196,6 +199,17 @@ public class LogIn extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void openFour(){
+
+        Intent intent = new Intent(this, FournisseurActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
+        startActivity(intent);
+    }
+    private void openWelcome(){
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
+        startActivity(intent);
+    }
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
