@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">ProjetSEG</string>
+<<<<<<< HEAD
     <string name="Org">Organisation</string>
+=======
+    <string name="shop">Organisation</string>
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
     <string name="adresse_civique">Information de location</string>
     <string name="informations_de_contact">Informations de contact</string>
     <string name="Open">Nav Bar</string>
@@ -10,4 +14,7 @@
     <item>Fournisseur de services</item>
     <item>Administrateur</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

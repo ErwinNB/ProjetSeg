@@ -25,9 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class OrganisationFragment extends Fragment{
 
     View myView;
+
     private ArrayList<String> ServiceOffert;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private ArrayAdapter<String> ListArrayAdapter;
@@ -35,6 +37,7 @@ public class OrganisationFragment extends Fragment{
     private Button btnAjouter;
     private ListView listServices;
     private Spinner spinner;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

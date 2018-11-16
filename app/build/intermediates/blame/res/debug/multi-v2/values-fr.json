@@ -1,7 +1,11 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr\\values-fr.xml",
+=======
+            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.1/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml",
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
             "map": [
                 {
                     "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\3abcbeb2279ddb80adb2c73098bc0452\\res\\values-fr\\values.xml",

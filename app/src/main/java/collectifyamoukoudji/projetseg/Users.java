@@ -58,6 +58,20 @@ public class Users {
         this._lastname= lastname;
         this._type = type;
     }
+
+    /**
+     * Constructor
+     */
+    public Users (String id, String firstname, String lastname, String email, String type, Address address){
+        this._email = email;
+        this._firstname =firstname;
+        this._id = id;
+        this._lastname = lastname;
+        this._type = type;
+        this._currentAddress = address;
+    }
+
+
     //Instance methods **************************************************
     public void setId(String id) {
         _id = id;

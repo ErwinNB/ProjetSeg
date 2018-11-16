@@ -2,6 +2,10 @@ package collectifyamoukoudji.projetseg;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+<<<<<<< HEAD
+=======
+import android.net.Uri;
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -22,13 +26,21 @@ public class FournisseurActivity extends AppCompatActivity {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
+<<<<<<< HEAD
     Bundle bundle;
+=======
+    private String iduser;
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fournisseur);
+<<<<<<< HEAD
         bundle = new Bundle();
+=======
+
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
 
                 dl = (DrawerLayout)findViewById(R.id.drawer_layout);
                 t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
@@ -36,6 +48,12 @@ public class FournisseurActivity extends AppCompatActivity {
                 dl.addDrawerListener(t);
                 t.syncState();
 
+<<<<<<< HEAD
+=======
+                iduser = getIntent().getStringExtra("iduser");
+
+
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 final android.support.v4.app.FragmentManager  fragmentManager = getSupportFragmentManager();
@@ -49,6 +67,7 @@ public class FournisseurActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         int id = item.getItemId();
 
+<<<<<<< HEAD
                         if(id == R.id.nav_Adresse){
                             Toast.makeText(FournisseurActivity.this, "Addresse",Toast.LENGTH_SHORT).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, new InformationFragment()).commit();
@@ -58,6 +77,22 @@ public class FournisseurActivity extends AppCompatActivity {
                         }else if(id == R.id.nav_Shop){
                             Toast.makeText(FournisseurActivity.this, "Shop",Toast.LENGTH_SHORT).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, new OrganisationFragment()).commit();
+=======
+                        Bundle arguments = new Bundle();
+                        arguments.putString("iduser", iduser);
+
+                        if(id == R.id.nav_Adresse){
+                            InformationFragment myFragment = new InformationFragment();
+                            myFragment.setArguments(arguments);
+                            Toast.makeText(FournisseurActivity.this, "Addresse",Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
+                        }else if(id == R.id.nav_Information){
+                            Toast.makeText(FournisseurActivity.this, "Info",Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, new OrganisationFragment()).commit();
+                        }else if(id == R.id.nav_Shop){
+                            Toast.makeText(FournisseurActivity.this, "Shop",Toast.LENGTH_SHORT).show();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, new ContactFragment()).commit();
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
                         }else{
                            return false;
                         }
@@ -118,6 +153,15 @@ public class FournisseurActivity extends AppCompatActivity {
         avatarImage.setImageResource(resID);
     }
 
+<<<<<<< HEAD
 
     }
 
+=======
+    private void toastMessage (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+}
+
+>>>>>>> 3f7a4ef7ea684677b46a142044340c6cd69d068f
