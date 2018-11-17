@@ -33,7 +33,7 @@ public class Users {
      * Contains a Adress type of value
      * that is assigned for the adress of the user.
      */
-    private  Address _currentAddress;
+    private  Organisation _currentOrganisation;
 
     /**
      * Default constructor
@@ -53,6 +53,7 @@ public class Users {
      * Constructor
      */
     public Users ( String firstname, String lastname, String email, String type){
+        this._id = "";
         this._email = email;
         this._firstname = firstname;
         this._lastname= lastname;
@@ -62,13 +63,13 @@ public class Users {
     /**
      * Constructor
      */
-    public Users (String id, String firstname, String lastname, String email, String type, Address address){
+    public Users (String id, String firstname, String lastname, String email, String type, Organisation organisation){
         this._email = email;
         this._firstname =firstname;
         this._id = id;
         this._lastname = lastname;
         this._type = type;
-        this._currentAddress = address;
+        this._currentOrganisation = new Organisation();
     }
 
 
@@ -106,11 +107,11 @@ public class Users {
     public String toString(){
         return _email;
     }
-    public Address get_currentAddress() {
-        return _currentAddress;
+    public Organisation get_currentOrganisation() {
+        return _currentOrganisation;
     }
-    public void set_currentAddress(Address _currentAddress) {
-        this._currentAddress = _currentAddress;
+    public void set_currentOrganisation(Organisation _currentOrganisation) {
+        this._currentOrganisation = _currentOrganisation;
     }
 }
 

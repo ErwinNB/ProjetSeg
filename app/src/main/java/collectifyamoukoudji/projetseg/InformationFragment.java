@@ -36,6 +36,7 @@ public class InformationFragment extends Fragment{
     private Button enregistrer;
     private String iduser;
     private Users cuser;
+    private Organisation corg;
     private DatabaseReference databaseUser;
 
 
@@ -72,8 +73,9 @@ public class InformationFragment extends Fragment{
 
                     if(iduser != null){
                          Users user  = dataSnapshot.child(iduser).getValue(Users.class);
-                         cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentAddress());
-                        Log.d("DEBUG", "Value is: " + cuser);
+                         cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                         corg = user.get_currentOrganisation();
+                         Log.d("DEBUG", "Value is: " + corg.toString());
 
 
 
@@ -156,17 +158,13 @@ public class InformationFragment extends Fragment{
                         //creating a Product
                         Address address = new Address(id,num,streetname,codepostal,city,country, phonenum, email, website);
 
-                        cuser.set_currentAddress(address);
+                        corg.set_organisationAddress(address);
+                        cuser.set_currentOrganisation(corg);
+
 
                         //Saving the Product
                         databaseUser.child(iduser).setValue(cuser);
 
-////                        //setting edittext to blank again
-//                         numStreet.setText("");
-//                        streetName.setText("");
-//                        codePostal.setText("");
-//                        ville.setText("");
-//                        pays.setText("");
 
                         //displaying a success toast
                         toastMessage("Address added");

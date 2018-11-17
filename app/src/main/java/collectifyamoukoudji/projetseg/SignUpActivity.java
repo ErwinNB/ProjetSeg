@@ -295,8 +295,8 @@ public class SignUpActivity extends AppCompatActivity {
             databaseUser = firebaseAuth.getCurrentUser();
 
             id = databaseUser.getUid();
-            Address testAddress = new Address();
-            Users client = new Users(id, fname, lname, email, type, testAddress);
+            Organisation organisation = new Organisation();
+            Users client = new Users(id, fname, lname, email, type, organisation);
 
 //            user =  client;
             databaseUsers.child(id).setValue(client);
