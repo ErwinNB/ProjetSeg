@@ -1,38 +1,44 @@
 package collectifyamoukoudji.projetseg;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
 
+    /**
+     * Contains a Button type
+     * that is assigned for starting the Welcome Activity
+     * from AdminActivity.
+     */
     private Button users;
+    /**
+     * Contains a Button type
+     * that is assigned for starting the Service Activity
+     * from AdminActivity.
+     */
     private Button services;
-
+    /**
+     * Contains a String type of value
+     * that is assigned for the user id.
+     */
+    private String i;
+    /**
+     * Contains a String
+     * that is assigned for Debug purpose.
+     */
     private static final String TAG = "ADMIN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+        i = getIntent().getStringExtra("iduser");
 
 
         setupUI();
@@ -59,22 +65,35 @@ public class AdminActivity extends AppCompatActivity {
         });
 }
 
-
+    /**
+     * Opens welcome activity.
+     *
+     */
     private void openWelcome(){
-        Intent intent = new Intent(this, Welcome.class);
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        intent.putExtra("iduser", i);
         startActivity(intent);
     }
-
+    /**
+     * Opens service activity.
+     *
+     */
     public void openService() {
         Intent intent = new Intent(this, ServiceActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Setting up all the fields of the interface.
+     *
+     */
     public void setupUI() {
         users = (Button) findViewById(R.id.btnUtilisateur);
         services = (Button) findViewById(R.id.btnServices);
     }
-
+    /**
+     * Displaying toast message to the user.
+     *
+     */
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

@@ -31,10 +31,11 @@
             </intent-filter>
         </activity>
         <activity android:name="collectifyamoukoudji.projetseg.LogIn" />
-        <activity android:name="collectifyamoukoudji.projetseg.SignUp" />
-        <activity android:name="collectifyamoukoudji.projetseg.Welcome" />
+        <activity android:name="collectifyamoukoudji.projetseg.SignUpActivity" />
+        <activity android:name="collectifyamoukoudji.projetseg.WelcomeActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.ServiceActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.AdminActivity" />
+        <activity android:name="collectifyamoukoudji.projetseg.FournisseurActivity" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
