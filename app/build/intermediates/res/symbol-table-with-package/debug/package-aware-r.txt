@@ -15,6 +15,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
+anim fade_out
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1100,6 +1102,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_cancel_full_24dp
+drawable ic_check_circle_36dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_logo_00
@@ -1111,6 +1115,7 @@ drawable ic_logo_05
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_swipe_right_caret
 drawable met_ic_clear
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1262,6 +1267,8 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id iv_arrow1
+id iv_arrow2
 id labeled
 id lableTypeDeCompte
 id largeLabel
@@ -1270,6 +1277,7 @@ id light
 id line1
 id line3
 id linearLayout
+id linearLayout_swipeBtn_hintContainer
 id listMode
 id listViewServices
 id listViewSvcOff
@@ -1309,6 +1317,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id rectangle
+id relativeLayout_swipeBtn_contentContainer
 id right
 id right_icon
 id right_side
@@ -1395,6 +1404,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv_btnText
 id typeDecompte
 id uniform
 id unlabeled
@@ -1506,6 +1516,7 @@ layout select_dialog_singlechoice_material
 layout spinner_item
 layout support_simple_spinner_dropdown_item
 layout update_dialog
+layout view_proswipebtn
 menu drawer_view
 mipmap ic_launcher
 mipmap ic_launcher_round
