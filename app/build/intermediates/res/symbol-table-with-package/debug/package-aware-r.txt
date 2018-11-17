@@ -1223,14 +1223,17 @@ id editTextCompany
 id editTextCountry
 id editTextDescriptOrgaisation
 id editTextEmail
+id editTextMail
 id editTextNom
 id editTextNomOrgaisation
 id editTextNumber
+id editTextPhone
 id editTextPrenom
 id editTextRate
 id editTextService
 id editTextStreetName
 id editTextTelephone
+id editTextWebsite
 id edit_query
 id email
 id end
@@ -1584,6 +1587,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string informations_de_contact
 string mtrl_chip_close_icon_content_description

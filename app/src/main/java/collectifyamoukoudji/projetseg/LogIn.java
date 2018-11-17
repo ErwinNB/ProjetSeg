@@ -127,6 +127,14 @@ public class LogIn extends AppCompatActivity {
         auth.removeAuthStateListener(mAuth);
     }
 
+
+    private void openWelcome(){
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
+        startActivity(intent);
+    }
+
+
     private void logIn(){
 
         String email = userEmail.getText().toString();
@@ -205,11 +213,7 @@ public class LogIn extends AppCompatActivity {
         intent.putExtra("iduser", user.getUid().toString());
         startActivity(intent);
     }
-    private void openWelcome(){
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra("iduser", user.getUid().toString());
-        startActivity(intent);
-    }
+
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
