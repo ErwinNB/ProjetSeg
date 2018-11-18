@@ -333,6 +333,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void openFour(){
 
         Intent intent = new Intent(this, FournisseurActivity.class);
+        intent.putExtra("iduser", id);
         startActivity(intent);
     }
     /**

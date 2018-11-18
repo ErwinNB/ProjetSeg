@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class InformationFragment extends Fragment{
 
     View myView;
@@ -37,6 +39,7 @@ public class InformationFragment extends Fragment{
     private String iduser;
     private Users cuser;
     private Organisation corg;
+    private Address cadd;
     private DatabaseReference databaseUser;
 
 
@@ -48,6 +51,8 @@ public class InformationFragment extends Fragment{
 
 
         setupUI();
+
+        loadAdd();
 
         enregistrer.setOnClickListener(enregisterListener);
 
@@ -123,6 +128,43 @@ public class InformationFragment extends Fragment{
             addAddress();
         }
     };
+
+    private void loadAdd() {
+
+
+        databaseUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Users user = dataSnapshot.child(iduser).getValue(Users.class);
+
+                cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                cadd = user.get_currentOrganisation().get_organisationAddress();
+
+                numStreet.setText(cadd.get_num());
+                streetName.setText(cadd.get_sname());
+                codePostal.setText(cadd.get_pcode());
+                ville.setText(cadd.get_city());
+                pays.setText(cadd.get_country());
+                phone.setText(cadd.get_phonenum());
+                mail.setText(cadd.get_shopemail());
+                web.setText(cadd.get_website());
+
+                Log.d("DEBUG", "Value is: " + cuser);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+
+            }
+        });
+
+
+
+    }
 
     private void addAddress() {
         //getting the value
