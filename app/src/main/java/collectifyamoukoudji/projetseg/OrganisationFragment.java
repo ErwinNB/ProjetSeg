@@ -67,6 +67,7 @@ public class OrganisationFragment extends Fragment{
         listServices.setAdapter(ListArrayAdapter);
         //load services from DB
         loadEntries();
+        loadInfoIfExist();
         //add services to th list of services
         btnAjouter.setOnClickListener(new View.OnClickListener() {
 
@@ -89,6 +90,32 @@ public class OrganisationFragment extends Fragment{
         });
 
         return myView;
+    }
+
+    private void loadInfoIfExist() {
+        databaseUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if(iduser != null){
+                    Users user  = dataSnapshot.child(iduser).getValue(Users.class);
+                    cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                    corganisation = user.get_currentOrganisation();
+                    cadd = corganisation.get_organisationAddress();
+                    Log.d("DEBUG", "Value is: " + cuser);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w("DEBUG", "Failed to read value.", databaseError.toException());
+            }
+        });
+
     }
 
     @Override

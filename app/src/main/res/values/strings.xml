@@ -2,7 +2,7 @@
     <string name="app_name">ProjetSEG</string>
     <string name="Org">Organisation</string>
     <string name="adresse_civique">Information de location</string>
-    <string name="informations_de_contact">Informations de contact</string>
+    <string name="informations_de_contact">Info disponibilité</string>
     <string name="Open">Nav Bar</string>
     <string name="Close">Nav Bar</string>
     <string-array name="Type">
