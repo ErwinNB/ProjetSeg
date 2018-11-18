@@ -49,9 +49,6 @@ public class FournisseurActivity extends AppCompatActivity {
                 Bundle arguments = new Bundle();
                 arguments.putString("iduser", iduser);
 
-//                InformationFragment myIFragment = new InformationFragment();
-//                myIFragment.setArguments(arguments);
-//                fragmentManager.beginTransaction().replace(R.id.content_frame, myIFragment).commit();
 
                 OrganisationFragment myOFragment = new OrganisationFragment();
                 myOFragment.setArguments(arguments);

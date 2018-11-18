@@ -12,7 +12,7 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-public class LogInActivityTestLV3 {
+public class LogInActivityTest2 {
     @Rule
     public ActivityTestRule<LogIn> mActivityTestRule = new
             ActivityTestRule<>(LogIn.class);
