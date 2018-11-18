@@ -22,9 +22,27 @@ public class ContactFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.contact_layout, container, false);
         checkBoxes = new CheckBox[10][7];
+        plageHorraire = new boolean[10][7];
         setupUI();
+        BtnEnregistrerPlage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addAvailability();
+            }
+        });
         return myView;
     }
+
+    private void addAvailability() {
+        for (int i = 0; i < 10 ; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (checkBoxes[i][j].isChecked()) {
+                    plageHorraire[i][j] = true;
+                }
+            }
+        }
+    }
+
     private void setupUI() {
         BtnEnregistrerPlage = (Button) myView.findViewById(R.id.buttonEnregistrerPlage);
         for (int i = 0; i < 10 ; i++) {
@@ -32,6 +50,7 @@ public class ContactFragment extends Fragment{
                 String buttonID = "checkBox" +(7 * i + j+1);
                 int resID = getResources().getIdentifier(buttonID, "id",getContext().getPackageName());
                 checkBoxes[i][j] = (CheckBox) myView.findViewById(resID);
+                plageHorraire[i][j] = false;
             }
         }
     }
