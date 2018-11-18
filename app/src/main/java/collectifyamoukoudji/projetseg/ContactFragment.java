@@ -38,6 +38,7 @@ public class ContactFragment extends Fragment{
             for (int j = 0; j < 7; j++) {
                 if (checkBoxes[i][j].isChecked()) {
                     plageHorraire[i][j] = true;
+
                 }
             }
         }
