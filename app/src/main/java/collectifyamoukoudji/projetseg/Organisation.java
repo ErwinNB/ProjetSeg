@@ -1,5 +1,7 @@
 package collectifyamoukoudji.projetseg;
 
+import java.util.ArrayList;
+
 public class Organisation {
 
     private String _id;
@@ -7,6 +9,7 @@ public class Organisation {
     private String _organisationDescription;
     private Boolean _isLiscenced;
     private Address _organisationAddress;
+    private ArrayList<String> _services;
 
 
 
@@ -16,6 +19,7 @@ public class Organisation {
         this._organisationDescription = "";
         this._isLiscenced = false;
         this._organisationAddress = new Address();
+        this._services = new ArrayList<String>();
     }
 
     public Organisation(String id, String name, String description, boolean isLiscenced) {
@@ -23,14 +27,16 @@ public class Organisation {
         this._organisationName = name;
         this._organisationDescription = description;
         this._isLiscenced = isLiscenced;
+        this._services = new ArrayList<String>();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
         this._isLiscenced = isLiscenced;
         this._organisationAddress = address;
+        this._services = list;
     }
 
     public String get_id() {
@@ -73,6 +79,14 @@ public class Organisation {
         this._organisationAddress = _organisationAddress;
     }
 
+    public ArrayList<String> get_services() {
+        return _services;
+    }
+
+    public void set_services(ArrayList<String> _services) {
+        this._services = _services;
+    }
+
     @Override
     public String toString() {
         return "Organisation{" +
@@ -83,4 +97,6 @@ public class Organisation {
                 ", _organisationAddress=" + _organisationAddress +
                 '}';
     }
+
+
 }

@@ -49,9 +49,10 @@ public class FournisseurActivity extends AppCompatActivity {
                 Bundle arguments = new Bundle();
                 arguments.putString("iduser", iduser);
 
-                OrganisationFragment myFragment = new OrganisationFragment();
-                myFragment.setArguments(arguments);
-                fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
+
+                OrganisationFragment myOFragment = new OrganisationFragment();
+                myOFragment.setArguments(arguments);
+                fragmentManager.beginTransaction().replace(R.id.content_frame, myOFragment).commit();
 
 
                 nv = (NavigationView)findViewById(R.id.nv);
@@ -95,10 +96,6 @@ public class FournisseurActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
             }
 
-            public void OnSetAvatarButton(View view) {
-                final android.support.v4.app.FragmentManager  fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, new ImageFragment()).commit();
-            }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
