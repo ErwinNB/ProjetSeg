@@ -16,6 +16,12 @@
             android:orientation="vertical"
             android:layout_centerInParent="true">
 
+            <Button
+                android:id="@+id/buttonAjouterOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enregister les infos d'organisation" />
+
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editTextNomOrgaisation"
                 android:ems="10"
@@ -39,10 +45,10 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editTextDescriptOrgaisation"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:inputType="text|textMultiLine"
+                android:layout_height="125dp"
                 android:gravity="top"
                 android:hint="veuillez rentrer un description de Votre Organisation"
+                android:inputType="text|textMultiLine"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelTextColor="@color/colorTextDark"
                 app:met_textColor="@color/colorTextDark"
@@ -101,11 +107,7 @@
 
                 </ListView>
 
-                <Button
-                    android:id="@+id/buttonAjouterOrg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Enregister les infos d'organisation" />
+
             </LinearLayout>
 
         </LinearLayout>

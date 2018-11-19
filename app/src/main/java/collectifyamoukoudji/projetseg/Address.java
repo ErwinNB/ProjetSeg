@@ -34,13 +34,39 @@ public class Address {
      */
     private  String _country;
     /**
-     * Constructor
+     * Contains a String type of value
+     * that is assigned for phone number of the shop.
      */
-    public Address(){}
+    private String _phonenum;
+    /**
+     * Contains a String type of value
+     * that is assigned for the email of the shop.
+     */
+    private String _shopemail;
+    /**
+     * Contains a String type of value
+     * that is assigned for the website of the shop.
+     */
+    private String _website;
     /**
      * Constructor
      */
-    public Address(String id, String num, String streetname, String postalcode, String city, String country){
+    public Address(){
+
+        this._id = "";
+        this._num = "";
+        this._sname = "";
+        this._pcode = "";
+        this._city = "";
+        this._country = "";
+        this._phonenum = "";
+        this._shopemail = "";
+        this._website = "";
+    }
+    /**
+     * Constructor
+     */
+    public Address(String id, String num, String streetname, String postalcode, String city, String country, String phonenum, String shopemail, String web){
 
         this._id = id;
         this._num = num;
@@ -48,6 +74,9 @@ public class Address {
         this._pcode = postalcode;
         this._city = city;
         this._country = country;
+        this._shopemail = shopemail;
+        this._phonenum = phonenum;
+        this._website = web;
 
     }
 
@@ -100,6 +129,29 @@ public class Address {
         this._country = _country;
     }
 
+    public String get_phonenum() {
+        return _phonenum;
+    }
+
+    public void set_phonenum(String _phonenum) {
+        this._phonenum = _phonenum;
+    }
+
+    public String get_shopemail() {
+        return _shopemail;
+    }
+
+    public void set_shopemail(String _shopemail) {
+        this._shopemail = _shopemail;
+    }
+
+    public String get_website() {
+        return _website;
+    }
+
+    public void set_website(String _website) {
+        this._website = _website;
+    }
 
     @Override
     public String toString() {

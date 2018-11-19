@@ -2349,6 +2349,7 @@
     <string name="google_app_id" translatable="false">1:133821363124:android:3a24e16318e5adad</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAjwAXo9d7GN3xXZ6MBVY8Oj_cMG2SXj_o</string>
     <string name="google_storage_bucket" translatable="false">projetseg-f22e3.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="informations_de_contact">Informations de contact</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>

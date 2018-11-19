@@ -5,7 +5,8 @@ import org.junit.Test;
 
 public class AddressTest {
 
-    Address address = new Address( "id","209", "Yamakoudji street", "K2N 9I8", "Ottawa", "Canada");
+    Address address = new Address( "id","209", "Yamakoudji street", "K2N 9I8", "Ottawa",
+            "Canada", "654374833","shop@shop.com", "shop.com");
 
     @Test
     public void check_ID(){
@@ -41,6 +42,24 @@ public class AddressTest {
     public void check_country(){
         assertEquals("check the address country", "Canada", address.get_country());
         System.out.println("Country --> OK");
+    }
+
+    @Test
+    public void check_phoneNumb(){
+        assertEquals("check the phone number", "654374833", address.get_phonenum());
+        System.out.println("Phone number --> OK");
+    }
+
+    @Test
+    public void check_shopMail(){
+        assertEquals("check the shop mail", "shop@shop.com", address.get_shopemail());
+        System.out.println("shop mail --> OK");
+    }
+
+    @Test
+    public void check_web(){
+        assertEquals("check the web site", "shop.com", address.get_website());
+        System.out.println("Web site --> OK");
     }
 
 }

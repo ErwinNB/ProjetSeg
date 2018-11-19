@@ -295,7 +295,9 @@ public class SignUpActivity extends AppCompatActivity {
             databaseUser = firebaseAuth.getCurrentUser();
 
             id = databaseUser.getUid();
-            Users client = new Users(id, fname, lname, email, type);
+            Organisation organisation = new Organisation();
+            Users client = new Users(id, fname, lname, email, type, organisation);
+
 //            user =  client;
             databaseUsers.child(id).setValue(client);
 
@@ -331,6 +333,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void openFour(){
 
         Intent intent = new Intent(this, FournisseurActivity.class);
+        intent.putExtra("iduser", id);
         startActivity(intent);
     }
     /**
