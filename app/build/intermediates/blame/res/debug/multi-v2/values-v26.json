@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
+            "outputFile": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/res/values-v26/values-v26.xml",
+                    "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5dbc6004c8f20862e1cfd946306a1529\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",
