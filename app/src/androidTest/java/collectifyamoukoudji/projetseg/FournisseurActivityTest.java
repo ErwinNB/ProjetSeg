@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -20,12 +21,14 @@ import static org.hamcrest.core.AllOf.allOf;
 public class FournisseurActivityTest {
 
     @Rule
-    public ActivityTestRule<LogIn> mActivityTestRule = new
-            ActivityTestRule<>(LogIn.class);
+    public ActivityTestRule<SignUpActivity> mActivityTestRule = new
+            ActivityTestRule<>(SignUpActivity.class);
 
     //EXPECTED TO PASS
     @Test
-    public void signUpIsValid(){
+    public void signUpIsValid() throws InterruptedException {
+        onView(withId(R.id.typeDecompte)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Fournisseur de services"))).perform(click());
         onView(withId(R.id.editTextNom)).perform(typeText("fournisseurTest"), closeSoftKeyboard());
         onView(withId(R.id.editTextPrenom)).perform(typeText("fournisseurTest"), closeSoftKeyboard());
         onView(withId(R.id.editTextEmail)).perform(typeText("fournisseurTest@fournisseurTest.com"), closeSoftKeyboard());
@@ -38,13 +41,15 @@ public class FournisseurActivityTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        onView(withId(R.id.editTextNomOrgaisation)).perform(typeText("Organisation Test"), closeSoftKeyboard());
-//        onView(withId(R.id.editTextDescriptOrgaisation)).perform(typeText("Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to."), closeSoftKeyboard());
-//        onView(withId(R.id.switchLicensed)).perform(click());
-//        onView(withId(R.id.ServicesOffert)).perform(click());
-//        onData(allOf(is(instanceOf(String.class)), is(selectionText))).perform(click());
-//        onView(withId(spinnerId)).check(matches(withSpinnerText(containsString(selectionText))));
-//        isDisplayed();
+        onView(withId(R.id.editTextNomOrgaisation)).perform(typeText("Organisation Test"), closeSoftKeyboard());
+        onView(withId(R.id.editTextDescriptOrgaisation)).perform(typeText("Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to."), closeSoftKeyboard());
+        onView(withId(R.id.switchLicensed)).perform(click());
+        onView(withId(R.id.ServicesOffert)).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("IT Service"))).perform(click());
+        onView(withId(R.id.buttonAddService)).perform(click());
+        onView(withId(R.id.buttonAjouterOrg)).perform(click());
+        Thread.sleep(2500);
+        isDisplayed();
     }
 
 }
