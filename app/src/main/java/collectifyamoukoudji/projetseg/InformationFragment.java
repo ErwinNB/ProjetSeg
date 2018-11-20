@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,6 +116,8 @@ public class InformationFragment extends Fragment{
         phone = (EditText) myView.findViewById(R.id.editTextPhone) ;
         mail = (EditText) myView.findViewById(R.id.editTextMail);
         web = (EditText) myView.findViewById(R.id.editTextWebsite);
+        web.setText(Html.fromHtml(web.toString()));
+        web.setMovementMethod(LinkMovementMethod.getInstance());
         enregistrer = (Button) myView.findViewById(R.id.btnEnregistrer);
 
     }

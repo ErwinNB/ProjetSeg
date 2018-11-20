@@ -24,6 +24,7 @@
                     android:layout_height="wrap_content"
                     android:ems="5"
                     android:hint="#"
+                    android:inputType="number"
                     app:met_floatingLabel="highlight"
                     app:met_floatingLabelTextColor="@color/colorTextDark"
                     app:met_textColor="@color/colorTextDark"
@@ -91,7 +92,8 @@
                     app:met_floatingLabel="highlight"
                     app:met_floatingLabelTextColor="@color/colorTextDark"
                     app:met_textColor="@color/colorTextDark"
-                    app:met_textColorHint="@color/colorHint" />
+                    app:met_textColorHint="@color/colorHint"
+                    android:maxLength="10"/>
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/editTextMail"
@@ -118,7 +120,9 @@
                     app:met_helperTextAlwaysShown="true"
                     app:met_helperTextColor="@color/colorHelper"
                     app:met_textColor="@color/colorTextDark"
-                    app:met_textColorHint="@color/colorHint" />
+                    app:met_textColorHint="@color/colorHint"
+                    android:linksClickable="true"
+                    android:autoLink="web"/>
 
                 <Button
                     android:id="@+id/btnEnregistrer"
