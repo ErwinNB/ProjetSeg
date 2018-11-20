@@ -98,6 +98,11 @@ public class SignUpActivity extends AppCompatActivity {
      */
     private FirebaseUser databaseUser;
     /**
+     * Contains a User variable
+     * that is assigned for new client of the db.
+     */
+    private Users cl;
+    /**
      * Contains a String
      * that is assigned for Debug purpose.
      */
@@ -295,16 +300,18 @@ public class SignUpActivity extends AppCompatActivity {
             databaseUser = firebaseAuth.getCurrentUser();
 
             id = databaseUser.getUid();
-            Organisation organisation = new Organisation();
-            Users client = new Users(id, fname, lname, email, type, organisation);
+            cl = new Users(id, fname, lname, email, type);
 
 //            user =  client;
-            databaseUsers.child(id).setValue(client);
+            databaseUsers.child(id).setValue(cl);
 
             Toast.makeText(this, "Information ajouté à la base de donnée", Toast.LENGTH_LONG).show();
-            if(client.get_type().equals("Administrateur")){
+            if(cl.get_type().equals("Administrateur")){
                 openAdmin();
-            }else if(client.get_type().equals("Fournisseur de services")){
+            }else if(cl.get_type().equals("Fournisseur de services")){
+                Organisation organisation = new Organisation();
+                 cl = new Users(id, fname, lname, email, type, organisation);
+                databaseUsers.child(id).setValue(cl);
                 openFour();
             }else {
                 openWelcome();
