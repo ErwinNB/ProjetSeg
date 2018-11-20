@@ -41,6 +41,7 @@ public class InformationFragment extends Fragment{
     private Organisation corg;
     private Address cadd;
     private DatabaseReference databaseUser;
+    private ArrayList<ArrayList<Boolean>> arr;
 
 
     @Nullable
@@ -67,7 +68,6 @@ public class InformationFragment extends Fragment{
         if (bundle != null) {
             iduser = bundle.getString("iduser");
 
-            toastMessage(iduser);
 
             databaseUser = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -196,6 +196,7 @@ public class InformationFragment extends Fragment{
                         //getting a unique id using push().getKey() method
                         //it will create a unique id and will use it as the Primary Key for our Product
                         String id = databaseUser.push().getKey();
+
 
                         //creating a Product
                         Address address = new Address(id,num,streetname,codepostal,city,country, phonenum, email, website);

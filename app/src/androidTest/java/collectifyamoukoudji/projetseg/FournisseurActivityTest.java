@@ -49,13 +49,6 @@ public class FournisseurActivityTest {
         onView(withId(R.id.buttonAjouterOrg)).perform(click());
         Thread.sleep(2500);
         isDisplayed();
-//        onView(withId(R.id.editTextNomOrgaisation)).perform(typeText("Organisation Test"), closeSoftKeyboard());
-//        onView(withId(R.id.editTextDescriptOrgaisation)).perform(typeText("Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to."), closeSoftKeyboard());
-//        onView(withId(R.id.switchLicensed)).perform(click());
-//        onView(withId(R.id.ServicesOffert)).perform(click());
-//        onData(allOf(is(instanceOf(String.class)), is(selectionText))).perform(click());
-//        onView(withId(spinnerId)).check(matches(withSpinnerText(containsString(selectionText))));
-//        isDisplayed();
     }
 
 }

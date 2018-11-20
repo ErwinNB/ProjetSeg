@@ -55,6 +55,7 @@ public class OrganisationFragment extends Fragment{
     private Users cuser;
     private Organisation corganisation;
     private Address cadd;
+    private Horraire ch;
 
 
     @Nullable
@@ -68,7 +69,6 @@ public class OrganisationFragment extends Fragment{
         if (bundle != null) {
             iduser = bundle.getString("iduser");
 
-            toastMessage(iduser);
 
             databaseUser = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -82,6 +82,7 @@ public class OrganisationFragment extends Fragment{
                         cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                         corganisation = user.get_currentOrganisation();
                         cadd = corganisation.get_organisationAddress();
+                        ch = corganisation.get_organisationHorraire();
                         Log.d("DEBUG", "Value is: " + cuser);
 
                     }
@@ -243,7 +244,7 @@ public class OrganisationFragment extends Fragment{
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getChildrenCount() > 0){
 //                    flag = "";
-                    toastMessage("Postal code already exist");
+                    toastMessage("Organisation name already exist");
 
                 }else{
 //                    flag = "Ok";
@@ -258,9 +259,11 @@ public class OrganisationFragment extends Fragment{
                         //creating a Product
                         if(cadd.get_sname() == "") {
                             cadd = new Address();
+                        }else if (!(ch.is_flag())){
+                            ch = new Horraire();
                         }
 
-                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ServiceOffert);
+                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ServiceOffert, ch);
 
                         cuser.set_currentOrganisation(organisation);
 

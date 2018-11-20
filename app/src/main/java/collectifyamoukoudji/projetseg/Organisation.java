@@ -9,7 +9,9 @@ public class Organisation {
     private String _organisationDescription;
     private Boolean _isLiscenced;
     private Address _organisationAddress;
+    private Horraire _organisationHorraire;
     private ArrayList<String> _services;
+
 
 
 
@@ -20,24 +22,20 @@ public class Organisation {
         this._isLiscenced = false;
         this._organisationAddress = new Address();
         this._services = new ArrayList<String>();
+        this._organisationHorraire = new Horraire();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced) {
-        this._id = id;
-        this._organisationName = name;
-        this._organisationDescription = description;
-        this._isLiscenced = isLiscenced;
-        this._services = new ArrayList<String>();
-    }
-
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list, Horraire h) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
         this._isLiscenced = isLiscenced;
         this._organisationAddress = address;
         this._services = list;
+        this._organisationHorraire = h;
     }
+
+
 
     public String get_id() {
         return _id;
@@ -87,6 +85,22 @@ public class Organisation {
         this._services = _services;
     }
 
+
+
+
+
+    public Horraire get_organisationHorraire() {
+        return _organisationHorraire;
+    }
+
+    public void set_organisationHorraire(Horraire _organisationHorraire) {
+        this._organisationHorraire = _organisationHorraire;
+    }
+
+
+
+
+
     @Override
     public String toString() {
         return "Organisation{" +
@@ -97,6 +111,7 @@ public class Organisation {
                 ", _organisationAddress=" + _organisationAddress +
                 '}';
     }
+
 
 
 }

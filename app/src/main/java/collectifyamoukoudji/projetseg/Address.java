@@ -48,6 +48,9 @@ public class Address {
      * that is assigned for the website of the shop.
      */
     private String _website;
+
+
+
     /**
      * Constructor
      */
@@ -162,6 +165,12 @@ public class Address {
                 ", _pcode='" + _pcode + '\'' +
                 ", _city='" + _city + '\'' +
                 ", _country='" + _country + '\'' +
+                ", _phonenum='" + _phonenum + '\'' +
+                ", _shopemail='" + _shopemail + '\'' +
+                ", _website='" + _website + '\'' +
                 '}';
     }
+
+
+
 }
