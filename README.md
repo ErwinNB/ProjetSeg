@@ -1,5 +1,5 @@
 # ProjetSeg
 ## Collectif yamoukoudji
-David
+David Kashalala
 
 
