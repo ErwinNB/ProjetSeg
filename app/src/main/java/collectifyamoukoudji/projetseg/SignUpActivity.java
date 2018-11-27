@@ -132,14 +132,15 @@ public class SignUpActivity extends AppCompatActivity {
 
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren()){
 
-                     value = postsnapshot.getValue(Users.class);
+                    if(postsnapshot != null) {
+                        value = postsnapshot.getValue(Users.class);
                         Log.d(TAG, "Value is: " + value.get_type());
-                     if (value.get_type().equals("Administrateur") && plantsList.size() > 2){
+                        if (value.get_type().equals("Administrateur") && plantsList.size() > 2) {
                             plantsList.remove(2);
                             spinnerArrayAdapter.notifyDataSetChanged();
-                     }
+                        }
 
-
+                    }
                 }
             }
 
@@ -310,7 +311,7 @@ public class SignUpActivity extends AppCompatActivity {
                 openAdmin();
             }else if(cl.get_type().equals("Fournisseur de services")){
                 Organisation organisation = new Organisation();
-                 cl = new Users(id, fname, lname, email, type, organisation);
+                 cl = new Fournisseur(id, fname, lname, email, type, organisation);
                 databaseUsers.child(id).setValue(cl);
                 openFour();
             }else {

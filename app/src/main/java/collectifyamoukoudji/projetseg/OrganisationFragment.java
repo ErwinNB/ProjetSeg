@@ -55,7 +55,7 @@ public class OrganisationFragment extends Fragment{
     private Users cuser;
     private Organisation corganisation;
     private Address cadd;
-    private Horraire ch;
+    private ArrayList<Horraire> ch;
 
 
     @Nullable
@@ -197,7 +197,7 @@ public class OrganisationFragment extends Fragment{
 
                     cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                     corganisation = user.get_currentOrganisation();
-
+                    ch = user.get_currentOrganisation().get_organisationHorraire();
 
 
                     organisationName.setText(corganisation.get_organisationName());
@@ -252,16 +252,18 @@ public class OrganisationFragment extends Fragment{
                     String orgdescription = organisationDescription.getText().toString();
                     //checking if the value is provided
                     if (!TextUtils.isEmpty(orgname) && !TextUtils.isEmpty(orgdescription)){
-                        //getting a unique id using push().getKey() method
-                        //it will create a unique id and will use it as the Primary Key for our Product
-                        String id = databaseUser.push().getKey();
+
 
                         //creating a Product
                         if(cadd.get_sname() == "") {
                             cadd = new Address();
-                        }else if (!(ch.is_flag())){
-                            ch = new Horraire();
+                        }else if (ch.size()<= 0){
+                            ch = new ArrayList<Horraire>();
                         }
+
+                        //getting a unique id using push().getKey() method
+                        //it will create a unique id and will use it as the Primary Key for our Product
+                        String id = databaseUser.push().getKey();
 
                         Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ServiceOffert, ch);
 
