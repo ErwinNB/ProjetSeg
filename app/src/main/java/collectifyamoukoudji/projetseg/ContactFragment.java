@@ -38,6 +38,7 @@ public class ContactFragment extends Fragment{
     private TextView LUN, MAR, MER, JED, VEN, SAM, DIM;
     private CheckBox[][] checkBoxes;
     private ArrayList<ArrayList<Boolean>> plageHorraire;
+    private ArrayList<String> semaine;
     private Button  BtnEnregistrerPlage, btnRight, btnLeft;
     private String iduser;
     private DatabaseReference databaseUser;
@@ -55,6 +56,7 @@ public class ContactFragment extends Fragment{
         myView = inflater.inflate(R.layout.contact_layout, container, false);
         checkBoxes = new CheckBox[10][7];
         plageHorraire = new ArrayList<>();
+        semaine = new ArrayList<>();
 
         count = 0;
 
@@ -221,9 +223,19 @@ public class ContactFragment extends Fragment{
 
                     String id = databaseUser.push().getKey();
 
+                    semaine.add(LUN.getText().toString());
+                    semaine.add(MAR.getText().toString());
+                    semaine.add(MER.getText().toString());
+                    semaine.add(JED.getText().toString());
+                    semaine.add(VEN.getText().toString());
+                    semaine.add(SAM.getText().toString());
+                    semaine.add(DIM.getText().toString());
+
+
+
 
                     //creating a Product
-                    Horraire newh = new Horraire(id, LUN.getText().toString(), true, plageHorraire);
+                    Horraire newh = new Horraire(id, LUN.getText().toString(), semaine, true, plageHorraire);
 
                     if (!flag){
                         corganisation.get_organisationHorraire().set(index, newh);
@@ -239,6 +251,7 @@ public class ContactFragment extends Fragment{
                     databaseUser.child(iduser).setValue(cuser);
 
                     plageHorraire.clear();
+                    semaine.clear();
 
                     toastMessage("Saved");
 //                }

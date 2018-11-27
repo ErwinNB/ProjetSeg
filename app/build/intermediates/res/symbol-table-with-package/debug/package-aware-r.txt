@@ -1174,6 +1174,7 @@ id bottom
 id btnContinuer
 id btnEnregistrer
 id btnLogin
+id btnSearch
 id btnServices
 id btnSignUp
 id btnUtilisateur
@@ -1269,6 +1270,7 @@ id container
 id content
 id contentPanel
 id content_frame
+id content_frame2
 id coordinator
 id custom
 id customPanel
@@ -1285,6 +1287,7 @@ id direct
 id disableHome
 id doubleRipple
 id drawer_layout
+id drawer_layout2
 id editText
 id editTextAdresse
 id editTextCP
@@ -1319,6 +1322,7 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id full_name
 id ghost_view
 id gone
 id group_divider
@@ -1360,6 +1364,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id nav_Adresse
+id nav_Client
 id nav_Information
 id nav_Shop
 id navigation_header_container
@@ -1383,6 +1388,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id rectangle
+id recyclerView
 id right
 id right_icon
 id right_side
@@ -1401,6 +1407,7 @@ id search_bar
 id search_button
 id search_close_btn
 id search_edit_frame
+id search_edit_text
 id search_go_btn
 id search_mag_icon
 id search_plate
@@ -1490,6 +1497,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user_name
 id view_offset_helper
 id visible
 id wide
@@ -1545,13 +1553,16 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_admin
+layout activity_client
 layout activity_fournisseur
 layout activity_log_in
 layout activity_main
+layout activity_search_bar
 layout activity_service
 layout activity_service_provider
 layout activity_sign_up
 layout activity_welcome
+layout client_layout
 layout contact_layout
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1574,6 +1585,7 @@ layout layout_user_list
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header
+layout nav_header2
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -1590,6 +1602,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout organisation_layout
+layout search_list_items
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1597,8 +1610,11 @@ layout spinner_item
 layout support_simple_spinner_dropdown_item
 layout update_dialog
 menu drawer_view
+menu drawer_view2
 mipmap ic_launcher
 mipmap ic_launcher_round
+string Clients
+string Clients2
 string Close
 string Open
 string Org

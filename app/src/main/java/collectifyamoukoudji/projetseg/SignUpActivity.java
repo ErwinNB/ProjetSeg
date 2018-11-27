@@ -331,7 +331,8 @@ public class SignUpActivity extends AppCompatActivity {
      */
     private void openWelcome(){
 
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, ClientActivity.class);
+        intent.putExtra("iduser", id);
         startActivity(intent);
     }
     /**

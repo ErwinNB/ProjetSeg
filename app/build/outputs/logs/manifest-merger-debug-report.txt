@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
 MERGED from [com.android.support:design:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/60ffbc58ee6904b646654ee974157190/AndroidManifest.xml:17:1-24:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/library-2.1.4.aar/9e5361749c87425ff2fba4def377db14/AndroidManifest.xml:2:1-10:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/AndroidManifest.xml:17:1-22:12
@@ -59,25 +59,25 @@ MERGED from [com.android.support:print:28.0.0] /Users/valentinmagot/.gradle/cach
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5e9be42d6bdac06796ce7282fa6f6bfa/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/479cae8b95e05c033528178b9889d63c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.3.aar/8979c449ddc472b9332cf435abdab92b/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:3:5-45
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
-		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:1-30:12
 		INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:5:5-25:19
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:5:5-28:19
 MERGED from [com.android.support:design:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/60ffbc58ee6904b646654ee974157190/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/60ffbc58ee6904b646654ee974157190/AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] /Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.4.aar/08e083a85c3973f425800b88cad9ec45/AndroidManifest.xml:7:5-20
@@ -175,9 +175,17 @@ ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/
 	android:name
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:23:19-48
 activity#collectifyamoukoudji.projetseg.FournisseurActivity
-ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:24:9-66
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:24:9-57
 	android:name
 		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:24:19-54
+activity#collectifyamoukoudji.projetseg.ClientActivity
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:25:9-52
+	android:name
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:25:19-49
+activity#collectifyamoukoudji.projetseg.SearchBarActivity
+ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:26:9-27:20
+	android:name
+		ADDED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml:26:19-52
 uses-sdk
 INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/src/main/AndroidManifest.xml
