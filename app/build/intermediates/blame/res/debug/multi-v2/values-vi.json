@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.2/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "outputFile": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.3/ProjetSeg/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b43ba5c910fbbd7948bfe0c939e5d09b/res/values-vi/values.xml",
