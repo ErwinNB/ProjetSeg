@@ -24,6 +24,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InformationFragment extends Fragment{
 
@@ -195,7 +197,7 @@ public class InformationFragment extends Fragment{
                     String email = mail.getText().toString();
                     String website = web.getText().toString();
                     //checking if the value is provided
-                    if (!TextUtils.isEmpty(num) && !TextUtils.isEmpty(streetname) && !TextUtils.isEmpty(codepostal) && !TextUtils.isEmpty(city) && !TextUtils.isEmpty(country) && !TextUtils.isEmpty(phonenum) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(website)){
+                    if (!TextUtils.isEmpty(num) && !TextUtils.isEmpty(streetname) && !TextUtils.isEmpty(codepostal) && !TextUtils.isEmpty(city) && !TextUtils.isEmpty(country) && !TextUtils.isEmpty(phonenum) && !TextUtils.isEmpty(email) && isEmailAdress(email)){
 
                         //getting a unique id using push().getKey() method
                         //it will create a unique id and will use it as the Primary Key for our Product
@@ -217,7 +219,7 @@ public class InformationFragment extends Fragment{
                         toastMessage("Address added");
                     }else{
                         //if th value is not given displaying a toast
-                        toastMessage("Please eall required fields");
+                        toastMessage("Please all required fields and a valid email adress");
                     }
                 }
             }
@@ -230,6 +232,19 @@ public class InformationFragment extends Fragment{
 
 
 
+    }
+
+    /**
+     * Verifies the format of the user email address.
+     *
+     *
+     * @param email The user email address.
+     * @return An boolean if the user information are valid or not.
+     */
+    public static boolean isEmailAdress(String email){
+        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+        Matcher m = p.matcher(email.toUpperCase());
+        return m.matches();
     }
 
 }

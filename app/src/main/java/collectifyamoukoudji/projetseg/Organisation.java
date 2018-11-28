@@ -9,7 +9,7 @@ public class Organisation {
     private String _organisationDescription;
     private Boolean _isLiscenced;
     private Address _organisationAddress;
-    private Horraire _organisationHorraire;
+    private ArrayList<Horraire> _organisationHorraire;
     private ArrayList<String> _services;
 
 
@@ -22,10 +22,10 @@ public class Organisation {
         this._isLiscenced = false;
         this._organisationAddress = new Address();
         this._services = new ArrayList<String>();
-        this._organisationHorraire = new Horraire();
+        this._organisationHorraire = new ArrayList<Horraire>();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list, Horraire h) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list, ArrayList<Horraire> h) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
@@ -89,11 +89,11 @@ public class Organisation {
 
 
 
-    public Horraire get_organisationHorraire() {
+    public ArrayList<Horraire> get_organisationHorraire() {
         return _organisationHorraire;
     }
 
-    public void set_organisationHorraire(Horraire _organisationHorraire) {
+    public void set_organisationHorraire(ArrayList<Horraire> _organisationHorraire) {
         this._organisationHorraire = _organisationHorraire;
     }
 

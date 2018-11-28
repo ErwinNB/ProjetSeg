@@ -37,6 +37,9 @@
         <activity android:name="collectifyamoukoudji.projetseg.ServiceActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.AdminActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.FournisseurActivity" />
+        <activity android:name="collectifyamoukoudji.projetseg.ClientActivity" />
+        <activity android:name="collectifyamoukoudji.projetseg.SearchBarActivity" >
+        </activity>
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
