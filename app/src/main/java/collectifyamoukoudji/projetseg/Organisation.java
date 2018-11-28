@@ -9,6 +9,7 @@ public class Organisation {
     private String _organisationDescription;
     private Boolean _isLiscenced;
     private Address _organisationAddress;
+
     private Horraire _organisationHorraire;
     private ArrayList<String> _services;
 

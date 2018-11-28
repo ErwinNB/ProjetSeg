@@ -62,6 +62,11 @@ public class ClientActivity extends AppCompatActivity {
                     ClientFragment myFragment = new ClientFragment();
                     myFragment.setArguments(arguments);
                     fragmentManager.beginTransaction().replace(R.id.content_frame2, myFragment).commit();
+                }
+                else if(id == R.id.nav_Search){
+                    search_fragment myFragment = new search_fragment();
+                    myFragment.setArguments(arguments);
+                    fragmentManager.beginTransaction().replace(R.id.content_frame2, myFragment).commit();
                 }else{
                     return false;
                 }

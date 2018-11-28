@@ -171,7 +171,7 @@ public class OrganisationFragment extends Fragment{
                     Service value = postsnapshot.getValue(Service.class);
 
                     if (!(ServiceOffert.contains(value.getServiceName()))){
-                        spinnerArrayAdapter.add(value.getServiceName());
+                        spinnerArrayAdapter.add(value.getServiceName() +" - "+ String.valueOf(value.getRate()));
                     }
 
                 }
@@ -195,9 +195,9 @@ public class OrganisationFragment extends Fragment{
 
                 Users user = dataSnapshot.child(iduser).getValue(Users.class);
 
-                cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
-                corganisation = user.get_currentOrganisation();
-
+                    cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                    corganisation = user.get_currentOrganisation();
+                    ch = user.get_currentOrganisation().get_organisationHorraire();
 
 
                 organisationName.setText(corganisation.get_organisationName());
@@ -252,9 +252,7 @@ public class OrganisationFragment extends Fragment{
                     String orgdescription = organisationDescription.getText().toString();
                     //checking if the value is provided
                     if (!TextUtils.isEmpty(orgname) && !TextUtils.isEmpty(orgdescription)){
-                        //getting a unique id using push().getKey() method
-                        //it will create a unique id and will use it as the Primary Key for our Product
-                        String id = databaseUser.push().getKey();
+
 
                         //creating a Product
                         if(cadd.get_sname() == "") {
@@ -262,6 +260,10 @@ public class OrganisationFragment extends Fragment{
                         }else if (!(ch.is_flag())){
                             ch = new Horraire();
                         }
+
+                        //getting a unique id using push().getKey() method
+                        //it will create a unique id and will use it as the Primary Key for our Product
+                        String id = databaseUser.push().getKey();
 
                         Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ServiceOffert, ch);
 

@@ -99,15 +99,7 @@ public class SearchBarActivity extends AppCompatActivity {
                         serviceList.add(service_name);
                         rateList.add(rate);
                         counter++;
-                    } else if (service_name.toLowerCase().contains(searchedString.toLowerCase())) {
-                        serviceList.add(service_name);
-                        rateList.add(rate);
-                        counter++;
-                    } else if (String.valueOf(rate).toLowerCase().contains(searchedString.toLowerCase())) {
-                        serviceList.add(service_name);
-                        rateList.add(rate);
-                        counter++;
-                    } else if (String.valueOf(rate).toLowerCase().contains(searchedString.toLowerCase())) {
+                    }  else if (String.valueOf(rate).toLowerCase().contains(searchedString.toLowerCase())) {
                         serviceList.add(service_name);
                         rateList.add(rate);
                         counter++;
