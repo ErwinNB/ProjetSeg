@@ -311,7 +311,7 @@ public class SignUpActivity extends AppCompatActivity {
                 openAdmin();
             }else if(cl.get_type().equals("Fournisseur de services")){
                 Organisation organisation = new Organisation();
-                 cl = new Fournisseur(id, fname, lname, email, type, organisation);
+                cl = new Users(id, fname, lname, email, type, organisation);
                 databaseUsers.child(id).setValue(cl);
                 openFour();
             }else {

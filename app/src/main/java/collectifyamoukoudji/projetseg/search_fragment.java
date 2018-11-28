@@ -39,7 +39,7 @@ public class search_fragment extends Fragment {
     private DatabaseReference databaseUser;
     private DatabaseReference databaseService;
     private ArrayList<String> ServiceOffert;
-    private ArrayList<String> listFourSvc;
+    private ArrayList<Users> listFourSvc;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private ArrayAdapter<String> spinnerArrayAdapterTslt;
     private ArrayAdapter<String> spinnerArrayAdapterRate;
@@ -71,22 +71,8 @@ public class search_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.search_layout, container, false);
         setupUI();
-        getuser(inflater, container, savedInstanceState);
-        loadEntries();
-        btnRechercher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchFournisseur();
-            }
-        });
-        return myView;
-    }
 
-
-    private void getuser(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            iduser = bundle.getString("iduser");
+        listFourSvc = new ArrayList<>();
 
 
             databaseUser = FirebaseDatabase.getInstance().getReference("Users");
@@ -96,8 +82,16 @@ public class search_fragment extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (iduser != null) {
                         Users user = dataSnapshot.child(iduser).getValue(Users.class);
-                        cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), null);
+                        cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type());
                         Log.d("DEBUG", "Value is: " + cuser);
+                    }
+
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        cuser = postSnapshot.getValue(Users.class);
+                        if(cuser.get_type().equals("Fournisseur de services")) {
+                            listFourSvc.add(cuser);
+                            Log.d("DEBUG", "Value is: " + listFourSvc.toString());
+                        }
                     }
                 }
 
@@ -109,10 +103,17 @@ public class search_fragment extends Fragment {
                 }
             });
 
-        }
 
-
+        loadEntries();
+        btnRechercher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toastMessage(listFourSvc.toString());
+            }
+        });
+        return myView;
     }
+
 
     private void setupUI() {
         databaseService = FirebaseDatabase.getInstance().getReference("Services");
@@ -195,6 +196,7 @@ public class search_fragment extends Fragment {
         });
     }
 
+
     private void toastMessage(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
@@ -204,32 +206,14 @@ public class search_fragment extends Fragment {
 
         // si le premier radiobtn
         if (selectedId == rbTypeSvc.getId()) {
-            Log.d("DEBUG", "Value is: csqfqbfuyqsbgiubfqiuuvbqsuivbquibviusqbi");
             final String searchedString = spinnerTsvc.getSelectedItem().toString();
-            databaseUser.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for(DataSnapshot postDataSnapshot : dataSnapshot.getChildren()){
-                        //getting users
-                        cuser = postDataSnapshot.getValue(Users.class);
-                        if(cuser.get_type() == "Fournisseur de services") {
-                            Log.d("DEBUG", "Value is: csqfqbfuyqsbgiubfqiuuvbqsuivbquibviusqbi  "+cuser.get_email());
-                           // listFourSvc.add(cuser.get_email());
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
         } else if (selectedId == rbTimeSlot.getId()) {
 
         } else {
 
         }
     }
+
 
 
 }

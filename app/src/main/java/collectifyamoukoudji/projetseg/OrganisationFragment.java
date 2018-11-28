@@ -171,7 +171,7 @@ public class OrganisationFragment extends Fragment{
                     Service value = postsnapshot.getValue(Service.class);
 
                     if (!(ServiceOffert.contains(value.getServiceName()))){
-                        spinnerArrayAdapter.add(value.getServiceName() +" - "+ String.valueOf(value.getRate()));
+                        spinnerArrayAdapter.add(value.getServiceName());
                     }
 
                 }
