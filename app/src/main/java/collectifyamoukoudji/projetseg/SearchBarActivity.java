@@ -72,6 +72,7 @@ public class SearchBarActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void setAdapter(final String searchedString) {

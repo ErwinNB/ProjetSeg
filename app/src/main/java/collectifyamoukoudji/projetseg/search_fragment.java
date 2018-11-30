@@ -90,6 +90,7 @@ public class search_fragment extends Fragment {
 
                 //ListArrayAdapter.notifyDataSetChanged();
                 Users user =  listUtilTrié.get(i);
+                toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
                 startActivity(intent);
@@ -195,7 +196,6 @@ public class search_fragment extends Fragment {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     cuser = postSnapshot.getValue(Users.class);
                     if (cuser.get_type().equals("Fournisseur de services")) {
-                        toastMessage(cuser.get_email());
                         listFourSvc.add(cuser);
                         Log.d("DEBUG", "Value is: " + listFourSvc.toString());
                     }
@@ -239,7 +239,7 @@ public class search_fragment extends Fragment {
         } else if (selectedId == rbTimeSlot.getId()) {
 
         } else {
-
+            toastMessage("Please chose an Option");
         }
     }
 

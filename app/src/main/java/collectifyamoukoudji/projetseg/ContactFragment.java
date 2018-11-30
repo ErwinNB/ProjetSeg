@@ -23,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ContactFragment extends Fragment{
 
@@ -98,7 +100,9 @@ public class ContactFragment extends Fragment{
         for (int i = 0; i < 10 ; i++) {
             ArrayList<Boolean> tmp = new ArrayList<>();
             for (int j = 0; j < 7; j++) {
-
+//                if(checkBoxes[i][j].isChecked()) {
+//
+//                }
                 tmp.add(checkBoxes[i][j].isChecked());
 
             }

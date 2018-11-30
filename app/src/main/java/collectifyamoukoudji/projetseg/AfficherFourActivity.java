@@ -27,28 +27,12 @@ public class AfficherFourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherfour);
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
+        iduser = getIntent().getStringExtra("idUser");
+        toastMessage(iduser);
+        setupUI();
         getFournisseur();
-        //setupUI();
-       // fillUI();
     }
 
-    private void fillUI() {
-        String num = cuser.get_currentOrganisation().get_organisationAddress().get_num();
-        String sname = cuser.get_currentOrganisation().get_organisationAddress().get_sname();
-        String city = cuser.get_currentOrganisation().get_organisationAddress().get_city();
-        String pCode = cuser.get_currentOrganisation().get_organisationAddress().get_pcode();
-        String tel = cuser.get_currentOrganisation().get_organisationAddress().get_phonenum();
-        String email = cuser.get_currentOrganisation().get_organisationAddress().get_phonenum();
-        String description = cuser.get_currentOrganisation().get_organisationDescription();
-        String name = cuser.get_currentOrganisation().get_organisationName();
-        String webSite = cuser.get_currentOrganisation().get_organisationAddress().get_website();
-        textViewAdresse.setText(num+" "+sname+","+city+","+pCode);
-        textViewTelephone.setText(tel);
-        textViewCourriel.setText(email);
-        textViewDescription.setText(description);
-        textViewSiteWeb.setText(webSite);
-        textViewOrgName.setText(name);
-    }
 
     private void setupUI() {
         textViewAdresse = (TextView)findViewById(R.id.textViewAdresse);
@@ -61,7 +45,6 @@ public class AfficherFourActivity extends AppCompatActivity {
 
     public void getFournisseur() {
         toastMessage("cest joum");
-         iduser = getIntent().getStringExtra("iduser");
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -70,6 +53,23 @@ public class AfficherFourActivity extends AppCompatActivity {
                     Users user  = dataSnapshot.child(iduser).getValue(Users.class);
                     cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                     Log.d("DEBUG", "Value is: " + cuser);
+
+                    String num = cuser.get_currentOrganisation().get_organisationAddress().get_num();
+                    String sname = cuser.get_currentOrganisation().get_organisationAddress().get_sname();
+                    String city = cuser.get_currentOrganisation().get_organisationAddress().get_city();
+                    String pays = cuser.get_currentOrganisation().get_organisationAddress().get_country();
+                    String pCode = cuser.get_currentOrganisation().get_organisationAddress().get_pcode();
+                    String tel = cuser.get_currentOrganisation().get_organisationAddress().get_phonenum();
+                    String email = cuser.get_currentOrganisation().get_organisationAddress().get_shopemail();
+                    String description = cuser.get_currentOrganisation().get_organisationDescription();
+                    String name = cuser.get_currentOrganisation().get_organisationName();
+                    String webSite = cuser.get_currentOrganisation().get_organisationAddress().get_website();
+                    textViewAdresse.setText(num+" "+sname+" ,"+city+" ,"+ pays+" ,"+pCode);
+                    textViewTelephone.setText(tel);
+                    textViewCourriel.setText(email);
+                    textViewDescription.setText(description);
+                    textViewSiteWeb.setText(webSite);
+                    textViewOrgName.setText(name);
                 }
             }
 

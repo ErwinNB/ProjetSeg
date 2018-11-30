@@ -2,6 +2,8 @@ package collectifyamoukoudji.projetseg;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
@@ -49,7 +51,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.full_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Full Name Clicked", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, AfficherFourActivity.class);
+                i.putExtra("iduser","1234" );
+                context.startActivity(i);
+
             }
         });
     }
