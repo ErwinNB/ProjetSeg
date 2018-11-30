@@ -195,7 +195,7 @@ public class search_fragment extends Fragment {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     cuser = postSnapshot.getValue(Users.class);
                     if (cuser.get_type().equals("Fournisseur de services")) {
-                        toastMessage(cuser.get_email());
+                       // toastMessage(cuser.get_email());
                         listFourSvc.add(cuser);
                         Log.d("DEBUG", "Value is: " + listFourSvc.toString());
                     }

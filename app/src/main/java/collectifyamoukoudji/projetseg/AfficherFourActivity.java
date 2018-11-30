@@ -28,8 +28,8 @@ public class AfficherFourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_afficherfour);
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         getFournisseur();
-        //setupUI();
-       // fillUI();
+        setupUI();
+        //fillUI();
     }
 
     private void fillUI() {
@@ -60,14 +60,15 @@ public class AfficherFourActivity extends AppCompatActivity {
     }
 
     public void getFournisseur() {
-        toastMessage("cest joum");
-         iduser = getIntent().getStringExtra("iduser");
+
+         iduser = getIntent().getStringExtra("idUser");
+        toastMessage(iduser);
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(iduser != null){
-                    toastMessage("cest joum2");
                     Users user  = dataSnapshot.child(iduser).getValue(Users.class);
+                    toastMessage(user.toString());
                     cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                     Log.d("DEBUG", "Value is: " + cuser);
                 }
