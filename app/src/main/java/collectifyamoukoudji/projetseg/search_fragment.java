@@ -1,6 +1,6 @@
 package collectifyamoukoudji.projetseg;
 
-import android.graphics.Movie;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -17,12 +18,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -40,6 +39,8 @@ public class search_fragment extends Fragment {
     private DatabaseReference databaseService;
     private ArrayList<String> ServiceOffert;
     private ArrayList<Users> listFourSvc;
+    private ArrayList<Users> listUtilTrié;
+    private ArrayList<String> listFourSvcTrié;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private ArrayAdapter<String> spinnerArrayAdapterTslt;
     private ArrayAdapter<String> spinnerArrayAdapterRate;
@@ -73,42 +74,25 @@ public class search_fragment extends Fragment {
         setupUI();
 
         listFourSvc = new ArrayList<>();
-
-
-            databaseUser = FirebaseDatabase.getInstance().getReference("Users");
-
-            databaseUser.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (iduser != null) {
-                        Users user = dataSnapshot.child(iduser).getValue(Users.class);
-                        cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type());
-                        Log.d("DEBUG", "Value is: " + cuser);
-                    }
-
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        cuser = postSnapshot.getValue(Users.class);
-                        if(cuser.get_type().equals("Fournisseur de services")) {
-                            listFourSvc.add(cuser);
-                            Log.d("DEBUG", "Value is: " + listFourSvc.toString());
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Failed to read value
-                    toastMessage("Failed to alter database.");
-                    Log.w("DEBUG", "Failed to read value.", databaseError.toException());
-                }
-            });
-
-
+        listUtilTrié= new ArrayList<>();
+        databaseUser = FirebaseDatabase.getInstance().getReference("Users");
         loadEntries();
         btnRechercher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastMessage(listFourSvc.toString());
+                //  toastMessage(listFourSvc.toString());
+                searchFournisseur();
+            }
+        });
+        listeFournisseurs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                //ListArrayAdapter.notifyDataSetChanged();
+                Users user =  listUtilTrié.get(i);
+                Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
+                intent.putExtra("idUser", user.getId());
+                startActivity(intent);
             }
         });
         return myView;
@@ -126,7 +110,9 @@ public class search_fragment extends Fragment {
         rbTypeSvc = (RadioButton) myView.findViewById(R.id.rbTypeSvc);
         rbTimeSlot = (RadioButton) myView.findViewById(R.id.rbTimeSlot);
         rbRating = (RadioButton) myView.findViewById(R.id.rbRating);
+        listeFournisseurs = (ListView) myView.findViewById(R.id.listViewFSvc);
         ServiceOffert = new ArrayList<>();
+        listFourSvcTrié = new ArrayList<>();
         spinnerArrayAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item) {
             @Override
             public boolean isEnabled(int position) {
@@ -163,13 +149,16 @@ public class search_fragment extends Fragment {
                 }
             }
         };
+        ListArrayAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, listFourSvcTrié);
         //fill the spinner with the Db
+
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerArrayAdapterTslt.setDropDownViewResource(R.layout.spinner_item);
         spinnerArrayAdapterRate.setDropDownViewResource(R.layout.spinner_item);
         spinnerTsvc.setAdapter(spinnerArrayAdapter);
         spinnerTiSlt.setAdapter(spinnerArrayAdapterTslt);
         spinnerRate.setAdapter(spinnerArrayAdapterRate);
+        listeFournisseurs.setAdapter(ListArrayAdapter);
 
     }
 
@@ -183,7 +172,7 @@ public class search_fragment extends Fragment {
                     Service value = postsnapshot.getValue(Service.class);
 
                     if (!(ServiceOffert.contains(value.getServiceName()))) {
-                        spinnerArrayAdapter.add(value.getServiceName() + " - " + String.valueOf(value.getRate()));
+                        spinnerArrayAdapter.add(value.getServiceName());
                     }
                 }
             }
@@ -192,6 +181,32 @@ public class search_fragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
                 // Failed to read value
 
+            }
+        });
+        databaseUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (iduser != null) {
+                    Users user = dataSnapshot.child(iduser).getValue(Users.class);
+                    cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type());
+                    Log.d("DEBUG", "Value is: " + cuser);
+                }
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    cuser = postSnapshot.getValue(Users.class);
+                    if (cuser.get_type().equals("Fournisseur de services")) {
+                        toastMessage(cuser.get_email());
+                        listFourSvc.add(cuser);
+                        Log.d("DEBUG", "Value is: " + listFourSvc.toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w("DEBUG", "Failed to read value.", databaseError.toException());
             }
         });
     }
@@ -203,17 +218,30 @@ public class search_fragment extends Fragment {
 
     private void searchFournisseur() {
         int selectedId = radioGroup.getCheckedRadioButtonId();
-
+        listFourSvcTrié.clear();
+        listUtilTrié.clear();
         // si le premier radiobtn
         if (selectedId == rbTypeSvc.getId()) {
             final String searchedString = spinnerTsvc.getSelectedItem().toString();
+            for (Users f : listFourSvc) {
+                ArrayList<String> svc = f.get_currentOrganisation().get_services();
+                for (String s : svc) {
+                    if (s.equals(searchedString)) {
+                        listUtilTrié.add(f);
+                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+
+                    }
+
+                }
+
+            }
+            ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
 
         } else {
 
         }
     }
-
 
 
 }
