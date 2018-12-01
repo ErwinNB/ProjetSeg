@@ -240,6 +240,8 @@ public class search_fragment extends Fragment {
             ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
 
+
+
         } else {
             toastMessage("Please chose an Option");
         }

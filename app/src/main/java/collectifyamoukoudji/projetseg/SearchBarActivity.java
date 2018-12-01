@@ -51,18 +51,18 @@ public class SearchBarActivity extends AppCompatActivity {
         days.add("SAM");
         days.add("DIM");
 
-        times.add("8 - 9h");
-        times.add("9 - 10h");
-        times.add("10 - 11h");
-        times.add("11 - 12h");
-        times.add("12 - 13h");
-        times.add("13 - 14h");
-        times.add("14 - 15h");
-        times.add("15 - 16h");
-        times.add("16 - 17h");
-        times.add("17 - 18h");
-        times.add("18 - 19h");
-        times.add("19 - 20h");
+        times.add("8-9h");
+        times.add("9-10h");
+        times.add("10-11h");
+        times.add("11-12h");
+        times.add("12-13h");
+        times.add("13-14h");
+        times.add("14-15h");
+        times.add("15-16h");
+        times.add("16-17h");
+        times.add("17-18h");
+        times.add("18-19h");
+        times.add("19-20h");
 
 
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
@@ -136,6 +136,8 @@ public class SearchBarActivity extends AppCompatActivity {
                         ArrayList<Double> r = new ArrayList<>();
                         ArrayList<String> ids = new ArrayList<>();
                         ArrayList<String> a = new ArrayList<>();
+                        ArrayList<String> t = new ArrayList<>();
+
 
                         ids.add(snapshot.getKey());
 
@@ -147,7 +149,8 @@ public class SearchBarActivity extends AppCompatActivity {
                         for (int i = 0; i < 12 ; i++) {
                             for (int j = 0; j < 7; j++) {
                                 if(plageHorraire.get(i).get(j).equals(true)){
-                                    a.add(days.get(j)+" - "+times.get(i));
+                                    a.add(days.get(j)+"-"+times.get(i));
+                                    t.add(times.get(i));
                                 }
 
                             }
@@ -163,7 +166,7 @@ public class SearchBarActivity extends AppCompatActivity {
 
                         String service_name = s.toString();
                         String rate = r.toString();
-                        String hours = a.toString();
+                        String hours = t.toString();
                         String uid = ids.get(0);
 
                         if (service_name.toLowerCase().contains(searchedString.toLowerCase())) {

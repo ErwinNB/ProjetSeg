@@ -36,6 +36,10 @@
         "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3be00d00baaaa9065ceddd4cd1bc48a8/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
+        "merged": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.3/ProjetSeg/app/build/intermediates/res/merged/debug/layout_rating_dialog.xml.flat",
+        "source": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.3/ProjetSeg/app/src/main/res/layout/rating_dialog.xml"
+    },
+    {
         "merged": "/Users/valentinmagot/AndroidStudioProjects/Project_SEG/ProjetSegV2.3/ProjetSeg/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_standard_color_18.png.flat",
         "source": "/Users/valentinmagot/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/5542c687e45b30dbe78fcb517181ec93/res/drawable-hdpi-v4/googleg_standard_color_18.png"
     },
