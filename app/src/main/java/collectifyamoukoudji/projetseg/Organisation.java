@@ -15,6 +15,11 @@ public class Organisation {
     private ArrayList<Double> _rating;
 
 
+    /////////////////////////////////////////////////////
+    private ArrayList<Reservation> reservations;
+    /////////////////////////////////////////////////////
+
+
 
 
     public Organisation() {
@@ -103,6 +108,11 @@ public class Organisation {
                 ", _organisationHorraire=" + _organisationHorraire +
                 ", _services=" + _services +
                 ", _rating=" + _rating +
+
+                ///////////////////////////////////
+                ", reservations=" + reservations +
+                ///////////////////////////////////
+
                 '}';
     }
 
@@ -123,4 +133,15 @@ public class Organisation {
     }
 
 
+    ////////////////////////////////////////////////////////
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void addReservations(Reservation uneReservations) {
+        if (reservations == null)
+            reservations = new ArrayList<Reservation>();
+        reservations.add(uneReservations);
+    }
+    ///////////////////////////////////////////////////////
 }
