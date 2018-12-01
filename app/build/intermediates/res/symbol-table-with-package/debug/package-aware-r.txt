@@ -1450,6 +1450,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinnerDays
 id spinnerRating
 id spinnerTimeSlt
 id spinnerTypeDeSvc
@@ -1494,7 +1495,6 @@ id textView3
 id textView4
 id textView5
 id textView6
-id textView61
 id textView7
 id textView8
 id textView9

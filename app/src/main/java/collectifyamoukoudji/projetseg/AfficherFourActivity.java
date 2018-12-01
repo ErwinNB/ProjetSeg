@@ -135,10 +135,6 @@ public class AfficherFourActivity extends AppCompatActivity {
     }
 
     public void getFournisseur() {
-
-        toastMessage("cest joum");
-
-
          iduser = getIntent().getStringExtra("idUser");
          toastMessage(iduser);
 
@@ -147,7 +143,6 @@ public class AfficherFourActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(iduser != null){
                     Users user  = dataSnapshot.child(iduser).getValue(Users.class);
-                    //toastMessage(iduser);
                     cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                     previousrate = cuser.get_currentOrganisation().get_rating();
                     Log.d("DEBUG", "Value is: " + cuser);

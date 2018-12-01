@@ -42,6 +42,7 @@ public class search_fragment extends Fragment {
     private ArrayList<Users> listUtilTrié;
     private ArrayList<String> listFourSvcTrié;
     private ArrayAdapter<String> spinnerArrayAdapter;
+    private ArrayAdapter<String> spinnerArrayAdapterDays;
     private ArrayAdapter<String> spinnerArrayAdapterTslt;
     private ArrayAdapter<String> spinnerArrayAdapterRate;
     private Button btnRechercher;
@@ -54,10 +55,14 @@ public class search_fragment extends Fragment {
     private Spinner spinnerTsvc;
     private Spinner spinnerTiSlt;
     private Spinner spinnerRate;
+    private Spinner spinnerDays;
     private final String[] timeslt = new String[]{"Plages Horraires", "8h - 9h", "9h - 10h", "10h - 11h",
             "11h - 12h", "12h - 13h", "13h - 14h", "14h - 15h", "15h - 16h", "16h - 17h", "17h - 18h", "18h - 19h", "19h - 20h"
     };
+    private final String[] Days = new String[]{"Jours", "Lundi", "Mardi", "Mercredi",
+            "Jeudi", "Vendredi", "Samedi", "Dimanche"};
     private final List<String> timesltList = new ArrayList<>(Arrays.asList(timeslt));
+    private final List<String> daysList = new ArrayList<>(Arrays.asList(Days));
     private final String[] rating = new String[]{"Evaluations",
             "0",
             "1",
@@ -74,7 +79,7 @@ public class search_fragment extends Fragment {
         setupUI();
 
         listFourSvc = new ArrayList<>();
-        listUtilTrié= new ArrayList<>();
+        listUtilTrié = new ArrayList<>();
         databaseUser = FirebaseDatabase.getInstance().getReference("Users");
         loadEntries();
         btnRechercher.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +94,8 @@ public class search_fragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 //ListArrayAdapter.notifyDataSetChanged();
-                Users user =  listUtilTrié.get(i);
-                toastMessage(user.getId());
+                Users user = listUtilTrié.get(i);
+               // toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
                 startActivity(intent);
@@ -105,6 +110,7 @@ public class search_fragment extends Fragment {
         databaseUser = FirebaseDatabase.getInstance().getReference("Users");
         spinnerTsvc = (Spinner) myView.findViewById(R.id.spinnerTypeDeSvc);
         spinnerTiSlt = (Spinner) myView.findViewById(R.id.spinnerTimeSlt);
+        spinnerDays = (Spinner) myView.findViewById(R.id.spinnerDays);
         spinnerRate = (Spinner) myView.findViewById(R.id.spinnerRating);
         btnRechercher = (Button) myView.findViewById(R.id.buttonSearchSvc);
         radioGroup = (RadioGroup) myView.findViewById(R.id.rGroupe);
@@ -126,7 +132,7 @@ public class search_fragment extends Fragment {
                 }
             }
         };
-        spinnerArrayAdapterTslt = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, ratingList) {
+        spinnerArrayAdapterTslt = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, timesltList) {
             @Override
             public boolean isEnabled(int position) {
                 if (position == 0) {
@@ -138,7 +144,19 @@ public class search_fragment extends Fragment {
                 }
             }
         };
-        spinnerArrayAdapterRate = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, timesltList) {
+        spinnerArrayAdapterRate = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, ratingList) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        };
+        spinnerArrayAdapterDays = new ArrayAdapter<String>(this.getActivity(), R.layout.spinner_item, daysList) {
             @Override
             public boolean isEnabled(int position) {
                 if (position == 0) {
@@ -159,6 +177,7 @@ public class search_fragment extends Fragment {
         spinnerTsvc.setAdapter(spinnerArrayAdapter);
         spinnerTiSlt.setAdapter(spinnerArrayAdapterTslt);
         spinnerRate.setAdapter(spinnerArrayAdapterRate);
+        spinnerDays.setAdapter(spinnerArrayAdapterDays);
         listeFournisseurs.setAdapter(ListArrayAdapter);
 
     }
@@ -240,8 +259,41 @@ public class search_fragment extends Fragment {
             ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
 
+            final int daysPos = spinnerDays.getSelectedItemPosition()-1;
+            final int timeSlt = spinnerTiSlt.getSelectedItemPosition()-1;
+            for (Users f : listFourSvc) {
+                ArrayList<ArrayList<Boolean>> _array = f.get_currentOrganisation().get_organisationHorraire().get_array();
+                if (_array.get(timeSlt).get(daysPos).equals(true)) {
+                    toastMessage(daysPos+" "+timeSlt);
+                    listUtilTrié.add(f);
+                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                }
+            }
+            ListArrayAdapter.notifyDataSetChanged();
+        }else if (selectedId == rbRating.getId()) {
+
+            final int rate = spinnerRate.getSelectedItemPosition()-1;
+            for (Users f : listFourSvc) {
+                ArrayList<Double> _ratingarray = f.get_currentOrganisation().get_rating();
+
+                Double sum = 0.0;
+                Double avr;
+
+                for (Double value : _ratingarray){
+
+                    sum+= value;
+
+                }
+
+                avr = (sum/_ratingarray.size());
 
 
+                if (avr >= rate) {
+                    listUtilTrié.add(f);
+                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                }
+            }
+            ListArrayAdapter.notifyDataSetChanged();
         } else {
             toastMessage("Please chose an Option");
         }
