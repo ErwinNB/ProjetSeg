@@ -21,7 +21,11 @@
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".ServiceActivity" />
         <activity android:name=".AdminActivity" />
-        <activity android:name=".FournisseurActivity"></activity>
+        <activity android:name=".FournisseurActivity" />
+        <activity android:name=".ClientActivity" />
+        <activity android:name=".SearchBarActivity"/>
+        <activity android:name=".AfficherFourActivity">
+        </activity>
     </application>
 
 </manifest>

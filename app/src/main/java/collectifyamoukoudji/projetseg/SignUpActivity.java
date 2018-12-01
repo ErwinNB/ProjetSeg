@@ -98,6 +98,11 @@ public class SignUpActivity extends AppCompatActivity {
      */
     private FirebaseUser databaseUser;
     /**
+     * Contains a User variable
+     * that is assigned for new client of the db.
+     */
+    private Users cl;
+    /**
      * Contains a String
      * that is assigned for Debug purpose.
      */
@@ -127,14 +132,15 @@ public class SignUpActivity extends AppCompatActivity {
 
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren()){
 
-                     value = postsnapshot.getValue(Users.class);
+                    if(postsnapshot != null) {
+                        value = postsnapshot.getValue(Users.class);
                         Log.d(TAG, "Value is: " + value.get_type());
-                     if (value.get_type().equals("Administrateur") && plantsList.size() > 2){
+                        if (value.get_type().equals("Administrateur") && plantsList.size() > 2) {
                             plantsList.remove(2);
                             spinnerArrayAdapter.notifyDataSetChanged();
-                     }
+                        }
 
-
+                    }
                 }
             }
 
@@ -295,16 +301,18 @@ public class SignUpActivity extends AppCompatActivity {
             databaseUser = firebaseAuth.getCurrentUser();
 
             id = databaseUser.getUid();
-            Organisation organisation = new Organisation();
-            Users client = new Users(id, fname, lname, email, type, organisation);
+            cl = new Users(id, fname, lname, email, type);
 
 //            user =  client;
-            databaseUsers.child(id).setValue(client);
+            databaseUsers.child(id).setValue(cl);
 
             Toast.makeText(this, "Information ajouté à la base de donnée", Toast.LENGTH_LONG).show();
-            if(client.get_type().equals("Administrateur")){
+            if(cl.get_type().equals("Administrateur")){
                 openAdmin();
-            }else if(client.get_type().equals("Fournisseur de services")){
+            }else if(cl.get_type().equals("Fournisseur de services")){
+                Organisation organisation = new Organisation();
+                cl = new Users(id, fname, lname, email, type, organisation);
+                databaseUsers.child(id).setValue(cl);
                 openFour();
             }else {
                 openWelcome();
@@ -323,7 +331,8 @@ public class SignUpActivity extends AppCompatActivity {
      */
     private void openWelcome(){
 
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, ClientActivity.class);
+        intent.putExtra("iduser", id);
         startActivity(intent);
     }
     /**

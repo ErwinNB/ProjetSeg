@@ -9,7 +9,11 @@ public class Organisation {
     private String _organisationDescription;
     private Boolean _isLiscenced;
     private Address _organisationAddress;
-    private ArrayList<String> _services;
+
+    private Horraire _organisationHorraire;
+    private ArrayList<Service> _services;
+    private ArrayList<Double> _rating;
+
 
 
 
@@ -17,27 +21,28 @@ public class Organisation {
         this._id = "";
         this._organisationName = "";
         this._organisationDescription = "";
+        this._rating = new ArrayList<>();
         this._isLiscenced = false;
         this._organisationAddress = new Address();
-        this._services = new ArrayList<String>();
+        this._services = new ArrayList<Service>();
+        this._organisationHorraire = new Horraire();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced) {
-        this._id = id;
-        this._organisationName = name;
-        this._organisationDescription = description;
-        this._isLiscenced = isLiscenced;
-        this._services = new ArrayList<String>();
-    }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list) {
+
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
         this._isLiscenced = isLiscenced;
         this._organisationAddress = address;
         this._services = list;
+        this._organisationHorraire = h;
+        this._rating = rating;
+
     }
+
+
 
     public String get_id() {
         return _id;
@@ -79,11 +84,11 @@ public class Organisation {
         this._organisationAddress = _organisationAddress;
     }
 
-    public ArrayList<String> get_services() {
+    public ArrayList<Service> get_services() {
         return _services;
     }
 
-    public void set_services(ArrayList<String> _services) {
+    public void set_services(ArrayList<Service> _services) {
         this._services = _services;
     }
 
@@ -95,7 +100,26 @@ public class Organisation {
                 ", _organisationDescription='" + _organisationDescription + '\'' +
                 ", _isLiscenced=" + _isLiscenced +
                 ", _organisationAddress=" + _organisationAddress +
+                ", _organisationHorraire=" + _organisationHorraire +
+                ", _services=" + _services +
+                ", _rating=" + _rating +
                 '}';
+    }
+
+    public ArrayList<Double> get_rating() {
+        return _rating;
+    }
+
+    public void set_rating(ArrayList<Double> _rating) {
+        this._rating = _rating;
+    }
+
+    public Horraire get_organisationHorraire() {
+        return _organisationHorraire;
+    }
+
+    public void set_organisationHorraire(Horraire _organisationHorraire) {
+        this._organisationHorraire = _organisationHorraire;
     }
 
 

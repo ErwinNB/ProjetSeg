@@ -128,11 +128,6 @@ public class LogIn extends AppCompatActivity {
     }
 
 
-    private void openWelcome(){
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra("iduser", user.getUid().toString());
-        startActivity(intent);
-    }
 
 
     private void logIn(){
@@ -198,6 +193,12 @@ public class LogIn extends AppCompatActivity {
         }
 
         return valide;
+    }
+
+    private void openWelcome(){
+        Intent intent = new Intent(this, ClientActivity.class);
+        intent.putExtra("iduser", user.getUid().toString());
+        startActivity(intent);
     }
 
     private void openAdmin(){

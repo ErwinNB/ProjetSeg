@@ -69,7 +69,7 @@ public class Users {
         this._id = id;
         this._lastname = lastname;
         this._type = type;
-        this._currentOrganisation = new Organisation();
+        this._currentOrganisation = organisation;
     }
 
 
@@ -104,14 +104,23 @@ public class Users {
     public String get_email() {
         return _email;
     }
-    public String toString(){
-        return _email;
-    }
+
     public Organisation get_currentOrganisation() {
         return _currentOrganisation;
     }
     public void set_currentOrganisation(Organisation _currentOrganisation) {
         this._currentOrganisation = _currentOrganisation;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "_id='" + _id + '\'' +
+                ", _firstname='" + _firstname + '\'' +
+                ", _lastname='" + _lastname + '\'' +
+                ", _type='" + _type + '\'' +
+                ", _email='" + _email + '\'' +
+                '}';
     }
 }
 

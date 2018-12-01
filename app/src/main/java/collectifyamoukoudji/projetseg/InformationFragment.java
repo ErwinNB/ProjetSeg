@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InformationFragment extends Fragment{
 
@@ -41,6 +45,7 @@ public class InformationFragment extends Fragment{
     private Organisation corg;
     private Address cadd;
     private DatabaseReference databaseUser;
+    private ArrayList<ArrayList<Boolean>> arr;
 
 
     @Nullable
@@ -67,7 +72,6 @@ public class InformationFragment extends Fragment{
         if (bundle != null) {
             iduser = bundle.getString("iduser");
 
-            toastMessage(iduser);
 
             databaseUser = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -114,6 +118,8 @@ public class InformationFragment extends Fragment{
         phone = (EditText) myView.findViewById(R.id.editTextPhone) ;
         mail = (EditText) myView.findViewById(R.id.editTextMail);
         web = (EditText) myView.findViewById(R.id.editTextWebsite);
+        web.setText(Html.fromHtml(web.toString()));
+        web.setMovementMethod(LinkMovementMethod.getInstance());
         enregistrer = (Button) myView.findViewById(R.id.btnEnregistrer);
 
     }
@@ -191,11 +197,12 @@ public class InformationFragment extends Fragment{
                     String email = mail.getText().toString();
                     String website = web.getText().toString();
                     //checking if the value is provided
-                    if (!TextUtils.isEmpty(num) && !TextUtils.isEmpty(streetname) && !TextUtils.isEmpty(codepostal) && !TextUtils.isEmpty(city) && !TextUtils.isEmpty(country) && !TextUtils.isEmpty(phonenum) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(website)){
+                    if (!TextUtils.isEmpty(num) && !TextUtils.isEmpty(streetname) && !TextUtils.isEmpty(codepostal) && !TextUtils.isEmpty(city) && !TextUtils.isEmpty(country) && !TextUtils.isEmpty(phonenum) && !TextUtils.isEmpty(email) && isEmailAdress(email)){
 
                         //getting a unique id using push().getKey() method
                         //it will create a unique id and will use it as the Primary Key for our Product
                         String id = databaseUser.push().getKey();
+
 
                         //creating a Product
                         Address address = new Address(id,num,streetname,codepostal,city,country, phonenum, email, website);
@@ -212,7 +219,7 @@ public class InformationFragment extends Fragment{
                         toastMessage("Address added");
                     }else{
                         //if th value is not given displaying a toast
-                        toastMessage("Please eall required fields");
+                        toastMessage("Please all required fields and a valid email adress");
                     }
                 }
             }
@@ -225,6 +232,19 @@ public class InformationFragment extends Fragment{
 
 
 
+    }
+
+    /**
+     * Verifies the format of the user email address.
+     *
+     *
+     * @param email The user email address.
+     * @return An boolean if the user information are valid or not.
+     */
+    public static boolean isEmailAdress(String email){
+        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+        Matcher m = p.matcher(email.toUpperCase());
+        return m.matches();
     }
 
 }

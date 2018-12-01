@@ -67,15 +67,14 @@ public class FournisseurActivity extends AppCompatActivity {
                         if(id == R.id.nav_Adresse){
                             InformationFragment myFragment = new InformationFragment();
                             myFragment.setArguments(arguments);
-                            Toast.makeText(FournisseurActivity.this, "Addresse",Toast.LENGTH_SHORT).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
                         }else if(id == R.id.nav_Information){
-                            Toast.makeText(FournisseurActivity.this, "Info",Toast.LENGTH_SHORT).show();
-                            fragmentManager.beginTransaction().replace(R.id.content_frame, new ContactFragment()).commit();
+                            ContactFragment myFragment = new ContactFragment();
+                            myFragment.setArguments(arguments);
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
                         }else if(id == R.id.nav_Shop){
                             OrganisationFragment myFragment = new OrganisationFragment();
                             myFragment.setArguments(arguments);
-                            Toast.makeText(FournisseurActivity.this, "Shop",Toast.LENGTH_SHORT).show();
                             fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
                         }else{
                            return false;
