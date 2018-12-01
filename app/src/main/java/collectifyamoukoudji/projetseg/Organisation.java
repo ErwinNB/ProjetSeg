@@ -12,6 +12,7 @@ public class Organisation {
 
     private Horraire _organisationHorraire;
     private ArrayList<Service> _services;
+    private ArrayList<Double> _rating;
 
 
 
@@ -20,13 +21,16 @@ public class Organisation {
         this._id = "";
         this._organisationName = "";
         this._organisationDescription = "";
+        this._rating = new ArrayList<>();
         this._isLiscenced = false;
         this._organisationAddress = new Address();
         this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h) {
+
+
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
@@ -34,6 +38,8 @@ public class Organisation {
         this._organisationAddress = address;
         this._services = list;
         this._organisationHorraire = h;
+        this._rating = rating;
+
     }
 
 
@@ -86,22 +92,6 @@ public class Organisation {
         this._services = _services;
     }
 
-
-
-
-
-    public Horraire get_organisationHorraire() {
-        return _organisationHorraire;
-    }
-
-    public void set_organisationHorraire(Horraire _organisationHorraire) {
-        this._organisationHorraire = _organisationHorraire;
-    }
-
-
-
-
-
     @Override
     public String toString() {
         return "Organisation{" +
@@ -110,9 +100,27 @@ public class Organisation {
                 ", _organisationDescription='" + _organisationDescription + '\'' +
                 ", _isLiscenced=" + _isLiscenced +
                 ", _organisationAddress=" + _organisationAddress +
+                ", _organisationHorraire=" + _organisationHorraire +
+                ", _services=" + _services +
+                ", _rating=" + _rating +
                 '}';
     }
 
+    public ArrayList<Double> get_rating() {
+        return _rating;
+    }
+
+    public void set_rating(ArrayList<Double> _rating) {
+        this._rating = _rating;
+    }
+
+    public Horraire get_organisationHorraire() {
+        return _organisationHorraire;
+    }
+
+    public void set_organisationHorraire(Horraire _organisationHorraire) {
+        this._organisationHorraire = _organisationHorraire;
+    }
 
 
 }
