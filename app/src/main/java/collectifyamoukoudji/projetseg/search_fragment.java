@@ -80,7 +80,7 @@ public class search_fragment extends Fragment {
         btnRechercher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  toastMessage(listFourSvc.toString());
+
                 searchFournisseur();
             }
         });
@@ -225,9 +225,9 @@ public class search_fragment extends Fragment {
         if (selectedId == rbTypeSvc.getId()) {
             final String searchedString = spinnerTsvc.getSelectedItem().toString();
             for (Users f : listFourSvc) {
-                ArrayList<String> svc = f.get_currentOrganisation().get_services();
-                for (String s : svc) {
-                    if (s.equals(searchedString)) {
+                ArrayList<Service> svc = f.get_currentOrganisation().get_services();
+                for (Service s : svc) {
+                    if (s.getServiceName().equals(searchedString)) {
                         listUtilTrié.add(f);
                         listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
 
@@ -236,6 +236,7 @@ public class search_fragment extends Fragment {
                 }
 
             }
+
             ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
 

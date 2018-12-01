@@ -100,10 +100,22 @@
                 android:textSize="17dp" />
 
             <TextView
+                android:id="@+id/textView61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Horraire" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <TextView
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Site Web" />
+
 
             <TextView
                 android:id="@+id/textViewWeb"

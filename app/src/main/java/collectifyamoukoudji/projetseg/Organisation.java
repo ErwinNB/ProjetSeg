@@ -11,7 +11,7 @@ public class Organisation {
     private Address _organisationAddress;
 
     private Horraire _organisationHorraire;
-    private ArrayList<String> _services;
+    private ArrayList<Service> _services;
 
 
 
@@ -22,11 +22,11 @@ public class Organisation {
         this._organisationDescription = "";
         this._isLiscenced = false;
         this._organisationAddress = new Address();
-        this._services = new ArrayList<String>();
+        this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
     }
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<String> list, Horraire h) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
@@ -78,11 +78,11 @@ public class Organisation {
         this._organisationAddress = _organisationAddress;
     }
 
-    public ArrayList<String> get_services() {
+    public ArrayList<Service> get_services() {
         return _services;
     }
 
-    public void set_services(ArrayList<String> _services) {
+    public void set_services(ArrayList<Service> _services) {
         this._services = _services;
     }
 

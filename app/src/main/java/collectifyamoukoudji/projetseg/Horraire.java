@@ -10,9 +10,9 @@ public class Horraire {
 
     public Horraire(){
         _id = "";
-        _array = new ArrayList<>(7);
-        for (int i = 0; i < 10 ; i++) {
-            ArrayList<Boolean> tmp = new ArrayList<>(10);
+        _array = new ArrayList<>(12);
+        for (int i = 0; i < 12 ; i++) {
+            ArrayList<Boolean> tmp = new ArrayList<>(7);
             for (int j = 0; j < 7; j++) {
                 tmp.add(false);
             }

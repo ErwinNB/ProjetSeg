@@ -23,6 +23,7 @@ public class AfficherFourActivity extends AppCompatActivity {
     private String iduser;
     private Users cuser;
     private Organisation org;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherfour);
@@ -52,13 +53,14 @@ public class AfficherFourActivity extends AppCompatActivity {
 
 
          iduser = getIntent().getStringExtra("idUser");
+         toastMessage(iduser);
 
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(iduser != null){
                     Users user  = dataSnapshot.child(iduser).getValue(Users.class);
-                    toastMessage(user.toString());
+                    toastMessage(iduser);
                     cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                     Log.d("DEBUG", "Value is: " + cuser);
 

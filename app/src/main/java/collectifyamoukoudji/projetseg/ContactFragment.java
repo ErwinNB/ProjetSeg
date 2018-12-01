@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -36,15 +37,48 @@ public class ContactFragment extends Fragment{
     private DatabaseReference databaseUser;
     private Users cuser;
     private Organisation corganisation;
+//    private TextView days0, days1, days2, days3, days4, days5, days6;
+    private ArrayList<String> days;
+    private ArrayList<String> times;
+    private ArrayList<Service> cservices;
+    private ArrayList<String>  dic;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.contact_layout, container, false);
-        checkBoxes = new CheckBox[10][7];
+        checkBoxes = new CheckBox[12][7];
         plageHorraire = new ArrayList<>();
+        days = new ArrayList<>();
+        times = new ArrayList<>();
+        cservices = new ArrayList<>();
+
+        dic = new ArrayList<>();
+
+        days.add("LUN");
+        days.add("MAR");
+        days.add("MER");
+        days.add("JED");
+        days.add("SAM");
+        days.add("DIM");
+
+        times.add("8 - 9h");
+        times.add("9 - 10h");
+        times.add("10 - 11h");
+        times.add("11 - 12h");
+        times.add("12 - 13h");
+        times.add("13 - 14h");
+        times.add("14 - 15h");
+        times.add("15 - 16h");
+        times.add("16 - 17h");
+        times.add("17 - 18h");
+        times.add("18 - 19h");
+        times.add("19 - 20h");
+
+
 
         setupUI();
+
 
 
         Bundle bundle = this.getArguments();
@@ -56,7 +90,7 @@ public class ContactFragment extends Fragment{
 
             databaseUser = FirebaseDatabase.getInstance().getReference("Users");
 
-            loadAdd();
+
 
             databaseUser.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -67,6 +101,7 @@ public class ContactFragment extends Fragment{
                         Users user  = dataSnapshot.child(iduser).getValue(Users.class);
                         cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
                         corganisation = user.get_currentOrganisation();
+                        cservices = corganisation.get_services();
                         Log.d("DEBUG", "Value is: " + cuser);
 
 
@@ -84,12 +119,21 @@ public class ContactFragment extends Fragment{
 
         }
 
+        loadAdd();
+
         BtnEnregistrerPlage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addAvailability();
+
+                if (!cservices.isEmpty()){
+                    addAvailability();
+                }else{
+                    toastMessage("Ajoutez des services a votre organisation");
+                }
             }
+
         });
+
         return myView;
     }
 
@@ -97,11 +141,11 @@ public class ContactFragment extends Fragment{
     //DONE
     private void addAvailability() {
 
-        for (int i = 0; i < 10 ; i++) {
+        for (int i = 0; i < 12 ; i++) {
             ArrayList<Boolean> tmp = new ArrayList<>();
             for (int j = 0; j < 7; j++) {
 //                if(checkBoxes[i][j].isChecked()) {
-//
+//                    dic.add(days.get(j)+" - "+ times.get(i));
 //                }
                 tmp.add(checkBoxes[i][j].isChecked());
 
@@ -114,8 +158,17 @@ public class ContactFragment extends Fragment{
     }
 
     private void setupUI() {
+
+//        days0 = (TextView) myView.findViewById(R.id.textViewDay0);
+//        days1 = (TextView) myView.findViewById(R.id.textViewDay1);
+//        days2 = (TextView) myView.findViewById(R.id.textViewDay2);
+//        days3 = (TextView) myView.findViewById(R.id.textViewDay3);
+//        days4 = (TextView) myView.findViewById(R.id.textViewDay4);
+//        days5 = (TextView) myView.findViewById(R.id.textViewDay5);
+//        days6 = (TextView) myView.findViewById(R.id.textViewDay6);
+
         BtnEnregistrerPlage = (Button) myView.findViewById(R.id.buttonEnregistrerPlage);
-        for (int i = 0; i < 10 ; i++) {
+        for (int i = 0; i < 12 ; i++) {
             for (int j = 0; j < 7; j++) {
                 String buttonID = "checkBox" +(7 * i + j+1);
                 int resID = getResources().getIdentifier(buttonID, "id",getContext().getPackageName());
@@ -181,13 +234,15 @@ public class ContactFragment extends Fragment{
 
                 plageHorraire = corganisation.get_organisationHorraire().get_array();
 
-                for (int i = 0; i < 10 ; i++) {
-                    for (int j = 0; j < 7; j++) {
-                        checkBoxes[i][j].setChecked(plageHorraire.get(i).get(j));
+                    for (int i = 0; i < 12 ; i++) {
+                        for (int j = 0; j < 7; j++) {
+                            checkBoxes[i][j].setChecked(plageHorraire.get(i).get(j));
+                        }
                     }
-                }
 
-                plageHorraire.clear();
+                    plageHorraire.clear();
+
+
 
                 Log.d("DEBUG", "Value is: " + cuser);
 

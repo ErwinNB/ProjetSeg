@@ -42,6 +42,7 @@ public class OrganisationFragment extends Fragment{
     private Button btnEnregister;
 
     private ArrayList<String> ServiceOffert;
+    private ArrayList<Service> ser;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private ArrayAdapter<String> ListArrayAdapter;
     private DatabaseReference databaseService;
@@ -62,6 +63,8 @@ public class OrganisationFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.organisation_layout, container, false);
+
+        ser = new ArrayList<>();
 
         setupUI();
 
@@ -115,6 +118,7 @@ public class OrganisationFragment extends Fragment{
                 spinnerArrayAdapter.remove(services);
                 ListArrayAdapter.notifyDataSetChanged();
                 spinnerArrayAdapter.notifyDataSetChanged();
+                addSer();
                 toastMessage("N'oubliez pas de sauvegarder vos modifications");
 
             }
@@ -135,6 +139,7 @@ public class OrganisationFragment extends Fragment{
                 spinnerArrayAdapter.notifyDataSetChanged();
                 ServiceOffert.remove(i);
                 ListArrayAdapter.notifyDataSetChanged();
+                addSer();
                 toastMessage("N'oubliez pas de sauvegarder vos modifications");
                 return true;
             }
@@ -186,6 +191,7 @@ public class OrganisationFragment extends Fragment{
         });
     }
 
+
     private void loadOrg() {
 
 
@@ -203,15 +209,22 @@ public class OrganisationFragment extends Fragment{
                 organisationName.setText(corganisation.get_organisationName());
                 organisationDescription.setText(corganisation.get_organisationDescription());
                 organistionSwitch.setChecked(corganisation.get_isLiscenced());
-                ArrayList<String> s = corganisation.get_services();
+                ArrayList<String> s = new ArrayList<>();
+
+                for (int i = 0; i < corganisation.get_services().size(); i++){
+                    s.add(corganisation.get_services().get(i).getServiceName());
+                }
 
                 ServiceOffert.clear();
+                addSer();
 
                 for (int i =0; i < s.size(); i++){
                     ServiceOffert.add(s.get(i));
+                    addSer();
                     spinnerArrayAdapter.remove(ServiceOffert.get(i));
                     spinnerArrayAdapter.notifyDataSetChanged();
                 }
+                s.clear();
                 ListArrayAdapter.notifyDataSetChanged();
 
 
@@ -230,6 +243,38 @@ public class OrganisationFragment extends Fragment{
 
 
 
+    }
+
+    private void addSer(){
+
+        Query nameQuery = FirebaseDatabase.getInstance().getReference().child("Services").orderByChild("serviceName");
+        nameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getChildrenCount() > 0){
+//
+                    ser.clear();
+                    for (DataSnapshot data : dataSnapshot.getChildren()){
+                        Service value = data.getValue(Service.class);
+
+                        if (ServiceOffert.contains(value.getServiceName())){
+
+                            ser.add(value);
+
+                            Log.d("SER", String.valueOf(ser.size()));
+                        }
+                    }
+
+                }else{
+                  toastMessage("No services founded");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void addOrganisation() {
@@ -251,7 +296,7 @@ public class OrganisationFragment extends Fragment{
                     String orgname = organisationName.getText().toString();
                     String orgdescription = organisationDescription.getText().toString();
                     //checking if the value is provided
-                    if (!TextUtils.isEmpty(orgname) && !TextUtils.isEmpty(orgdescription)){
+                    if (!TextUtils.isEmpty(orgname) && !TextUtils.isEmpty(orgdescription) && !ServiceOffert.isEmpty()){
 
 
                         //creating a Product
@@ -265,7 +310,9 @@ public class OrganisationFragment extends Fragment{
                         //it will create a unique id and will use it as the Primary Key for our Product
                         String id = databaseUser.push().getKey();
 
-                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ServiceOffert, ch);
+
+
+                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ser, ch);
 
                         cuser.set_currentOrganisation(organisation);
 

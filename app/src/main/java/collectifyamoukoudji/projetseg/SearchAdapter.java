@@ -19,7 +19,9 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     Context context;
     ArrayList<String> fullNameList;
-    ArrayList<Double> userNameList;
+    ArrayList<String> userNameList;
+    ArrayList<String> userTimesList;
+    ArrayList<String> userIdList;
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
         TextView full_name, user_name;
@@ -28,13 +30,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             super(itemView);
             full_name = (TextView) itemView.findViewById(R.id.full_name);
             user_name = (TextView) itemView.findViewById(R.id.user_name);
+//            user_time = (TextView) itemView.findViewById(R.id.user_time);
         }
     }
 
-    public SearchAdapter(Context context, ArrayList<String> fullNameList, ArrayList<Double> userNameList) {
+    public SearchAdapter(Context context, ArrayList<String> fullNameList, ArrayList<String> userNameList, ArrayList<String> userTimeList, ArrayList<String> userIdList ) {
         this.context = context;
         this.fullNameList = fullNameList;
         this.userNameList = userNameList;
+        this.userTimesList = userTimeList;
+        this.userIdList = userIdList;
     }
 
     @Override
@@ -44,15 +49,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     @Override
-    public void onBindViewHolder(SearchViewHolder holder, int position) {
+    public void onBindViewHolder(SearchViewHolder holder, final int position) {
         holder.full_name.setText(fullNameList.get(position));
         holder.user_name.setText(String.valueOf(userNameList.get(position)));
+//        holder.user_time.setText(userTimesList.get(position));
 
         holder.full_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AfficherFourActivity.class);
-                i.putExtra("iduser","1234" );
+                i.putExtra("idUser",userIdList.get(position) );
+                i.putExtra( "list" ,userTimesList.toArray(new String[userTimesList.size()]));
                 context.startActivity(i);
 
             }
