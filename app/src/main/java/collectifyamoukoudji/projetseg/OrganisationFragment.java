@@ -57,6 +57,7 @@ public class OrganisationFragment extends Fragment{
     private Organisation corganisation;
     private Address cadd;
     private Horraire ch;
+    private ArrayList<Double> rate;
 
 
     @Nullable
@@ -86,6 +87,7 @@ public class OrganisationFragment extends Fragment{
                         corganisation = user.get_currentOrganisation();
                         cadd = corganisation.get_organisationAddress();
                         ch = corganisation.get_organisationHorraire();
+                        rate = corganisation.get_rating();
                         Log.d("DEBUG", "Value is: " + cuser);
 
                     }
@@ -312,7 +314,7 @@ public class OrganisationFragment extends Fragment{
 
 
 
-                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ser, ch);
+                        Organisation organisation = new Organisation(id,orgname, orgdescription, organistionSwitch.isChecked(), cadd, ser, ch, rate);
 
                         cuser.set_currentOrganisation(organisation);
 

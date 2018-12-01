@@ -258,12 +258,37 @@ public class search_fragment extends Fragment {
 
             ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
+
             final int daysPos = spinnerDays.getSelectedItemPosition()-1;
             final int timeSlt = spinnerTiSlt.getSelectedItemPosition()-1;
             for (Users f : listFourSvc) {
                 ArrayList<ArrayList<Boolean>> _array = f.get_currentOrganisation().get_organisationHorraire().get_array();
                 if (_array.get(timeSlt).get(daysPos).equals(true)) {
                     toastMessage(daysPos+" "+timeSlt);
+                    listUtilTrié.add(f);
+                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                }
+            }
+            ListArrayAdapter.notifyDataSetChanged();
+        }else if (selectedId == rbRating.getId()) {
+
+            final int rate = spinnerRate.getSelectedItemPosition()-1;
+            for (Users f : listFourSvc) {
+                ArrayList<Double> _ratingarray = f.get_currentOrganisation().get_rating();
+
+                Double sum = 0.0;
+                Double avr;
+
+                for (Double value : _ratingarray){
+
+                    sum+= value;
+
+                }
+
+                avr = (sum/_ratingarray.size());
+
+
+                if (avr >= rate) {
                     listUtilTrié.add(f);
                     listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
                 }
