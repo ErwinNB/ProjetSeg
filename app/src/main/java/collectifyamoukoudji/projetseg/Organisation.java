@@ -13,6 +13,7 @@ public class Organisation {
     private Horraire _organisationHorraire;
     private ArrayList<Service> _services;
     private ArrayList<Double> _rating;
+    private ArrayList<RDV> _rdvlist;
 
 
 
@@ -26,11 +27,12 @@ public class Organisation {
         this._organisationAddress = new Address();
         this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
+        this._rdvlist = new ArrayList<RDV>();
     }
 
 
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating, ArrayList<RDV> rdvs) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
@@ -39,6 +41,8 @@ public class Organisation {
         this._services = list;
         this._organisationHorraire = h;
         this._rating = rating;
+        this._rdvlist = rdvs;
+
 
     }
 
@@ -120,6 +124,14 @@ public class Organisation {
 
     public void set_organisationHorraire(Horraire _organisationHorraire) {
         this._organisationHorraire = _organisationHorraire;
+    }
+
+    public ArrayList<RDV> get_rdvlist() {
+        return _rdvlist;
+    }
+
+    public void set_rdvlist(ArrayList<RDV> _rdvlist) {
+        this._rdvlist = _rdvlist;
     }
 
 

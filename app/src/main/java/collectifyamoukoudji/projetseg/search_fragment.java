@@ -258,7 +258,6 @@ public class search_fragment extends Fragment {
 
             ListArrayAdapter.notifyDataSetChanged();
         } else if (selectedId == rbTimeSlot.getId()) {
-
             final int daysPos = spinnerDays.getSelectedItemPosition()-1;
             final int timeSlt = spinnerTiSlt.getSelectedItemPosition()-1;
             for (Users f : listFourSvc) {
@@ -271,7 +270,6 @@ public class search_fragment extends Fragment {
             }
             ListArrayAdapter.notifyDataSetChanged();
         }else if (selectedId == rbRating.getId()) {
-
             final int rate = spinnerRate.getSelectedItemPosition()-1;
             for (Users f : listFourSvc) {
                 ArrayList<Double> _ratingarray = f.get_currentOrganisation().get_rating();

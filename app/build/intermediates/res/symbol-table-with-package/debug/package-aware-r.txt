@@ -1181,6 +1181,7 @@ id btnUtilisateur
 id button2
 id buttonAddService
 id buttonAjouterOrg
+id buttonBooking
 id buttonDeleteProduct
 id buttonEnregistrerPlage
 id buttonEvaluer
@@ -1450,6 +1451,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinnerDate
 id spinnerDays
 id spinnerRating
 id spinnerTimeSlt
@@ -1479,6 +1481,7 @@ id teamid04
 id teamid05
 id text
 id text2
+id textBookingid
 id textInfo
 id textSpacerNoButtons
 id textSpacerNoTitle
@@ -1499,6 +1502,7 @@ id textView7
 id textView8
 id textView9
 id textViewAdresse
+id textViewClient
 id textViewCourreil
 id textViewDay0
 id textViewDay1
@@ -1514,6 +1518,7 @@ id textViewNomOrg
 id textViewPrice
 id textViewTelephone
 id textViewTitre
+id textViewUserName
 id textViewWeb
 id text_input_password_toggle
 id textinput_counter
@@ -1602,6 +1607,7 @@ layout activity_service
 layout activity_service_provider
 layout activity_sign_up
 layout activity_welcome
+layout booking_dialog
 layout client_layout
 layout contact_layout
 layout design_bottom_navigation_item

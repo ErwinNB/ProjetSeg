@@ -8,9 +8,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class AfficherFourActivity extends AppCompatActivity {
     private TextView textViewAdresse;
@@ -31,6 +37,7 @@ public class AfficherFourActivity extends AppCompatActivity {
     private TextView textViewSiteWeb;
     private TextView textViewOrgName;
     private Button btnRate;
+    private Button btnBook;
     private DatabaseReference databaseUsers;
     private DatabaseReference rateReference;
     private String iduser;
@@ -38,6 +45,14 @@ public class AfficherFourActivity extends AppCompatActivity {
     private Organisation org;
     private double rate;
     private ArrayList<Double> previousrate;
+    private ArrayList<String> days;
+    private ArrayList<String> times;
+    private ArrayList<String> dic;
+    ArrayAdapter<String> spinnerArrayAdapter;
+    ArrayAdapter<String> spinnerArrayAdapter2;
+    private String jour;
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +62,16 @@ public class AfficherFourActivity extends AppCompatActivity {
 //        toastMessage(iduser);
         setupUI();
         getFournisseur();
-
-        setupUI();
         //fillUI();
 
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showBookDialog(textViewOrgName.getText().toString());
+
+            }
+        });
 
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,15 +112,8 @@ public class AfficherFourActivity extends AppCompatActivity {
 //
                 previousrate.add(rate);
 
-                double sum = 0;
 
-                for (Double r : previousrate){
-                    sum+= r;
-                }
-//
-                Double newRating = (sum/previousrate.size());
-
-                rate(newRating);
+                rate();
 
                 //toastMessage("Stars : " + rate);
                 //toastMessage("newRating : " + newRating);
@@ -111,7 +125,173 @@ public class AfficherFourActivity extends AppCompatActivity {
 
     }
 
-    private void rate(Double newRating){
+    private void showBookDialog(final String orgName) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.booking_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+
+
+        final TextView org_name = (TextView) dialogView.findViewById(R.id.textViewNomOrg);
+        final TextView client_name = (TextView) dialogView.findViewById(R.id.textViewClient);
+        final TextView booking_id = (TextView) dialogView.findViewById(R.id.textBookingid);
+        final Spinner sTimeslt = (Spinner) dialogView.findViewById(R.id.spinnerTimeSlt);
+        final Spinner sDays = (Spinner) dialogView.findViewById(R.id.spinnerDays);
+        final Button buttonBook = (Button) dialogView.findViewById(R.id.buttonBooking);
+        spinnerArrayAdapter = new ArrayAdapter<String>(this.getApplicationContext(),R.layout.spinner_item);
+        spinnerArrayAdapter2 = new ArrayAdapter<String>(this.getApplicationContext(),R.layout.spinner_item);
+
+        spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinner_item);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        sDays.setAdapter(spinnerArrayAdapter);
+        sTimeslt.setAdapter(spinnerArrayAdapter2);
+
+
+        sDays.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                jour = spinnerArrayAdapter.getItem(position).toString();
+
+                //loadTime(jour);
+
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        //loadDays(sDays);
+
+        dialogBuilder.setTitle(orgName);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+
+        rateReference =FirebaseDatabase.getInstance().getReference("Users").child(iduser).child("_currentOrganisation").child("_rdvlist");
+
+        String key = rateReference.getKey();
+
+        org_name.setText(orgName);
+        client_name.setText(cuser.get_email());
+        booking_id.setText(key);
+
+
+        buttonBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+            }
+        });
+
+    }
+
+    private void loadDays(final Spinner s){
+
+
+
+        rateReference =FirebaseDatabase.getInstance().getReference("Users").child(iduser).child("_currentOrganisation").child("_organisationHorraire");
+
+        rateReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    Horraire value = dataSnapshot.getValue(Horraire.class);
+
+                    ArrayList<ArrayList<Boolean>> arr = value.get_array();
+
+                    for (int i = 0; i < 12 ; i++) {
+                        for (int j = 0; j < 7; j++) {
+                            if(arr.get(i).get(j).equals(true)){
+                                dic.add(days.get(j)+"-"+times.get(i));
+                            }
+
+                        }
+                    }
+
+
+                        for (String str : dic){
+                            for (String da : days){
+                                if(str.contains(da)){
+                                    spinnerArrayAdapter.add(da);
+                                }
+                             }
+
+                         }
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void loadTime(final String s){
+
+
+
+        rateReference =FirebaseDatabase.getInstance().getReference("Users").child(iduser).child("_currentOrganisation").child("_organisationHorraire");
+
+        rateReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                Horraire value = dataSnapshot.getValue(Horraire.class);
+
+                ArrayList<ArrayList<Boolean>> arr = value.get_array();
+
+                for (int i = 0; i < 12 ; i++) {
+                    for (int j = 0; j < 7; j++) {
+                        if(arr.get(i).get(j).equals(true)){
+                            dic.add(days.get(j)+"-"+times.get(i));
+                        }
+
+                    }
+                }
+
+
+                for (String str : dic){
+
+                    for (String t : times){
+                        if(s != null){
+                            if( str.contains(s) && str.contains(t)){
+                                spinnerArrayAdapter2.add(t);
+                            }
+                        }
+
+                    }
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void rate(){
 
 
         rateReference =FirebaseDatabase.getInstance().getReference("Users").child(iduser).child("_currentOrganisation").child("_rating");
@@ -124,6 +304,32 @@ public class AfficherFourActivity extends AppCompatActivity {
 
 
     private void setupUI() {
+
+        days = new ArrayList<>();
+        times = new ArrayList<>();
+        dic = new ArrayList<>();
+
+        days.add("LUN");
+        days.add("MAR");
+        days.add("MER");
+        days.add("JED");
+        days.add("VEN");
+        days.add("SAM");
+        days.add("DIM");
+
+        times.add("8-9h");
+        times.add("9-10h");
+        times.add("10-11h");
+        times.add("11-12h");
+        times.add("12-13h");
+        times.add("13-14h");
+        times.add("14-15h");
+        times.add("15-16h");
+        times.add("16-17h");
+        times.add("17-18h");
+        times.add("18-19h");
+        times.add("19-20h");
+
         textViewAdresse = (TextView)findViewById(R.id.textViewAdresse);
         textViewTelephone = (TextView)findViewById(R.id.textViewTelephone);
         textViewCourriel = (TextView)findViewById(R.id.textViewCourreil);
@@ -131,6 +337,8 @@ public class AfficherFourActivity extends AppCompatActivity {
         textViewSiteWeb = (TextView)findViewById(R.id.textViewWeb);
         textViewOrgName = (TextView)findViewById(R.id.textViewNomOrg);
         btnRate = (Button)findViewById(R.id.buttonEvaluer);
+        btnBook = (Button)findViewById(R.id.buttonReserver);
+
 
     }
 
