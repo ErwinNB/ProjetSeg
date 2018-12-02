@@ -1,24 +1,24 @@
 package collectifyamoukoudji.projetseg;
 
 public class Reservation {
-    private Horraire horaire;
+    private Long date;
     private String type_service;
 
-   public Reservation( Horraire h, String s_t){
-       horaire = h;
+   public Reservation( Long d, String s_t){
+       date = d;
        type_service = s_t;
    }
 
-    public Horraire getHoraire() {
-        return horaire;
+    public Long getdate() {
+        return date;
     }
 
     public String getType_service() {
         return type_service;
     }
 
-    public void setHoraire(Horraire horaire) {
-        this.horaire = horaire;
+    public void setdate(Long date) {
+        this.date = date;
     }
 
     public void setType_service(String type_service) {
