@@ -5,18 +5,23 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.app.Activity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -37,14 +42,18 @@ public class ReservationActivity extends AppCompatActivity {
     private CheckBox b7, b8, b9, b10, b11, b12;
     private String cUser;
     private String fUser;
+    private Users fournisseur;
+    private Users client;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
-        cUser = getIntent().getStringExtra("iduser");
-        fUser = getIntent().getStringExtra("idUser");
+        cUser = getIntent().getStringExtra("client");
+        fUser = getIntent().getStringExtra("fournisseur");
+        getFourClient();
+        //System.out.println("lolgtdhgtdthdhdchfgcghcghxsezdadas1");
         setupUI();
-
+       // System.out.println("gfygdchghchgcghdcghcghcghchgcghcghghghcghcghch1");
         enr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,30 +90,30 @@ public class ReservationActivity extends AppCompatActivity {
         heures.add("18 - 19h");
         heures.add("19 - 20h");
 
-        checkBoxes = new CheckBox[12];
-        b1 = (CheckBox)findViewById(R.id.checkBox1);
+        checkBoxes = new CheckBox[13];
+        b1 = (CheckBox)findViewById(R.id.box1);
         checkBoxes[1] = b1;
-        b2 = (CheckBox)findViewById(R.id.checkBox2);
+        b2 = (CheckBox)findViewById(R.id.box2);
         checkBoxes[2] = b2;
-        b3 = (CheckBox)findViewById(R.id.checkBox3);
+        b3 = (CheckBox)findViewById(R.id.box3);
         checkBoxes[3] = b3;
-        b4 = (CheckBox)findViewById(R.id.checkBox4);
+        b4 = (CheckBox)findViewById(R.id.box4);
         checkBoxes[4] = b4;
-        b5 = (CheckBox)findViewById(R.id.checkBox5);
+        b5 = (CheckBox)findViewById(R.id.box5);
         checkBoxes[5] = b5;
-        b6 = (CheckBox)findViewById(R.id.checkBox6);
+        b6 = (CheckBox)findViewById(R.id.box6);
         checkBoxes[6] = b6;
-        b7 = (CheckBox)findViewById(R.id.checkBox7);
+        b7 = (CheckBox)findViewById(R.id.box7);
         checkBoxes[7] = b7;
-        b8 = (CheckBox)findViewById(R.id.checkBox8);
+        b8 = (CheckBox)findViewById(R.id.box8);
         checkBoxes[8] = b8;
-        b9 = (CheckBox)findViewById(R.id.checkBox9);
+        b9 = (CheckBox)findViewById(R.id.box9);
         checkBoxes[9] = b9;
-        b10 = (CheckBox)findViewById(R.id.checkBox10);
+        b10 = (CheckBox)findViewById(R.id.box10);
         checkBoxes[10] = b10;
-        b11 = (CheckBox)findViewById(R.id.checkBox11);
+        b11 = (CheckBox)findViewById(R.id.box11);
         checkBoxes[11] = b11;
-        b12 = (CheckBox)findViewById(R.id.checkBox12);
+        b12 = (CheckBox)findViewById(R.id.box12);
         checkBoxes[12] = b12;
         
         enr = (Button)findViewById(R.id.enregistrer);
@@ -127,9 +136,34 @@ public class ReservationActivity extends AppCompatActivity {
         if (cUser != null && fUser != null){
 
             if (check == true){
-               
+
             }
         }
 
+    }
+    private void getFourClient(){
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(fUser != null && cUser != null){
+
+                    fournisseur = dataSnapshot.child(fUser).getValue(Users.class);
+                    Log.d("DEBUG", "Value is: " + fournisseur);
+
+                    client = dataSnapshot.child(cUser).getValue(Users.class);
+                    Log.d("DEBUG", "Value is: " + client);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                toastMessage("Failed to alter database.");
+                Log.w("DEBUG", "Failed to read value.", databaseError.toException());
+            }
+        });
+    }
+    private void toastMessage (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

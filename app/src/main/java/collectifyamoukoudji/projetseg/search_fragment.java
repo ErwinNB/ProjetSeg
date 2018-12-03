@@ -80,6 +80,10 @@ public class search_fragment extends Fragment {
 
         listFourSvc = new ArrayList<>();
         listUtilTrié = new ArrayList<>();
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            iduser = bundle.getString("iduser");
+        }
         databaseUser = FirebaseDatabase.getInstance().getReference("Users");
         loadEntries();
         btnRechercher.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +102,7 @@ public class search_fragment extends Fragment {
                 // toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
+                intent.putExtra("iduser", iduser);
                 startActivity(intent);
             }
         });
