@@ -1,5 +1,6 @@
 package collectifyamoukoudji.projetseg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -41,6 +42,7 @@ public class AfficherFourActivity extends AppCompatActivity {
     private DatabaseReference databaseUsers;
     private DatabaseReference rateReference;
     private String iduser;
+    private String clientemail;
     private Users cuser;
     private Organisation org;
     private double rate;
@@ -59,6 +61,7 @@ public class AfficherFourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_afficherfour);
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         iduser = getIntent().getStringExtra("idUser");
+        clientemail = getIntent().getStringExtra("clientemail");
 //        toastMessage(iduser);
         setupUI();
         getFournisseur();
@@ -68,7 +71,8 @@ public class AfficherFourActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showBookDialog(textViewOrgName.getText().toString());
+                //showBookDialog(textViewOrgName.getText().toString());
+                openBook();
 
             }
         });
@@ -176,7 +180,7 @@ public class AfficherFourActivity extends AppCompatActivity {
 
         rateReference =FirebaseDatabase.getInstance().getReference("Users").child(iduser).child("_currentOrganisation").child("_rdvlist");
 
-        String key = rateReference.getKey();
+        String key = rateReference.push().getKey();
 
         org_name.setText(orgName);
         client_name.setText(cuser.get_email());
@@ -342,6 +346,14 @@ public class AfficherFourActivity extends AppCompatActivity {
 
     }
 
+    public void openBook(){
+        Intent intent = new Intent(this, BookActivity.class);
+        intent.putExtra("idUser", iduser);
+        intent.putExtra("client", clientemail);
+        intent.putExtra("orgName", textViewOrgName.getText().toString());
+        startActivity(intent);
+    }
+
     public void getFournisseur() {
          iduser = getIntent().getStringExtra("idUser");
          toastMessage(iduser);
@@ -382,7 +394,9 @@ public class AfficherFourActivity extends AppCompatActivity {
             }
         });
     }
+
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
 }

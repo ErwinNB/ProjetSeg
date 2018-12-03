@@ -35,6 +35,7 @@ public class search_fragment extends Fragment {
     private Button search;
     private String iduser;
     private Users cuser;
+    private Users clientuser;
     private DatabaseReference databaseUser;
     private DatabaseReference databaseService;
     private ArrayList<String> ServiceOffert;
@@ -78,6 +79,9 @@ public class search_fragment extends Fragment {
         myView = inflater.inflate(R.layout.search_layout, container, false);
         setupUI();
 
+        Bundle bundle = this.getArguments();
+        iduser = bundle.getString("iduser");
+
         listFourSvc = new ArrayList<>();
         listUtilTrié = new ArrayList<>();
         databaseUser = FirebaseDatabase.getInstance().getReference("Users");
@@ -98,6 +102,10 @@ public class search_fragment extends Fragment {
                // toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
+                if(clientuser != null){
+                    intent.putExtra("clientemail", clientuser.get_email());
+                }
+
                 startActivity(intent);
             }
         });
@@ -208,7 +216,7 @@ public class search_fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (iduser != null) {
                     Users user = dataSnapshot.child(iduser).getValue(Users.class);
-                    cuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type());
+                    clientuser = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type());
                     Log.d("DEBUG", "Value is: " + cuser);
                 }
 

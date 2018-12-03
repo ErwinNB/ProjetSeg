@@ -23,9 +23,9 @@
         <activity android:name=".AdminActivity" />
         <activity android:name=".FournisseurActivity" />
         <activity android:name=".ClientActivity" />
-        <activity android:name=".SearchBarActivity"/>
-        <activity android:name=".AfficherFourActivity">
-        </activity>
+        <activity android:name=".SearchBarActivity" />
+        <activity android:name=".AfficherFourActivity"></activity>
+        <activity android:name=".BookActivity"></activity>
     </application>
 
 </manifest>
