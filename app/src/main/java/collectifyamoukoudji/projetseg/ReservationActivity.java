@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.app.Activity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.DateFormat;
@@ -44,15 +46,22 @@ public class ReservationActivity extends AppCompatActivity {
     private String fUser;
     private Users fournisseur;
     private Users client;
+    private Spinner spinner;
+    private ArrayAdapter<String> spinnerArrayAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
         cUser = getIntent().getStringExtra("client");
         fUser = getIntent().getStringExtra("fournisseur");
+        databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
+
         getFourClient();
         //System.out.println("lolgtdhgtdthdhdchfgcghcghxsezdadas1");
         setupUI();
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+        fillSpinner();
        // System.out.println("gfygdchghchgcghdcghcghcghchgcghcghghghcghcghch1");
         enr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +69,59 @@ public class ReservationActivity extends AppCompatActivity {
                 enregistrer();
             }
         });
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year,
+                                            int month, int dayOfMonth) {
+               Long date = calendar.getDate();
+                Date selectedDate = new Date(date);
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month, dayOfMonth);
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+                DateFormat day = new SimpleDateFormat("E");
+                String dayName = day.format(date);
+                /*int pos = getDayPosition(dayName);
+
+                ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+                for (int i = 0; i < 12; i++) {
+                    if (!(h.get(pos)).get(i))
+                        checkBoxes[i].setEnabled(false);
+                }*/
+
+
+               toastMessage(dayName);
+            }
+
+        });
+
+       /* calendar.setOnDateChangeListener(new OnDateChange() {
+            @Override
+            public void onClick(View v) {
+                Long date = calendar.getDate();
+                Date selectedDate = new Date(date);
+
+                DateFormat day = new SimpleDateFormat("E");
+                String dayName = day.format(date);
+                int pos = getDayPosition(dayName);
+
+                ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+                for (int i = 0; i < 12; i++) {
+                    if (!(h.get(pos)).get(i))
+                        checkBoxes[i].setEnabled(false);
+                }
+            }
+        });*/
+    }
+
+    private void fillSpinner() {
+        toastMessage(fournisseur.get_email());
+        /*for (Service s:fournisseur.get_currentOrganisation().get_services()){
+            spinnerArrayAdapter.add(s.getServiceName());
+        }*/
     }
 
 
@@ -67,7 +129,8 @@ public class ReservationActivity extends AppCompatActivity {
         calendar = (CalendarView)findViewById(R.id.calendar);
         long currentDateTime = System.currentTimeMillis();
         calendar.setMinDate(currentDateTime);
-
+        spinner = (Spinner) findViewById(R.id.spinnerServ);
+        spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item);
         /*Date currentDate = new Date(currentDateTime);
         DateFormat df = new SimpleDateFormat("dd:MM:yy");*/
 
@@ -90,42 +153,86 @@ public class ReservationActivity extends AppCompatActivity {
         heures.add("18 - 19h");
         heures.add("19 - 20h");
 
-        checkBoxes = new CheckBox[13];
+        checkBoxes = new CheckBox[12];
         b1 = (CheckBox)findViewById(R.id.box1);
-        checkBoxes[1] = b1;
+        checkBoxes[0] = b1;
         b2 = (CheckBox)findViewById(R.id.box2);
-        checkBoxes[2] = b2;
+        checkBoxes[1] = b2;
         b3 = (CheckBox)findViewById(R.id.box3);
-        checkBoxes[3] = b3;
+        checkBoxes[2] = b3;
         b4 = (CheckBox)findViewById(R.id.box4);
-        checkBoxes[4] = b4;
+        checkBoxes[3] = b4;
         b5 = (CheckBox)findViewById(R.id.box5);
-        checkBoxes[5] = b5;
+        checkBoxes[4] = b5;
         b6 = (CheckBox)findViewById(R.id.box6);
-        checkBoxes[6] = b6;
+        checkBoxes[5] = b6;
         b7 = (CheckBox)findViewById(R.id.box7);
-        checkBoxes[7] = b7;
+        checkBoxes[6] = b7;
         b8 = (CheckBox)findViewById(R.id.box8);
-        checkBoxes[8] = b8;
+        checkBoxes[7] = b8;
         b9 = (CheckBox)findViewById(R.id.box9);
-        checkBoxes[9] = b9;
+        checkBoxes[8] = b9;
         b10 = (CheckBox)findViewById(R.id.box10);
-        checkBoxes[10] = b10;
+        checkBoxes[9] = b10;
         b11 = (CheckBox)findViewById(R.id.box11);
-        checkBoxes[11] = b11;
+        checkBoxes[10] = b11;
         b12 = (CheckBox)findViewById(R.id.box12);
-        checkBoxes[12] = b12;
+        checkBoxes[11] = b12;
+
+        /*ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+        for (int i = 0; i < 12; i++) {
+            if (!(h.get(dayPosition)).get(i))
+                checkBoxes[i].setEnabled(false);
+        }*/
         
         enr = (Button)findViewById(R.id.enregistrer);
     }
 
+    /////////////////////////////////////////////////////////////////////////////
+
+    private int getDayPosition(String dayName){
+        int dayPosition;
+        switch (dayName){
+            case "lun":
+                dayPosition = 0;
+                return dayPosition;
+            case "mar":
+                dayPosition = 1;
+                return dayPosition;
+            case "mer":
+                dayPosition = 2;
+                return dayPosition;
+            case "jeu":
+                dayPosition = 3;
+                return dayPosition;
+            case "ven":
+                dayPosition = 4;
+                return dayPosition;
+            case "sam":
+                dayPosition = 5;
+                return dayPosition;
+            case "dim":
+                dayPosition = 6;
+                return dayPosition;
+            default:
+                dayPosition = -1;
+                return dayPosition;
+        }
+    }
+
     public void enregistrer(){
+
         Long date = calendar.getDate();
         Date selectedDate = new Date(date);
 
+        DateFormat day = new SimpleDateFormat("E");
+        String dayName = day.format(date);
+        int pos = getDayPosition(dayName);
+
+
         selected = new ArrayList<String>();
         boolean check = false;
-        for (int i = 1; i <= 12; i++ )
+        for (int i = 0; i < 12; i++ )
         {
             if (checkBoxes[i].isChecked()) {
                 selected.add(heures.get(i));
@@ -134,13 +241,25 @@ public class ReservationActivity extends AppCompatActivity {
         }
 
         if (cUser != null && fUser != null){
+            if (check == true && pos != -1){
 
-            if (check == true){
+               /* for (Reservation r : fournisseur.get_currentOrganisation().getReservations()){
+                    for (int i = 0; i < r.getSelected_time().size(); i++){
+                        if (r.getSelected_time().get(i).equals(selected.get(i)))
 
+                    }
+                }*/
+
+                /*Reservation rdv = new Reservation("x", fournisseur.get_currentOrganisation().get_organisationName(),
+                        (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
+                        date, selected, )*/
             }
         }
 
     }
+
+    ///////////////////////////////////////////////////////////////////////////////
+
     private void getFourClient(){
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
@@ -162,6 +281,7 @@ public class ReservationActivity extends AppCompatActivity {
                 Log.w("DEBUG", "Failed to read value.", databaseError.toException());
             }
         });
+
     }
     private void toastMessage (String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

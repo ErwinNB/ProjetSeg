@@ -7,17 +7,15 @@ public class Reservation {
     private String _organisationName;
     private String _fournisseurName;
     private String _clientname;
-    private String _clientphoneNumber;
     private long date;
     private ArrayList<String> selected_time;
     private String type_service;
 
    public Reservation( String _id, String _organisationName, String _fournisseurName, String _clientname,
-                       String _clientphoneNumber, Long d, ArrayList<String> selected_time, String type_service){
+                       Long d, ArrayList<String> selected_time, String type_service){
        this._id = _id;
        this._organisationName = _organisationName;
        this._clientname = _clientname;
-       this._clientphoneNumber = _clientphoneNumber;
        date = d;
        this.type_service = type_service;
        this._fournisseurName = _fournisseurName;
@@ -48,14 +46,6 @@ public class Reservation {
         this._organisationName = _organisationName;
     }
 
-    public String get_clientphoneNumber() {
-        return _clientphoneNumber;
-    }
-
-    public void set_clientphoneNumber(String _clientphoneNumber) {
-        this._clientphoneNumber = _clientphoneNumber;
-    }
-
     public long getdate() {
         return date;
     }
@@ -68,7 +58,15 @@ public class Reservation {
         this.date = date;
     }
 
-   /* public String getType_service() {
+    public ArrayList<String> getSelected_time() {
+        return selected_time;
+    }
+
+    public void setSelected_time(ArrayList<String> selected_time) {
+        this.selected_time = selected_time;
+    }
+
+    /* public String getType_service() {
         return type_service;
     }
 
