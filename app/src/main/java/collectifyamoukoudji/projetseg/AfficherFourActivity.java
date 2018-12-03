@@ -1,5 +1,6 @@
 package collectifyamoukoudji.projetseg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -31,6 +32,7 @@ public class AfficherFourActivity extends AppCompatActivity {
     private TextView textViewSiteWeb;
     private TextView textViewOrgName;
     private Button btnRate;
+    private Button btnReserver;
     private DatabaseReference databaseUsers;
     private DatabaseReference rateReference;
     private String iduser;
@@ -38,12 +40,14 @@ public class AfficherFourActivity extends AppCompatActivity {
     private Organisation org;
     private double rate;
     private ArrayList<Double> previousrate;
+    private  String c;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afficherfour);
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
         iduser = getIntent().getStringExtra("idUser");
+        c=getIntent().getStringExtra("iduser");
 //        toastMessage(iduser);
         setupUI();
         getFournisseur();
@@ -58,6 +62,20 @@ public class AfficherFourActivity extends AppCompatActivity {
                 showRateDialog(textViewOrgName.getText().toString());
             }
         });
+        btnReserver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reserverService();
+            }
+        });
+    }
+
+    private void reserverService() {
+        Intent intent = new Intent(this, ClientActivity.class);
+        intent.putExtra("client", c);
+        intent.putExtra("fournisseur", iduser);
+        startActivity(intent);
+
     }
 
     private void showRateDialog(final String orgName) {
@@ -131,6 +149,7 @@ public class AfficherFourActivity extends AppCompatActivity {
         textViewSiteWeb = (TextView)findViewById(R.id.textViewWeb);
         textViewOrgName = (TextView)findViewById(R.id.textViewNomOrg);
         btnRate = (Button)findViewById(R.id.buttonEvaluer);
+        btnReserver = (Button)findViewById(R.id.buttonEvaluer);
 
     }
 
