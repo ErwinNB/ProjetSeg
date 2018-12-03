@@ -95,7 +95,7 @@ public class search_fragment extends Fragment {
 
                 //ListArrayAdapter.notifyDataSetChanged();
                 Users user = listUtilTrié.get(i);
-               // toastMessage(user.getId());
+                // toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
                 startActivity(intent);

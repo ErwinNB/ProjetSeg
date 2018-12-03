@@ -120,7 +120,7 @@ public class AfficherFourActivity extends AppCompatActivity {
 
         toastMessage("Merci!");
 
-        }
+    }
 
 
     private void setupUI() {
@@ -135,8 +135,8 @@ public class AfficherFourActivity extends AppCompatActivity {
     }
 
     public void getFournisseur() {
-         iduser = getIntent().getStringExtra("idUser");
-         toastMessage(iduser);
+        iduser = getIntent().getStringExtra("idUser");
+        toastMessage(iduser);
 
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
