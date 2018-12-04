@@ -57,12 +57,9 @@ public class ReservationActivity extends AppCompatActivity {
         databaseUsers = FirebaseDatabase.getInstance().getReference("Users");
 
         getFourClient();
-        //System.out.println("lolgtdhgtdthdhdchfgcghcghxsezdadas1");
         setupUI();
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(spinnerArrayAdapter);
-        fillSpinner();
-       // System.out.println("gfygdchghchgcghdcghcghcghchgcghcghghghcghcghch1");
         enr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,25 +72,26 @@ public class ReservationActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year,
                                             int month, int dayOfMonth) {
-               Long date = calendar.getDate();
-                Date selectedDate = new Date(date);
 
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(year, month, dayOfMonth);
-                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+                Calendar calenda = Calendar.getInstance();
+                calenda.set(year, month, dayOfMonth);
+                Long date = calenda.getTime().getTime();
+
 
                 DateFormat day = new SimpleDateFormat("E");
                 String dayName = day.format(date);
-                /*int pos = getDayPosition(dayName);
+                int pos = getDayPosition(dayName);
+                if(fournisseur !=null) {
+                    ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+                    for (int i = 0; i < 12; i++) {
+                        
+                        if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
+                        else checkBoxes[i].setEnabled(true);
+                    }
 
-                ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
-                for (int i = 0; i < 12; i++) {
-                    if (!(h.get(pos)).get(i))
-                        checkBoxes[i].setEnabled(false);
-                }*/
-
-
-               toastMessage(dayName);
+                }
+               toastMessage(""+pos);
             }
 
         });
@@ -117,12 +115,6 @@ public class ReservationActivity extends AppCompatActivity {
         });*/
     }
 
-    private void fillSpinner() {
-        toastMessage(fournisseur.get_email());
-        /*for (Service s:fournisseur.get_currentOrganisation().get_services()){
-            spinnerArrayAdapter.add(s.getServiceName());
-        }*/
-    }
 
 
     private void setupUI(){
@@ -193,25 +185,25 @@ public class ReservationActivity extends AppCompatActivity {
     private int getDayPosition(String dayName){
         int dayPosition;
         switch (dayName){
-            case "lun":
+            case "Mon":
                 dayPosition = 0;
                 return dayPosition;
-            case "mar":
+            case "Tue":
                 dayPosition = 1;
                 return dayPosition;
-            case "mer":
+            case "Wed":
                 dayPosition = 2;
                 return dayPosition;
-            case "jeu":
+            case "Thu":
                 dayPosition = 3;
                 return dayPosition;
-            case "ven":
+            case "Fri":
                 dayPosition = 4;
                 return dayPosition;
-            case "sam":
+            case "Sat":
                 dayPosition = 5;
                 return dayPosition;
-            case "dim":
+            case "Sun":
                 dayPosition = 6;
                 return dayPosition;
             default:
@@ -265,8 +257,11 @@ public class ReservationActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(fUser != null && cUser != null){
-
-                    fournisseur = dataSnapshot.child(fUser).getValue(Users.class);
+                    Users user = dataSnapshot.child(fUser).getValue(Users.class);
+                    fournisseur = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                    for (Service s:fournisseur.get_currentOrganisation().get_services()){
+                        spinnerArrayAdapter.add(s.getServiceName());
+                    }
                     Log.d("DEBUG", "Value is: " + fournisseur);
 
                     client = dataSnapshot.child(cUser).getValue(Users.class);
