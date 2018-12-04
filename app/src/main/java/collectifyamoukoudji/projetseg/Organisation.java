@@ -31,6 +31,7 @@ public class Organisation {
         this._organisationAddress = new Address();
         this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
+        reservations = new ArrayList<Reservation>();
     }
 
 

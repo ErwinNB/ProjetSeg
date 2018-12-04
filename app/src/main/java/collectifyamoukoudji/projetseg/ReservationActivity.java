@@ -48,6 +48,7 @@ public class ReservationActivity extends AppCompatActivity {
     private Users client;
     private Spinner spinner;
     private ArrayAdapter<String> spinnerArrayAdapter;
+    private Long date;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,11 +77,12 @@ public class ReservationActivity extends AppCompatActivity {
 
                 Calendar calenda = Calendar.getInstance();
                 calenda.set(year, month, dayOfMonth);
-                Long date = calenda.getTime().getTime();
+                date = calenda.getTime().getTime();
 
 
                 DateFormat day = new SimpleDateFormat("E");
                 String dayName = day.format(date);
+                toastMessage(dayName);
                 int pos = getDayPosition(dayName);
                 if(fournisseur !=null) {
                     ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
@@ -121,6 +123,7 @@ public class ReservationActivity extends AppCompatActivity {
         calendar = (CalendarView)findViewById(R.id.calendar);
         long currentDateTime = System.currentTimeMillis();
         calendar.setMinDate(currentDateTime);
+
         spinner = (Spinner) findViewById(R.id.spinnerServ);
         spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item);
         /*Date currentDate = new Date(currentDateTime);
@@ -171,6 +174,17 @@ public class ReservationActivity extends AppCompatActivity {
         b12 = (CheckBox)findViewById(R.id.box12);
         checkBoxes[11] = b12;
 
+        DateFormat day = new SimpleDateFormat("E");
+        String dayName = day.format(currentDateTime);
+        int pos = getDayPosition(dayName);
+        if(fournisseur !=null) {
+            ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+            for (int i = 0; i < 12; i++) {
+                if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
+                else checkBoxes[i].setEnabled(true);
+            }
+        }
+
         /*ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
         for (int i = 0; i < 12; i++) {
             if (!(h.get(dayPosition)).get(i))
@@ -185,25 +199,25 @@ public class ReservationActivity extends AppCompatActivity {
     private int getDayPosition(String dayName){
         int dayPosition;
         switch (dayName){
-            case "Mon":
+            case "lun.":
                 dayPosition = 0;
                 return dayPosition;
-            case "Tue":
+            case "mar.":
                 dayPosition = 1;
                 return dayPosition;
-            case "Wed":
+            case "mer.":
                 dayPosition = 2;
                 return dayPosition;
-            case "Thu":
+            case "jeu.":
                 dayPosition = 3;
                 return dayPosition;
-            case "Fri":
+            case "ven.":
                 dayPosition = 4;
                 return dayPosition;
-            case "Sat":
+            case "sam.":
                 dayPosition = 5;
                 return dayPosition;
-            case "Sun":
+            case "dim.":
                 dayPosition = 6;
                 return dayPosition;
             default:
@@ -214,8 +228,7 @@ public class ReservationActivity extends AppCompatActivity {
 
     public void enregistrer(){
 
-        Long date = calendar.getDate();
-        Date selectedDate = new Date(date);
+        toastMessage(spinner.getSelectedItem().toString());
 
         DateFormat day = new SimpleDateFormat("E");
         String dayName = day.format(date);
@@ -232,23 +245,41 @@ public class ReservationActivity extends AppCompatActivity {
             }
         }
 
-        if (cUser != null && fUser != null){
+        if (client != null && fournisseur != null){
             if (check == true && pos != -1){
+                boolean b = true;
+               for (Reservation r : fournisseur.get_currentOrganisation().getReservations()){
+                   if (r.getType_service().equals(spinner.getSelectedItem().toString())) {
+                      for (int i = 0; i < r.getSelected_time().size(); i++) {
+                          if (r.getSelected_time().get(i).equals(selected.get(i))) {
+                              b = false;
+                              toastMessage("Pas");
+                              break;
+                          }
+                      }
+                  }
+                  if (!b){
+                       toastMessage("Pas disponible a ce moment");
+                       break;
+                   }
+                  else {
+                      Reservation rdv = new Reservation("x", fournisseur.get_currentOrganisation().get_organisationName(),
+                              (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
+                              date, selected, spinner.getSelectedItem().toString());
 
-               /* for (Reservation r : fournisseur.get_currentOrganisation().getReservations()){
-                    for (int i = 0; i < r.getSelected_time().size(); i++){
-                        if (r.getSelected_time().get(i).equals(selected.get(i)))
-
-                    }
-                }*/
+                      fournisseur.get_currentOrganisation().getReservations().add(rdv);
+                      toastMessage("Réservation ajoutée");
+                  }
+               }
+            }
 
                 /*Reservation rdv = new Reservation("x", fournisseur.get_currentOrganisation().get_organisationName(),
                         (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
                         date, selected, )*/
-            }
         }
-
     }
+
+
 
     ///////////////////////////////////////////////////////////////////////////////
 

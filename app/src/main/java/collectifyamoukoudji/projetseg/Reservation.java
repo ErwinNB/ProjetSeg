@@ -66,12 +66,12 @@ public class Reservation {
         this.selected_time = selected_time;
     }
 
-    /* public String getType_service() {
+     public String getType_service() {
         return type_service;
     }
 
     public void setType_service(String type_service) {
         this.type_service = type_service;
     }
-    */
+
 }
