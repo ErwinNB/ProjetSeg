@@ -87,7 +87,7 @@ public class ReservationActivity extends AppCompatActivity {
                 if(fournisseur !=null && client !=null) {
                     ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
                     for (int i = 0; i < 12; i++) {
-                        
+
                         if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
                         else checkBoxes[i].setEnabled(true);
                     }
@@ -95,16 +95,16 @@ public class ReservationActivity extends AppCompatActivity {
 
                     for(Reservation res: h2) {
                         dayName = day.format(res.getrDate());
-                         pos = getDayPosition(dayName);
-                         day = new SimpleDateFormat("yyyy/MM/dd");
-                         dayName = day.format(res.getrDate());
+                        pos = getDayPosition(dayName);
+                        day = new SimpleDateFormat("yyyy/MM/dd");
+                        dayName = day.format(res.getrDate());
                         //toastMessage(dayName+" lol "+ day.format(date));
-                       if(dayName.equals(day.format(date))) {
-                           checkBoxes[index].setEnabled(false);
-                       }
+                        if(dayName.equals(day.format(date))) {
+                            checkBoxes[index].setEnabled(false);
+                        }
                     }
                 }
-               //toastMessage(""+pos);
+                //toastMessage(""+pos);
             }
 
         });
@@ -114,11 +114,9 @@ public class ReservationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Long date = calendar.getDate();
                 Date selectedDate = new Date(date);
-
                 DateFormat day = new SimpleDateFormat("E");
                 String dayName = day.format(date);
                 int pos = getDayPosition(dayName);
-
                 ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
                 for (int i = 0; i < 12; i++) {
                     if (!(h.get(pos)).get(i))
@@ -141,7 +139,7 @@ public class ReservationActivity extends AppCompatActivity {
         /*Date currentDate = new Date(currentDateTime);
         DateFormat df = new SimpleDateFormat("dd:MM:yy");*/
 
-      //  long nbre = date.toDateTimeAtCurrentTime().getMillis();
+        //  long nbre = date.toDateTimeAtCurrentTime().getMillis();
         /*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("A");
         long nombre =  Long.parseLong(date.format(formatter));
         */
@@ -196,13 +194,12 @@ public class ReservationActivity extends AppCompatActivity {
                 else checkBoxes[i].setEnabled(true);
             }
         }
-
         /*ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
         for (int i = 0; i < 12; i++) {
             if (!(h.get(dayPosition)).get(i))
                 checkBoxes[i].setEnabled(false);
         }*/
-       // getFourClient();
+        // getFourClient();
 
     }
 
@@ -212,24 +209,31 @@ public class ReservationActivity extends AppCompatActivity {
         int dayPosition;
         switch (dayName){
             case "lun.":
+            case "Mon":
                 dayPosition = 0;
                 return dayPosition;
             case "mar.":
+            case "Tue":
                 dayPosition = 1;
                 return dayPosition;
             case "mer.":
+            case "Wed":
                 dayPosition = 2;
                 return dayPosition;
             case "jeu.":
+            case "Thu":
                 dayPosition = 3;
                 return dayPosition;
             case "ven.":
+            case "Fri":
                 dayPosition = 4;
                 return dayPosition;
             case "sam.":
+            case "Sat":
                 dayPosition = 5;
                 return dayPosition;
             case "dim.":
+            case "Sun":
                 dayPosition = 6;
                 return dayPosition;
             default:
@@ -287,6 +291,7 @@ public class ReservationActivity extends AppCompatActivity {
                         spinnerArrayAdapter.add(s.getServiceName());
                     }
                     int pos = getDayPosition(dayName);
+                    //toastMessage(dayName);
                     for (int i = 0; i < 12; i++) {
                         if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
                         else checkBoxes[i].setEnabled(true);
