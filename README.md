@@ -1,5 +1,9 @@
 # ProjetSeg
 ## Collectif yamoukoudji
-David Kashalala
+David
+Arthur
+Erwin
+Valentin
+Marc
 
 
