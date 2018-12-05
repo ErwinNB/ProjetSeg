@@ -16,6 +16,12 @@ public class Organisation {
 
 
 
+    /////////////////////////////////////////////////////
+    private ArrayList<Reservation> reservations;
+    /////////////////////////////////////////////////////
+
+
+
 
     public Organisation() {
         this._id = "";
@@ -26,6 +32,9 @@ public class Organisation {
         this._organisationAddress = new Address();
         this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
+
+        this.reservations = new ArrayList<Reservation>();
+
     }
 
 
@@ -39,6 +48,7 @@ public class Organisation {
         this._services = list;
         this._organisationHorraire = h;
         this._rating = rating;
+        //this.reservations =
 
     }
 
@@ -103,6 +113,13 @@ public class Organisation {
                 ", _organisationHorraire=" + _organisationHorraire +
                 ", _services=" + _services +
                 ", _rating=" + _rating +
+
+
+                ///////////////////////////////////
+                ", reservations=" + reservations +
+                ///////////////////////////////////
+
+
                 '}';
     }
 
@@ -123,4 +140,16 @@ public class Organisation {
     }
 
 
+
+    ////////////////////////////////////////////////////////
+
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(ArrayList<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    ///////////////////////////////////////////////////////
 }

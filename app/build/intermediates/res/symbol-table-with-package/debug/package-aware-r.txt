@@ -1171,6 +1171,18 @@ id barrier
 id beginning
 id blocking
 id bottom
+id box1
+id box10
+id box11
+id box12
+id box2
+id box3
+id box4
+id box5
+id box6
+id box7
+id box8
+id box9
 id btnContinuer
 id btnEnregistrer
 id btnLogin
@@ -1189,6 +1201,7 @@ id buttonRate
 id buttonReserver
 id buttonSearchSvc
 id buttonUpdateProduct
+id calendar
 id cancel_action
 id center
 id center_horizontal
@@ -1452,6 +1465,7 @@ id snapMargins
 id spacer
 id spinnerDays
 id spinnerRating
+id spinnerServ
 id spinnerTimeSlt
 id spinnerTypeDeSvc
 id split_action_bar
@@ -1486,9 +1500,11 @@ id textStart
 id textView
 id textView1
 id textView10
+id textView11
 id textView12
 id textView13
 id textView14
+id textView15
 id textView16
 id textView2
 id textView3
@@ -1597,6 +1613,7 @@ layout activity_client
 layout activity_fournisseur
 layout activity_log_in
 layout activity_main
+layout activity_reservation
 layout activity_search_bar
 layout activity_service
 layout activity_service_provider

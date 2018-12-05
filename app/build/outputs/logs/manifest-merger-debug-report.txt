@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:17:1-24:12
 MERGED from [com.rengwuxian.materialedittext:library:2.1.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\eae586fa1fee8a57bc62f330fb1c72a4\AndroidManifest.xml:2:1-10:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\5dbc6004c8f20862e1cfd946306a1529\AndroidManifest.xml:17:1-22:12
@@ -59,25 +59,25 @@ MERGED from [com.android.support:print:28.0.0] C:\Users\Erwin Nzia\.gradle\cache
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\0893cb671f8a5bd2d23c9e30a57f30d9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\94ea5c25ef8ce54ea086dcc2011eab4e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\d45762b29550e84c467bae300bc2d651\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:5:5-29:19
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:5:5-30:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\77640ca1d03a5f8007d3d69fde79448f\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\Erwin Nzia\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\9b49dcb0992d2b518abc05a5e02f384b\AndroidManifest.xml:7:5-20
@@ -187,9 +187,13 @@ ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:26:19-52
 activity#collectifyamoukoudji.projetseg.AfficherFourActivity
-ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:27:9-28:20
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:27:9-57
 	android:name
 		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:27:19-55
+activity#collectifyamoukoudji.projetseg.ReservationActivity
+ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:28:9-29:20
+	android:name
+		ADDED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml:28:19-54
 uses-sdk
 INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Erwin Nzia\Documents\GitHub\ProjetSeg\app\src\main\AndroidManifest.xml

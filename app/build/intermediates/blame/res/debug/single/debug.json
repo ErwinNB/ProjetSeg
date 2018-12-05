@@ -1412,6 +1412,10 @@
         "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\77640ca1d03a5f8007d3d69fde79448f\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
+        "merged": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_reservation.xml.flat",
+        "source": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\src\\main\\res\\layout\\activity_reservation.xml"
+    },
+    {
         "merged": "C:\\Users\\Erwin Nzia\\Documents\\GitHub\\ProjetSeg\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\Erwin Nzia\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\e6e16eb49ee749e41e145a9f65e77015\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
     },

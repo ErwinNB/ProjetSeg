@@ -71,9 +71,10 @@ public class AfficherFourActivity extends AppCompatActivity {
     }
 
     private void reserverService() {
-        Intent intent = new Intent(this, ClientActivity.class);
+        Intent intent = new Intent(this, ReservationActivity.class);
         intent.putExtra("client", c);
         intent.putExtra("fournisseur", iduser);
+        //toastMessage(iduser + "    lolgtdhgtdthdhdchfgcghcghxsezdadas1    "+c);
         startActivity(intent);
 
     }
@@ -138,7 +139,7 @@ public class AfficherFourActivity extends AppCompatActivity {
 
         toastMessage("Merci!");
 
-        }
+    }
 
 
     private void setupUI() {
@@ -149,13 +150,13 @@ public class AfficherFourActivity extends AppCompatActivity {
         textViewSiteWeb = (TextView)findViewById(R.id.textViewWeb);
         textViewOrgName = (TextView)findViewById(R.id.textViewNomOrg);
         btnRate = (Button)findViewById(R.id.buttonEvaluer);
-        btnReserver = (Button)findViewById(R.id.buttonEvaluer);
+        btnReserver = (Button)findViewById(R.id.buttonReserver);
 
     }
 
     public void getFournisseur() {
-         iduser = getIntent().getStringExtra("idUser");
-         toastMessage(iduser);
+        iduser = getIntent().getStringExtra("idUser");
+       // toastMessage(iduser);
 
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override

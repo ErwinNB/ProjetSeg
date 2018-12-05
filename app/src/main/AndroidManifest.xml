@@ -24,7 +24,8 @@
         <activity android:name=".FournisseurActivity" />
         <activity android:name=".ClientActivity" />
         <activity android:name=".SearchBarActivity"/>
-        <activity android:name=".AfficherFourActivity">
+        <activity android:name=".AfficherFourActivity"/>
+        <activity android:name=".ReservationActivity">
         </activity>
     </application>
 

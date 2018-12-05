@@ -99,7 +99,7 @@ public class search_fragment extends Fragment {
 
                 //ListArrayAdapter.notifyDataSetChanged();
                 Users user = listUtilTrié.get(i);
-               // toastMessage(user.getId());
+                // toastMessage(user.getId());
                 Intent intent = new Intent(getActivity(), AfficherFourActivity.class);
                 intent.putExtra("idUser", user.getId());
                 intent.putExtra("iduser", iduser);
@@ -269,7 +269,6 @@ public class search_fragment extends Fragment {
             for (Users f : listFourSvc) {
                 ArrayList<ArrayList<Boolean>> _array = f.get_currentOrganisation().get_organisationHorraire().get_array();
                 if (_array.get(timeSlt).get(daysPos).equals(true)) {
-                    toastMessage(daysPos+" "+timeSlt);
                     listUtilTrié.add(f);
                     listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
                 }
@@ -285,9 +284,7 @@ public class search_fragment extends Fragment {
                 Double avr;
 
                 for (Double value : _ratingarray){
-
                     sum+= value;
-
                 }
 
                 avr = (sum/_ratingarray.size());

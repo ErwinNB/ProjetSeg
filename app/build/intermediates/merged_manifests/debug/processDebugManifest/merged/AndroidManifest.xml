@@ -39,7 +39,8 @@
         <activity android:name="collectifyamoukoudji.projetseg.FournisseurActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.ClientActivity" />
         <activity android:name="collectifyamoukoudji.projetseg.SearchBarActivity" />
-        <activity android:name="collectifyamoukoudji.projetseg.AfficherFourActivity" >
+        <activity android:name="collectifyamoukoudji.projetseg.AfficherFourActivity" />
+        <activity android:name="collectifyamoukoudji.projetseg.ReservationActivity" >
         </activity>
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
