@@ -32,5 +32,16 @@ public class ReservationTest {
         assertEquals("check the reservation service type", "IT", rdv.getType_service());
         System.out.println("Service type --> OK");
     }
-    
+
+    @Test
+    public void check_date(){
+        assertEquals("check the reservation date", Long.toString(date), Long.toString(rdv.getrDate()));
+        System.out.println("Date --> OK");
+    }
+
+    @Test
+    public void check_timeSlt(){
+        assertEquals("check the reservation time slot", Integer.toString(2), Integer.toString(rdv.getTimeslt()));
+        System.out.println("Time slot --> OK");
+    }
 }
