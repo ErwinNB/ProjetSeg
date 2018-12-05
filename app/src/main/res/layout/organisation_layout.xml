@@ -16,12 +16,6 @@
             android:orientation="vertical"
             android:layout_centerInParent="true">
 
-            <Button
-                android:id="@+id/buttonAjouterOrg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enregister les infos d'organisation" />
-
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editTextNomOrgaisation"
                 android:ems="10"
@@ -32,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Nom de l'Organisation"
                 app:met_textColorHint="@color/colorHint"
+                android:paddingTop="10dp"
                 />
             <Switch
                 android:id="@+id/switchLicensed"
@@ -88,27 +83,33 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:text="Services Offert" />
 
                 <ListView
 
                     android:id="@+id/listViewSvcOff"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp">
+                    android:layout_height="180dp">
 
                 </ListView>
 
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonAjouterOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enregister les infos d'organisation" />
 
         </LinearLayout>
 

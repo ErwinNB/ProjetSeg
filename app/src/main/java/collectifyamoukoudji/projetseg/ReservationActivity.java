@@ -49,6 +49,7 @@ public class ReservationActivity extends AppCompatActivity {
     private Spinner spinner;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private Long date;
+    private int index;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,18 +83,28 @@ public class ReservationActivity extends AppCompatActivity {
 
                 DateFormat day = new SimpleDateFormat("E");
                 String dayName = day.format(date);
-                toastMessage(dayName);
                 int pos = getDayPosition(dayName);
-                if(fournisseur !=null) {
+                if(fournisseur !=null && client !=null) {
                     ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
                     for (int i = 0; i < 12; i++) {
                         
                         if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
                         else checkBoxes[i].setEnabled(true);
                     }
+                    ArrayList<Reservation> h2 = fournisseur.get_currentOrganisation().getReservations();
 
+                    for(Reservation res: h2) {
+                        dayName = day.format(res.getrDate());
+                         pos = getDayPosition(dayName);
+                         day = new SimpleDateFormat("yyyy/MM/dd");
+                         dayName = day.format(res.getrDate());
+                        //toastMessage(dayName+" lol "+ day.format(date));
+                       if(dayName.equals(day.format(date))) {
+                           checkBoxes[index].setEnabled(false);
+                       }
+                    }
                 }
-               toastMessage(""+pos);
+               //toastMessage(""+pos);
             }
 
         });
@@ -126,6 +137,7 @@ public class ReservationActivity extends AppCompatActivity {
 
         spinner = (Spinner) findViewById(R.id.spinnerServ);
         spinnerArrayAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item);
+        enr = (Button)findViewById(R.id.btnEnregistrer);
         /*Date currentDate = new Date(currentDateTime);
         DateFormat df = new SimpleDateFormat("dd:MM:yy");*/
 
@@ -174,7 +186,7 @@ public class ReservationActivity extends AppCompatActivity {
         b12 = (CheckBox)findViewById(R.id.box12);
         checkBoxes[11] = b12;
 
-        DateFormat day = new SimpleDateFormat("E");
+       /* DateFormat day = new SimpleDateFormat("E");
         String dayName = day.format(currentDateTime);
         int pos = getDayPosition(dayName);
         if(fournisseur !=null) {
@@ -190,8 +202,8 @@ public class ReservationActivity extends AppCompatActivity {
             if (!(h.get(dayPosition)).get(i))
                 checkBoxes[i].setEnabled(false);
         }*/
-        
-        enr = (Button)findViewById(R.id.enregistrer);
+       // getFourClient();
+
     }
 
     /////////////////////////////////////////////////////////////////////////////
@@ -228,55 +240,32 @@ public class ReservationActivity extends AppCompatActivity {
 
     public void enregistrer(){
 
-        toastMessage(spinner.getSelectedItem().toString());
 
-        DateFormat day = new SimpleDateFormat("E");
-        String dayName = day.format(date);
-        int pos = getDayPosition(dayName);
-
-
-        selected = new ArrayList<String>();
-        boolean check = false;
-        for (int i = 0; i < 12; i++ )
-        {
-            if (checkBoxes[i].isChecked()) {
-                selected.add(heures.get(i));
-                check = true;
-            }
+        for (int i = 0; i < 12; i++) {
+            if (checkBoxes[i].isChecked())
+                index = i;
         }
+        String id = databaseUsers.child(fUser).push().getKey();
 
-        if (client != null && fournisseur != null){
-            if (check == true && pos != -1){
-                boolean b = true;
-               for (Reservation r : fournisseur.get_currentOrganisation().getReservations()){
-                   if (r.getType_service().equals(spinner.getSelectedItem().toString())) {
-                      for (int i = 0; i < r.getSelected_time().size(); i++) {
-                          if (r.getSelected_time().get(i).equals(selected.get(i))) {
-                              b = false;
-                              toastMessage("Pas");
-                              break;
-                          }
-                      }
-                  }
-                  if (!b){
-                       toastMessage("Pas disponible a ce moment");
-                       break;
-                   }
-                  else {
-                      Reservation rdv = new Reservation("x", fournisseur.get_currentOrganisation().get_organisationName(),
-                              (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
-                              date, selected, spinner.getSelectedItem().toString());
+        reference  =FirebaseDatabase.getInstance().getReference("Users").child(fUser).child("_currentOrganisation");
 
-                      fournisseur.get_currentOrganisation().getReservations().add(rdv);
-                      toastMessage("Réservation ajoutée");
-                  }
-               }
-            }
+        //toastMessage(spinner.getSelecedItem().toString());
 
-                /*Reservation rdv = new Reservation("x", fournisseur.get_currentOrganisation().get_organisationName(),
-                        (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
-                        date, selected, )*/
-        }
+        Reservation rdv = new Reservation(id, fournisseur.get_currentOrganisation().get_organisationName(),
+                (fournisseur.get_firstname() + " " + fournisseur.get_lastname()), (client.get_firstname() + " " + client.get_lastname()),
+                date, spinner.getSelectedItem().toString(),index);
+
+        Organisation org =  fournisseur.get_currentOrganisation();
+
+        ArrayList<Reservation> l = fournisseur.get_currentOrganisation().getReservations();
+
+        l.add(rdv);
+
+        org.setReservations(l);
+
+
+
+        reference.setValue(org);
     }
 
 
@@ -290,8 +279,17 @@ public class ReservationActivity extends AppCompatActivity {
                 if(fUser != null && cUser != null){
                     Users user = dataSnapshot.child(fUser).getValue(Users.class);
                     fournisseur = new Users(user.getId(), user.get_firstname(), user.get_lastname(), user.get_email(), user.get_type(), user.get_currentOrganisation());
+                    ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
+                    date = calendar.getDate();
+                    DateFormat day = new SimpleDateFormat("E");
+                    String dayName = day.format(date);
                     for (Service s:fournisseur.get_currentOrganisation().get_services()){
                         spinnerArrayAdapter.add(s.getServiceName());
+                    }
+                    int pos = getDayPosition(dayName);
+                    for (int i = 0; i < 12; i++) {
+                        if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
+                        else checkBoxes[i].setEnabled(true);
                     }
                     Log.d("DEBUG", "Value is: " + fournisseur);
 

@@ -2,8 +2,8 @@
     <string name="app_name">ProjetSEG</string>
     <string name="Org">Organisation</string>
     <string name="adresse_civique">Information de location</string>
-    <string name="informations_de_contact">Informations de contact</string>
-    <string name="Clients">Clients</string>
+    <string name="informations_de_contact"> Plage horraire</string>
+    <string name="Clients">Reservation</string>
     <string name="Clients2">Clients</string>
     <string name="Open">Nav Bar</string>
     <string name="Close">Nav Bar</string>

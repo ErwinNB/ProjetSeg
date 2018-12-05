@@ -156,7 +156,7 @@ public class AfficherFourActivity extends AppCompatActivity {
 
     public void getFournisseur() {
         iduser = getIntent().getStringExtra("idUser");
-        toastMessage(iduser);
+       // toastMessage(iduser);
 
         databaseUsers.addValueEventListener(new ValueEventListener() {
             @Override

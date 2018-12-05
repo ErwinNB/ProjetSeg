@@ -43,10 +43,10 @@ public class ClientActivity extends AppCompatActivity {
         arguments.putString("iduser", iduser);
 
 
-//
-//        ClientFragment myOFragment = new ClientFragment();
-//        myOFragment.setArguments(arguments);
-//        fragmentManager.beginTransaction().replace(R.id.content_frame2, myOFragment).commit();
+
+        search_fragment mySFragment = new search_fragment();
+        mySFragment.setArguments(arguments);
+        fragmentManager.beginTransaction().replace(R.id.content_frame2, mySFragment).commit();
 
 
         nv = (NavigationView)findViewById(R.id.nv);

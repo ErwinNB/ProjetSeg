@@ -1,34 +1,27 @@
 package collectifyamoukoudji.projetseg;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Reservation {
     private String _id;
     private String _organisationName;
     private String _fournisseurName;
     private String _clientname;
-    private long date;
-    private ArrayList<String> selected_time;
+    private long rDate;
     private String type_service;
-
-   public Reservation( String _id, String _organisationName, String _fournisseurName, String _clientname,
-                       Long d, ArrayList<String> selected_time, String type_service){
-       this._id = _id;
-       this._organisationName = _organisationName;
-       this._clientname = _clientname;
-       date = d;
-       this.type_service = type_service;
-       this._fournisseurName = _fournisseurName;
-       this.selected_time = selected_time;
-   }
-
-    public String get_clientname() {
-        return _clientname;
+    private int timeslt;
+    public void setTimeslt(int timeslt) {
+        this.timeslt = timeslt;
     }
 
-    public void set_clientname(String _clientname) {
-        this._clientname = _clientname;
+
+    public int getTimeslt() {
+        return timeslt;
     }
+
+
+
 
     public String get_id() {
         return _id;
@@ -46,32 +39,55 @@ public class Reservation {
         this._organisationName = _organisationName;
     }
 
-    public long getdate() {
-        return date;
+    public String get_clientname() {
+        return _clientname;
     }
 
-    public void setdate(Long date) {
-        this.date = date;
+    public void set_clientname(String _clientname) {
+        this._clientname = _clientname;
     }
 
-    public void setDate(Long date) {
-        this.date = date;
+    public long getrDate() {
+        return rDate;
     }
 
-    public ArrayList<String> getSelected_time() {
-        return selected_time;
+    public void setrDate(long rDate) {
+        this.rDate = rDate;
+    }
+    public Reservation(){
+        this._id = "";
+        this._organisationName = "";
+        this._clientname = "";
+        this.rDate = 0;
+        this.type_service = "";
+        this._fournisseurName = "";
+        this.timeslt= 0;
+    }
+    public Reservation(String _id, String _organisationName, String _fournisseurName, String _clientname,
+                       long d, String type_service,int timeslt){
+        this._id = _id;
+        this._organisationName = _organisationName;
+        this._clientname = _clientname;
+        this.rDate = d;
+        this.type_service = type_service;
+        this._fournisseurName = _fournisseurName;
+        this.timeslt = timeslt;
     }
 
-    public void setSelected_time(ArrayList<String> selected_time) {
-        this.selected_time = selected_time;
-    }
-
-     public String getType_service() {
+    public String getType_service() {
         return type_service;
     }
 
     public void setType_service(String type_service) {
         this.type_service = type_service;
+    }
+
+    public String get_fournisseurName() {
+        return _fournisseurName;
+    }
+
+    public void set_fournisseurName(String _fournisseurName) {
+        this._fournisseurName = _fournisseurName;
     }
 
 }

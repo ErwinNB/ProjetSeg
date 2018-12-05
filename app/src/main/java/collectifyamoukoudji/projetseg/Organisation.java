@@ -15,6 +15,7 @@ public class Organisation {
     private ArrayList<Double> _rating;
 
 
+
     /////////////////////////////////////////////////////
     private ArrayList<Reservation> reservations;
     /////////////////////////////////////////////////////
@@ -31,7 +32,9 @@ public class Organisation {
         this._organisationAddress = new Address();
         this._services = new ArrayList<Service>();
         this._organisationHorraire = new Horraire();
-        reservations = new ArrayList<Reservation>();
+
+        this.reservations = new ArrayList<Reservation>();
+
     }
 
 
@@ -45,6 +48,7 @@ public class Organisation {
         this._services = list;
         this._organisationHorraire = h;
         this._rating = rating;
+        //this.reservations =
 
     }
 
@@ -110,9 +114,11 @@ public class Organisation {
                 ", _services=" + _services +
                 ", _rating=" + _rating +
 
+
                 ///////////////////////////////////
                 ", reservations=" + reservations +
                 ///////////////////////////////////
+
 
                 '}';
     }
@@ -134,15 +140,16 @@ public class Organisation {
     }
 
 
+
     ////////////////////////////////////////////////////////
+
     public ArrayList<Reservation> getReservations() {
         return reservations;
     }
 
-    public void addReservations(Reservation uneReservations) {
-        if (reservations == null)
-            reservations = new ArrayList<Reservation>();
-        reservations.add(uneReservations);
+    public void setReservations(ArrayList<Reservation> reservations) {
+        this.reservations = reservations;
     }
+
     ///////////////////////////////////////////////////////
 }
