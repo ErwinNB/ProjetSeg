@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".SignUpActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,7 +30,6 @@
                 android:id="@+id/typeDecompte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/Type"
                 />
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -83,6 +82,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Mot de passe"
                 app:met_textColorHint="@color/colorHint"
+                app:met_helperText="Le mot de passe doit contenir de chiffres et des lettres."
+                app:met_helperTextColor="@color/colorHelper"
+                app:met_helperTextAlwaysShown="true"
                 />
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -96,14 +98,17 @@
                 android:layout_height="wrap_content"
                 android:hint="Confirmer mot de passe"
                 app:met_textColorHint="@color/colorHint"
+                app:met_helperText="Le mot de passe doit contenir de chiffres et des lettres."
+                app:met_helperTextColor="@color/colorHelper"
+                app:met_helperTextAlwaysShown="true"
                 />
             <Button
             android:id="@+id/btnContinuer"
             android:background="#009688"
-
             android:textColor="@color/colorBtnText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Register" />
 
 

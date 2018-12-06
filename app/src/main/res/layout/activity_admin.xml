@@ -4,34 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin">
+    tools:context=".AdminActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnUtilisateur"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/Text001"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bienvenue" />
-
-            <TextView
-                android:id="@+id/text002"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Vous etes inscrit en tant que : Administrateur " />
-
-            <Button
-                android:id="@+id/Btn001"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OK" />
+            android:layout_height="wrap_content"
+            android:text="Gerer les utilisateurs"
+            android:background="#009688"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBtnText"/>
+        <Button
+            android:id="@+id/btnServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gerer les services offerts"
+            android:background="#009688"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:textColor="@color/colorBtnText"/>
         </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

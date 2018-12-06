@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.yt.projetseg">
+    package="collectifyamoukoudji.projetseg">
 
     <application
         android:allowBackup="true"
@@ -16,9 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Admin" />
-        <activity android:name=".User" />
-        <activity android:name=".Fournisseur"></activity>
+        <activity android:name=".LogIn" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".FournisseurActivity" />
+        <activity android:name=".ClientActivity" />
+        <activity android:name=".SearchBarActivity" />
+        <activity android:name=".AfficherFourActivity" />
+        <activity android:name=".ReservationActivity"></activity>
+        <activity android:name=".ViewResActivity"></activity>
     </application>
 
 
