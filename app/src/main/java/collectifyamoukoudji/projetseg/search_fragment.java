@@ -263,7 +263,12 @@ public class search_fragment extends Fragment {
                 for (Service s : svc) {
                     if (s.getServiceName().equals(searchedString)) {
                         listUtilTrié.add(f);
-                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city()+"    " + avr);
+                        if(avr.isNaN()){
+                            listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                        }else {
+                            listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city()+"    " + avr);
+                        }
+
 
                     }
 
