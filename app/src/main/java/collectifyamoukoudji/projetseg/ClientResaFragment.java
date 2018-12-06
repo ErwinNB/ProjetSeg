@@ -97,8 +97,6 @@ public class ClientResaFragment extends Fragment{
                         }else{
                             toastMessage("Aucune reservations!");
                         }
-                    }else{
-                        toastMessage("Cant find Founissuer");
                     }
                 }
                 //getting users

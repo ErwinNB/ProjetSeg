@@ -249,11 +249,21 @@ public class search_fragment extends Fragment {
         if (selectedId == rbTypeSvc.getId()) {
             final String searchedString = spinnerTsvc.getSelectedItem().toString();
             for (Users f : listFourSvc) {
+                ArrayList<Double> _ratingarray = f.get_currentOrganisation().get_rating();
+
+                Double sum = 0.0;
+                Double avr;
+
+                for (Double value : _ratingarray){
+                    sum+= value;
+                }
+
+                avr = (sum/_ratingarray.size());
                 ArrayList<Service> svc = f.get_currentOrganisation().get_services();
                 for (Service s : svc) {
                     if (s.getServiceName().equals(searchedString)) {
                         listUtilTrié.add(f);
-                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city()+"    " + avr);
 
                     }
 
@@ -268,9 +278,24 @@ public class search_fragment extends Fragment {
             final int timeSlt = spinnerTiSlt.getSelectedItemPosition()-1;
             for (Users f : listFourSvc) {
                 ArrayList<ArrayList<Boolean>> _array = f.get_currentOrganisation().get_organisationHorraire().get_array();
+                ArrayList<Double> _ratingarray = f.get_currentOrganisation().get_rating();
+
+                Double sum = 0.0;
+                Double avr;
+
+                for (Double value : _ratingarray){
+                    sum+= value;
+                }
+
+                avr = (sum/_ratingarray.size());
                 if (_array.get(timeSlt).get(daysPos).equals(true)) {
                     listUtilTrié.add(f);
-                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                    if(avr.isNaN()){
+                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                    }else {
+                        listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city()+"    " + avr);
+                    }
+
                 }
             }
             ListArrayAdapter.notifyDataSetChanged();
@@ -292,7 +317,7 @@ public class search_fragment extends Fragment {
 
                 if (avr >= rate) {
                     listUtilTrié.add(f);
-                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city());
+                    listFourSvcTrié.add(f.get_currentOrganisation().get_organisationName() + "    " + f.get_currentOrganisation().get_organisationAddress().get_city() + "    " + avr);
                 }
             }
             ListArrayAdapter.notifyDataSetChanged();
