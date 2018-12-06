@@ -206,6 +206,8 @@ public class ContactFragment extends Fragment{
                     //Saving the Product
                     databaseUser.child(iduser).setValue(cuser);
 
+                    toastMessage("Information up to date");
+
                     plageHorraire.clear();
                 }
             }
