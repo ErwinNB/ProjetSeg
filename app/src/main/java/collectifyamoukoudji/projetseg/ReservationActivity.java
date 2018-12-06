@@ -88,8 +88,13 @@ public class ReservationActivity extends AppCompatActivity {
                     ArrayList<ArrayList<Boolean>> h = fournisseur.get_currentOrganisation().get_organisationHorraire().get_array();
                     for (int i = 0; i < 12; i++) {
 
-                        if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
-                        else checkBoxes[i].setEnabled(true);
+                        if (!(h.get(i)).get(pos)){
+                            checkBoxes[i].setEnabled(false);
+                            checkBoxes[i].setChecked(false);
+
+                        }else{
+                            checkBoxes[i].setEnabled(true);
+                        }
                     }
                     ArrayList<Reservation> h2 = fournisseur.get_currentOrganisation().getReservations();
 
@@ -98,9 +103,15 @@ public class ReservationActivity extends AppCompatActivity {
                         pos = getDayPosition(dayName);
                         day = new SimpleDateFormat("yyyy/MM/dd");
                         dayName = day.format(res.getrDate());
-                        //toastMessage(dayName+" lol "+ day.format(date));
-                        if(dayName.equals(day.format(date))) {
+
+                        index = res.getTimeslt();
+
+                        if(dayName.equals(day.format(date).toString())) {
+//                            toastMessage(dayName+" lol "+ day.format(date));
+//                            toastMessage(String.valueOf(index));
                             checkBoxes[index].setEnabled(false);
+                            checkBoxes[index].setChecked(false);
+
                         }
                     }
                 }
@@ -270,6 +281,7 @@ public class ReservationActivity extends AppCompatActivity {
 
 
         reference.setValue(org);
+        toastMessage("Reservation ajouter");
     }
 
 
@@ -293,8 +305,31 @@ public class ReservationActivity extends AppCompatActivity {
                     int pos = getDayPosition(dayName);
                     //toastMessage(dayName);
                     for (int i = 0; i < 12; i++) {
-                        if (!(h.get(i)).get(pos)) checkBoxes[i].setEnabled(false);
-                        else checkBoxes[i].setEnabled(true);
+                        if (!(h.get(i)).get(pos)) {
+                            checkBoxes[i].setEnabled(false);
+                            checkBoxes[i].setChecked(false);
+                        } else {
+                            checkBoxes[i].setEnabled(true);
+                        }
+
+                    }
+                    ArrayList<Reservation> h2 = fournisseur.get_currentOrganisation().getReservations();
+
+                    for(Reservation res: h2) {
+                        dayName = day.format(res.getrDate());
+                        pos = getDayPosition(dayName);
+                        day = new SimpleDateFormat("yyyy/MM/dd");
+                        dayName = day.format(res.getrDate());
+
+                        index = res.getTimeslt();
+
+                        if(dayName.equals(day.format(date).toString())) {
+//                            toastMessage(dayName+" lol "+ day.format(date));
+//                            toastMessage(String.valueOf(index));
+                            checkBoxes[index].setEnabled(false);
+                            checkBoxes[index].setChecked(false);
+
+                        }
                     }
                     Log.d("DEBUG", "Value is: " + fournisseur);
 

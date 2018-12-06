@@ -31,6 +31,7 @@ public class ClientFragment extends Fragment{
 
     private Button search;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,10 +39,12 @@ public class ClientFragment extends Fragment{
 
         search = (Button) myView.findViewById(R.id.btnSearch);
 
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SearchBarActivity.class);
+
                 startActivity(intent);
             }
         });

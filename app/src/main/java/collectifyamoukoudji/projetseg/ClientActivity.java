@@ -58,16 +58,15 @@ public class ClientActivity extends AppCompatActivity {
                 Bundle arguments = new Bundle();
                 arguments.putString("iduser", iduser);
 
-                if(id == R.id.nav_Client){
-                    ClientFragment myFragment = new ClientFragment();
-                    myFragment.setArguments(arguments);
-                    fragmentManager.beginTransaction().replace(R.id.content_frame2, myFragment).commit();
-                }
-                else if(id == R.id.nav_Search){
+                 if(id == R.id.nav_Search){
                     search_fragment myFragment = new search_fragment();
                     myFragment.setArguments(arguments);
                     fragmentManager.beginTransaction().replace(R.id.content_frame2, myFragment).commit();
-                }else{
+                }else if(id == R.id.nav_Resa){
+                     ClientResaFragment myFragment = new ClientResaFragment();
+                     myFragment.setArguments(arguments);
+                     fragmentManager.beginTransaction().replace(R.id.content_frame2, myFragment).commit();
+                 }else{
                     return false;
                 }
                 return  true;

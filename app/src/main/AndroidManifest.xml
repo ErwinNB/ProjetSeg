@@ -23,10 +23,10 @@
         <activity android:name=".AdminActivity" />
         <activity android:name=".FournisseurActivity" />
         <activity android:name=".ClientActivity" />
-        <activity android:name=".SearchBarActivity"/>
-        <activity android:name=".AfficherFourActivity"/>
-        <activity android:name=".ReservationActivity">
-        </activity>
+        <activity android:name=".SearchBarActivity" />
+        <activity android:name=".AfficherFourActivity" />
+        <activity android:name=".ReservationActivity"></activity>
+        <activity android:name=".ViewResActivity"></activity>
     </application>
 
 </manifest>

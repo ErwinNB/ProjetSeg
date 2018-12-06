@@ -151,16 +151,16 @@ public class LogIn extends AppCompatActivity {
 
                                 Users ds = dataSnapshot.getValue(Users.class);
                                 if(ds.get_type().equals("Administrateur")){
-                                    toastMessage("Admin");
+                                    //toastMessage("Admin");
                                     openAdmin();
                                     finish();
 
                                 }else if(ds.get_type().equals("Fournisseur de services")) {
-                                    toastMessage("Fournisseur de services");
+                                    //toastMessage("Fournisseur de services");
                                     openFour();
                                     finish();
                                 }else {
-                                    toastMessage("Client");
+                                    //toastMessage("Client");
                                     openWelcome();
                                     finish();
                                 }

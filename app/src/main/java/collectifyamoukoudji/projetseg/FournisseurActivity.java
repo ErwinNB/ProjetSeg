@@ -76,6 +76,10 @@ public class FournisseurActivity extends AppCompatActivity {
                             OrganisationFragment myFragment = new OrganisationFragment();
                             myFragment.setArguments(arguments);
                             fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
+                        }else if(id == R.id.nav_Resa) {
+                            ResaFragment myFragment = new ResaFragment();
+                            myFragment.setArguments(arguments);
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, myFragment).commit();
                         }else{
                            return false;
                         }

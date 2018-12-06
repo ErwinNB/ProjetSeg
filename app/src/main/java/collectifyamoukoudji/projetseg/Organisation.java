@@ -39,7 +39,7 @@ public class Organisation {
 
 
 
-    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating) {
+    public Organisation(String id, String name, String description, boolean isLiscenced, Address address, ArrayList<Service> list, Horraire h, ArrayList<Double> rating, ArrayList<Reservation> resa) {
         this._id = id;
         this._organisationName = name;
         this._organisationDescription = description;
@@ -48,7 +48,7 @@ public class Organisation {
         this._services = list;
         this._organisationHorraire = h;
         this._rating = rating;
-        //this.reservations =
+        this.reservations = resa;
 
     }
 
